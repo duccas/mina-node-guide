@@ -54,6 +54,28 @@ sudo ufw status
 
 ![](../../.gitbook/assets/image%20%281%29.png)
 
+Нужно дать папкам права на запись и чтение:
+
+```text
+chmod 700 keys
+chmod 600 keys/my-wallet
+```
+
+## 1.2 Экспорт ключей
+
+Теперь запишем ваш публичный ключ на сервер в файл .profile, чтобы в следующий раз больше его не экспортировать.
+
+```text
+echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
+source .profile
+```
+
+Делаем экспорт ключа:
+
+```text
+export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)
+```
+
 ## 2. Варианты запуска ноды
 
 {% hint style="warning" %}
@@ -114,12 +136,12 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 Перед запуском Воркера нужно настроить Фаервол:
 
 ```text
-sudo ufw allow 22 && sudo ufw allow 8305 && yes | sudo ufw enable
+sudo ufw allow 8305
 ```
 
 Описание изменяемых переменных:
 
-1. `--name coda` - имя для контейнера можно использовать любое, либо оставить так, как есть
+1. `--name coda-worker` - имя для контейнера можно использовать любое, либо оставить так, как есть
 2. `--memory 8g` - ограничение количества оперативной памяти, которое может использовать контейнер
 3. `--cpus 4` - ограничение количества ядер процессора, которые может использовать контейнер
 4. `-snark-worker-fee 0.25` - можно установить комиссию Снарк Воркера
@@ -139,7 +161,7 @@ sudo docker run -d \
 --cpus 4 \
 --restart always \
 codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
--run-snark-worker <PUBLIC_KEY> \
+-run-snark-worker $CODA_PUBLIC_KEY \
 -snark-worker-fee 0.25 \
 -work-selection seq \
 -peer <PEER_1> \
@@ -158,7 +180,7 @@ sudo docker run -d \
 --cpus 4 \
 --restart always \
 codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
--run-snark-worker B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82 \
+-run-snark-worker $CODA_PUBLIC_KEY \
 -snark-worker-fee 0.25 \
 -work-selection seq \
 -peer /ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr \
@@ -193,7 +215,7 @@ sudo docker logs --follow coda-worker -f
 sudo docker exec coda coda client status | grep "Block producers"
 ```
 
-Вывод покажет только строку с запущенным производителем блока. Пример ниже:
+Вывод покажет только строку с запущенным производителем блоков. Пример ниже:
 
 {% code title="\#ПРИМЕР" %}
 ```text
@@ -204,5 +226,25 @@ Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPY
 
 ![](../../.gitbook/assets/image.png)
 
-4. Выполнение 
+## 4. Команды Докера
+
+Остановка контейнера осуществляется командой:
+
+```text
+sudo docker stop coda
+```
+
+Удаление контейнера:
+
+```text
+sudo docker rm coda
+```
+
+Удаление запущенного контейнера:
+
+```text
+sudo docker rm -f coda
+```
+
+
 

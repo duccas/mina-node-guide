@@ -65,8 +65,8 @@ sudo ufw allow 8305
 Описание изменяемых переменных:
 
 1. `--name coda-worker` - имя для контейнера можно использовать любое, либо оставить так, как есть
-2. `--memory 8g` - ограничение количества оперативной памяти, которое может использовать контейнер
-3. `--cpus 4` - ограничение количества ядер процессора, которые может использовать контейнер
+2. `--memory 16g` - ограничение количества оперативной памяти, которое может использовать контейнер
+3. `--cpus 8` - ограничение количества ядер процессора, которые может использовать контейнер
 4. `-snark-worker-fee 0.25` - можно установить комиссию Снарк Воркера
 
 Данные, которые нужно будет добавить:
@@ -80,8 +80,8 @@ sudo ufw allow 8305
 sudo docker run -d \
 --name coda-worker \
 -p 8305:8305 \
---memory 8g \
---cpus 4 \
+--memory 16g \
+--cpus 8 \
 --restart always \
 codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
 -run-snark-worker $CODA_PUBLIC_KEY \
@@ -99,8 +99,8 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 sudo docker run -d \
 --name coda-worker \
 -p 8305:8305 \
---memory 8g \
---cpus 4 \
+--memory 16g \
+--cpus 8 \
 --restart always \
 codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
 -run-snark-worker $CODA_PUBLIC_KEY \

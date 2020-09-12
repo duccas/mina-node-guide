@@ -63,7 +63,7 @@ chmod 600 keys/my-wallet
 
 ## 1.2 Экспорт ключей и SEED пиров
 
-Теперь запишем ваш публичный ключ и SEED пиры на сервер в файл `.profile`, чтобы в следующий раз больше их не экспортировать.
+Теперь запишем ваш публичный ключ и SEED пиры на сервер в файл `.profile`, чтобы в следующий раз больше их не экспортировать\(пиры должны прислать на ваш email перед запуском тестнет 3.3\).
 
 ```text
 echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
@@ -72,7 +72,7 @@ echo 'export SEED2=/ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHi
 source .profile
 ```
 
-Делаем экспорт ключа и SEED пиров\(пиры должны прислать на ваш email перед запуском тестнет 3.3\):
+Делаем экспорт ключа и SEED пиров:
 
 ```text
 export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)

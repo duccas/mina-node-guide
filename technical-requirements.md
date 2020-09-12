@@ -4,16 +4,16 @@ description: The characteristics required to run a Coda node.
 
 # Technical Requirements
 
-### Minimum specifications
+### Block Producer recommended specifications
 
 * Ubuntu 18.04 LTS
-* 4 CPU, 8 Gb RAM, 10 GB HDD
+* 8 CPU, 12 Gb RAM, 20 GB HDD
 * Use SSH Client, \(iTerm in MacOS or MobaXterm, PuTTY for Windows or others\)
 
-### Recommended specifications
+### Snark Worker recommended specifications
 
 * Ubuntu 18.04 LTS
-* 8 CPU, 16 Gb RAM, 10 GB HDD
+* 8 CPU, 16 Gb RAM, 20 GB HDD
 * Use SSH Client, \(iTerm in MacOS or MobaXterm, PuTTY for Windows or others\)
 
 ### Programs for connecting to the VPS server

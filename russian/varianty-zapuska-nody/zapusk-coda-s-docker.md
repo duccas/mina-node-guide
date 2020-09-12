@@ -47,33 +47,37 @@ sudo ufw status
 
 {% hint style="info" %}
 Этот пункт нужно выполнять в том случае, если при создании публичных ключей вы их сохранили на свой локальный компьютер и удалили сервер.   
-Если вы не удаляли сервер и используете его же для запуска ноды, то вам следует перейти сразу к пункту 2.
+Если вы не удаляли сервер и используете его же для запуска ноды, то вам следует перейти сразу к пункту 1.2.
 {% endhint %}
 
 Используйте любой файловый менеджер \(Filezilla\) и подключитесь к своему серверу. Скопируйте в корень сервера папку `keys` .
 
 ![](../../.gitbook/assets/image%20%281%29.png)
 
-Нужно дать папкам права на запись и чтение:
+Нужно дать папкам и файлам права на запись и чтение:
 
 ```text
 chmod 700 keys
 chmod 600 keys/my-wallet
 ```
 
-## 1.2 Экспорт ключей
+## 1.2 Экспорт ключей и SEED пиров
 
-Теперь запишем ваш публичный ключ на сервер в файл .profile, чтобы в следующий раз больше его не экспортировать.
+Теперь запишем ваш публичный ключ и SEED пиры на сервер в файл .profile, чтобы в следующий раз больше их не экспортировать.
 
 ```text
 echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
+echo 'export SEED1=/ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr' >> $HOME/.profile
+echo 'export SEED2=/ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1' >> $HOME/.profile
 source .profile
 ```
 
-Делаем экспорт ключа:
+Делаем экспорт ключа и SEED пиров\(пиры должны прислать на ваш email перед запуском тестнет 3.3\):
 
 ```text
 export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)
+export SEED1=/ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr
+export SEED2=/ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1
 ```
 
 ## 2. Варианты запуска ноды
@@ -86,12 +90,11 @@ export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)
 
 Описание изменяемых переменных:
 
-1. `--name coda` - имя для контейнера можно использовать любое, либо оставить так, как есть
+`--name coda` - имя для контейнера можно использовать любое, либо оставить так, как есть
 
 Данные, которые нужно будет добавить:
 
-1. `-e "CODA_PRIVKEY_PASS=YOUR-PASSWORD"` - вместо `YOUR-PASSWORD` введите ваш пароль от публичного ключа
-2. `-peer <PEER_1>` `-peer <PEER_2>` - вместо `<PEER_1>` и `<PEER_2>` нужно будет ввести пиры, к которым подключится нода. Пиры, перед запуском тестнета 3.3 пришлют на вашу почту. Выглядеть будет примерно так: `-peer /ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr -peer /ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1`
+`-e "CODA_PRIVKEY_PASS=YOUR-PASSWORD"` - вместо `YOUR-PASSWORD` введите ваш пароль от публичного ключа
 
 #### Нужно внести все данные в команду ниже:
 
@@ -105,8 +108,8 @@ sudo docker run -d \
 --restart always \
 codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
 -block-producer-key $HOME/keys/my-wallet \
--peer <PEER_1> \
--peer <PEER_2>
+-peer $SEED1 \
+-peer $SEED2
 ```
 
 Пример, как должна выглядеть команда:
@@ -122,8 +125,8 @@ sudo docker run -d \
 --restart always \
 codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
 -block-producer-key $HOME/keys/my-wallet \
--peer /ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr \
--peer /ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1
+-peer $SEED1 \
+-peer $SEED2
 ```
 {% endcode %}
 
@@ -149,7 +152,7 @@ sudo ufw allow 8305
 Данные, которые нужно будет добавить:
 
 1. `-run-snark-worker <PUBLIC_KEY>` - вместо `<PUBLIC_KEY>` нужно вставить ваш публичный ключ, который выглядит так`B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82`
-2. `-peer <PEER_1>` `-peer <PEER_2>` - вместо `<PEER_1>` и `<PEER_2>` нужно будет ввести пиры, к которым подключится нода. Их перед запуском пришлют на вашу почту. Выглядеть будет примерно так: `-peer /ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr -peer /ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1`
+2. `-peer <SEED_1>` `-peer <SEED_2>` - вместо `<SEED_1>` и `<SEED_2>` нужно будет ввести пиры, к которым подключится нода. Их перед запуском пришлют на вашу почту. Выглядеть будет примерно так: `-peer /ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr -peer /ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1`
 
 #### Нужно внести все данные в команду ниже:
 
@@ -164,8 +167,8 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 -run-snark-worker $CODA_PUBLIC_KEY \
 -snark-worker-fee 0.25 \
 -work-selection seq \
--peer <PEER_1> \
--peer <PEER_2> \
+-peer $SEED1 \
+-peer $SEED2 \
 -external-port 8305
 ```
 
@@ -183,8 +186,8 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 -run-snark-worker $CODA_PUBLIC_KEY \
 -snark-worker-fee 0.25 \
 -work-selection seq \
--peer /ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr \
--peer /ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1 \
+-peer $SEED1 \
+-peer $SEED2 \
 -external-port 8305
 ```
 {% endcode %}

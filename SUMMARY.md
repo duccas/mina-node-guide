@@ -10,5 +10,17 @@
   * [Подготовка к запуску](russian/varianty-zapuska-nody/podgotovka-k-zapusku.md)
   * [Запуск Coda с Докером](russian/varianty-zapuska-nody/zapusk-coda-s-docker.md)
   * [Запуск Coda без Докера](russian/varianty-zapuska-nody/zapusk-coda-bez-docker.md)
-* [CLI. Создание ключей, импорт, отправка токенов](russian/cli.-sozdanie-klyuchei-import-otpravka-tokenov.md)
+* [CLI. Импорт ключа, отправка токенов](russian/cli.-sozdanie-klyuchei-import-otpravka-tokenov.md)
+* [Настройка TMUX](russian/nastroika-tmux.md)
+* [Настройка Снарк Стоппера](russian/nastroika-snark-stoppera.md)
+
+## ENGLISH
+
+* [Node launch options](english/node-launch-options/README.md)
+  * [Preparing to launch](english/node-launch-options/preparing-to-launch.md)
+  * [Running Coda with Docker](english/node-launch-options/running-coda-with-docker.md)
+  * [Running Coda without Docker](english/node-launch-options/running-coda-without-docker.md)
+* [CLI. Key import, sending tokens](english/cli.-key-import-sending-tokens.md)
+* [Setting up TMUX](english/setting-up-tmux.md)
+* [Setting up Snark Stopper](english/setting-up-snark-stopper.md)
 

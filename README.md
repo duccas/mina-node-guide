@@ -18,11 +18,17 @@ Carefully go through all the installation points and there should be no problems
 
 \*_Testnet Points are designed solely to track contributions to the Testnet and Testnet Points have no cash or other monetary value. Testnet Points are not transferable and are not redeemable or exchangeable for any cryptocurrency or digital assets. We may at any time amend or eliminate Testnet Points_
 
+{% page-ref page="english/node-launch-options/" %}
+
 ## Contacts
 
-If you have any problems with the installation, you can contact me at the following contacts:
+If you have any problems with the installation, you can contact at the following contacts:
 
 Discord - Ducca\#5707
+
+Discord - garethtdavies\#4963
+
+Discord - whataday2day\#1271 - Snark Stopper Creator
 
 Twitter - [https://twitter.com/kinsnifa](https://twitter.com/kinsnifa)
 

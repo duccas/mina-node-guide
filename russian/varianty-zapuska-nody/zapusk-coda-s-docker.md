@@ -12,15 +12,9 @@
 
 `--name coda` - имя для контейнера можно использовать любое, либо оставить так, как есть
 
-Данные, которые нужно будет добавить:
-
-`-e "CODA_PRIVKEY_PASS=YOUR-PASSWORD"` - вместо `YOUR-PASSWORD` введите ваш пароль от публичного ключа
-
-#### Нужно внести все данные в команду ниже:
-
 ```text
 sudo docker run -d \
--e "CODA_PRIVKEY_PASS=YOUR-PASSWORD" \
+-e "CODA_PRIVKEY_PASS=$CODA_PASS" \
 --mount type=bind,source="$(pwd)"/keys,target=/root/keys \
 --name coda \
 -p 8302:8302 \
@@ -31,24 +25,6 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 -peer $SEED1 \
 -peer $SEED2
 ```
-
-Пример, как должна выглядеть команда:
-
-{% code title="\#ПРИМЕР" %}
-```text
-sudo docker run -d \
--e "CODA_PRIVKEY_PASS=qwerty123" \
---mount type=bind,source="$(pwd)"/keys,target=/root/keys \
---name coda \
--p 8302:8302 \
--p 8303:8303 \
---restart always \
-codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
--block-producer-key $HOME/keys/my-wallet \
--peer $SEED1 \
--peer $SEED2
-```
-{% endcode %}
 
 ### Запуск Снарк Воркера \(Snark Worker\):
 
@@ -69,12 +45,7 @@ sudo ufw allow 8305
 3. `--cpus 8` - ограничение количества ядер процессора, которые может использовать контейнер
 4. `-snark-worker-fee 0.25` - можно установить комиссию Снарк Воркера
 
-Данные, которые нужно будет добавить:
-
-1. `-run-snark-worker <PUBLIC_KEY>` - вместо `<PUBLIC_KEY>` нужно вставить ваш публичный ключ, который выглядит так`B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82`
-2. `-peer <SEED_1>` `-peer <SEED_2>` - вместо `<SEED_1>` и `<SEED_2>` нужно будет ввести пиры, к которым подключится нода. Их перед запуском пришлют на вашу почту. Выглядеть будет примерно так: `-peer /ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr -peer /ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1`
-
-#### Нужно внести все данные в команду ниже:
+Нужно внести все данные в команду ниже:
 
 ```text
 sudo docker run -d \
@@ -91,26 +62,6 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 -peer $SEED2 \
 -external-port 8305
 ```
-
-Пример, как должна выглядеть команда:
-
-{% code title="\#ПРИМЕР" %}
-```text
-sudo docker run -d \
---name coda-worker \
--p 8305:8305 \
---memory 16g \
---cpus 8 \
---restart always \
-codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
--run-snark-worker $CODA_PUBLIC_KEY \
--snark-worker-fee 0.25 \
--work-selection seq \
--peer $SEED1 \
--peer $SEED2 \
--external-port 8305
-```
-{% endcode %}
 
 ## 2. Просмотр логов
 
@@ -157,10 +108,18 @@ Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPY
 sudo docker stop coda
 ```
 
+```text
+sudo docker stop coda-worker
+```
+
 Удаление контейнера:
 
 ```text
 sudo docker rm coda
+```
+
+```text
+sudo docker rm coda-worker
 ```
 
 Удаление запущенного контейнера:
@@ -169,5 +128,7 @@ sudo docker rm coda
 sudo docker rm -f coda
 ```
 
-
+```text
+sudo docker rm -f coda-worker
+```
 

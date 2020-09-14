@@ -88,6 +88,16 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 
 ### 2.2 Запуск Производителя блоков \(Block Producer\) вместе со Снарк Воркером \(Snark Worker\):
 
+{% hint style="warning" %}
+Если вы не хотите запускать Snark Worker. Вы можете сразу перейти к шагу 3.
+{% endhint %}
+
+Для начала нужно закрыть порт 3085:
+
+```text
+sudo ufw deny 3085
+```
+
 Описание изменяемых переменных:
 
 1. `--name coda` - имя для контейнера можно использовать любое, либо оставить так, как есть
@@ -104,7 +114,7 @@ sudo docker run -d \
 --name coda \
 -p 8302:8302 \
 -p 8303:8303 \
--p 127.0.0.1:3085:3085 \
+-p 3085:3085 \
 --memory 16g \
 --cpus 8 \
 --restart always \

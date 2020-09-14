@@ -91,6 +91,12 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 If you don't want to launch the Snark Worker. You can go directly to step 3.
 {% endhint %}
 
+First you need to close port 3085:
+
+```text
+sudo ufw deny 3085
+```
+
 Variables description:
 
 1. `--name coda` - you can use any name for the container, or leave it as it is

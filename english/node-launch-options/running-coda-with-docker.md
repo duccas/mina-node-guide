@@ -136,16 +136,10 @@ View running containers:
 sudo docker ps -a
 ```
 
-Block Producer container logs:
+Container logs:
 
 ```text
 sudo docker logs --follow coda -f
-```
-
-Snark Worker container logs:
-
-```text
-sudo docker logs --follow coda-worker -f
 ```
 
 ### 3.1 Alternative log output
@@ -173,27 +167,15 @@ The container is stopped by the command:
 sudo docker stop coda
 ```
 
-```text
-sudo docker stop coda-worker
-```
-
 Removing a container:
 
 ```text
 sudo docker rm coda
 ```
 
-```text
-sudo docker rm coda-worker
-```
-
 Removing a running container:
 
 ```text
 sudo docker rm -f coda
-```
-
-```text
-sudo docker rm -f coda-worker
 ```
 

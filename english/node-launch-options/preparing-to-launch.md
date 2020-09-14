@@ -15,8 +15,8 @@ Use any file manager \(Filezilla\) and connect to your server. Copy the `keys` f
 ### 1.2 You need to give the folders and files read and write permissions:
 
 ```text
-chmod 700 keys
-chmod 600 keys/my-wallet
+chmod 700 $HOME/keys
+chmod 600 $HOME/keys/my-wallet
 ```
 
 ## 2. Exporting keys and SEED peers

@@ -139,12 +139,6 @@ sudo docker ps -a
 sudo docker logs --follow coda -f
 ```
 
-Логи контейнера Снарк Воркера:
-
-```text
-sudo docker logs --follow coda-worker -f
-```
-
 ### 3.1 Альтернативный вывод логов
 
 ```text
@@ -170,27 +164,15 @@ Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPY
 sudo docker stop coda
 ```
 
-```text
-sudo docker stop coda-worker
-```
-
 Удаление контейнера:
 
 ```text
 sudo docker rm coda
 ```
 
-```text
-sudo docker rm coda-worker
-```
-
 Удаление запущенного контейнера:
 
 ```text
 sudo docker rm -f coda
-```
-
-```text
-sudo docker rm -f coda-worker
 ```
 

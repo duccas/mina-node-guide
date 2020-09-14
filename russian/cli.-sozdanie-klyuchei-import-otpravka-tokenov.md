@@ -36,7 +36,7 @@ coda client status
  Импорт аккаунта с ключем производим следующей командой:
 
 ```text
-coda accounts import -privkey-path keys/my-wallet
+coda accounts import -privkey-path $HOME/keys/my-wallet
 ```
 
 Список ваших аккаунтов можно посмотреть командой ниже:

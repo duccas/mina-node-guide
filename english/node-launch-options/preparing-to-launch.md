@@ -1,50 +1,6 @@
-# Preparing to launch
+# Preparing public keys
 
-## 1. Preparation
-
-### Ubuntu setup
-
-Update the packages on the server to the latest versions:
-
-```text
-sudo apt update
-```
-
-Install Docker:
-
-```text
-sudo apt install docker.io curl -y
-```
-
-Activate Docker:
-
-```text
-sudo systemctl start docker
-sudo systemctl enable docker
-```
-
-### Firewall configuration
-
-Open ports 22, 8302 and 8303 and activate the Firewall:
-
-```text
-sudo ufw allow 22 \
-&& sudo ufw allow 8302 \
-&& sudo ufw allow 8303 \
-&& yes | sudo ufw enable
-```
-
-We check the status of open ports with the command:
-
-```text
-sudo ufw status
-```
-
-{% hint style="info" %}
-If you do not have UFW installed on your server, install it using the command`sudo apt install ufw`
-{% endhint %}
-
-## 1.1 Preparing public keys
+## 1. Preparing public keys
 
 Before starting the node, you need to copy the folder with the keys to your server, created earlier for registration in the testnet 3.3.
 
@@ -56,7 +12,7 @@ Use any file manager \(Filezilla\) and connect to your server. Copy the `keys` f
 
 ![](../../.gitbook/assets/image%20%281%29.png)
 
-#### 1.2 You need to give the folders and files read and write permissions:
+### 1.2 You need to give the folders and files read and write permissions:
 
 ```text
 chmod 700 keys

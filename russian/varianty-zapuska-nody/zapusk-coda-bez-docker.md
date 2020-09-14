@@ -42,6 +42,7 @@ sudo apt-get remove coda-kademlia
 Скачиваем дистрибутив `Coda`:
 
 ```text
+sudo apt update
 echo "deb [trusted=yes] http://packages.o1test.net unstable main" | sudo tee /etc/apt/sources.list.d/coda.list
 sudo apt-get install -t coda-testnet-postake-medium-curves=0.0.12-beta+406048-feature-bump-genesis-timestamp-3e9b174-PV48525e92
 ```

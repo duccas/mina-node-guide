@@ -1,12 +1,72 @@
 # Запуск Coda с Докером
 
-## 1. Варианты запуска ноды
+## 1. Подготовка к запуску
 
-{% hint style="warning" %}
-ВАЖНО! Внимательно прочитайте каждый пункт гайда, чтобы не было проблем с запуском.
+### 1.1 Настройка Ubuntu
+
+Обновляем пакеты на сервере до новейших версий:
+
+```text
+sudo apt update
+```
+
+Установим Докер:
+
+```text
+sudo apt install docker.io curl -y
+```
+
+Активируем Докер:
+
+```text
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+### 1.2 Настройка Фаервола
+
+Для того, чтобы Докер мог увидеть открытые порты через UFW нужно сделать следующее.   
+Вводим команду: 
+
+```text
+sudo nano /etc/default/docker
+```
+
+Затем вставляем строку `DOCKER_OPTS="--iptables=false"` в открывшийся файл.  
+Сохраняем `CTRL+C` и закрываем `CTRL+X`.  
+  
+И перезагружаем Докер:
+
+```text
+sudo systemctl restart docker
+```
+
+Открываем порты 22, 8302 и 8303 и активируем Firewall:
+
+```text
+sudo ufw allow 22 \
+&& sudo ufw allow 8302 \
+&& sudo ufw allow 8303 \
+&& yes | sudo ufw enable
+```
+
+Проверяем статус открытых портов командой:
+
+```text
+sudo ufw status
+```
+
+{% hint style="info" %}
+Если у вас на сервере не установлен UFW, установите его используя команду `sudo apt install ufw`
 {% endhint %}
 
-### Запуск Производителя блоков \(Block Producer\):
+## 2. Варианты запуска ноды
+
+{% hint style="warning" %}
+Выберите только один вариант запуска из 2-х предложенных ниже \(пункт 2.1 или 2.2\).
+{% endhint %}
+
+### 2.1 Запуск только Производителя блоков \(Block Producer\):
 
 Описание изменяемых переменных:
 
@@ -26,21 +86,11 @@ codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daem
 -peer $SEED2
 ```
 
-### Запуск Снарк Воркера \(Snark Worker\):
-
-{% hint style="warning" %}
-Если вы не хотите запускать Снарк Воркера. Можно сразу переходить к пункту 3.
-{% endhint %}
-
-Перед запуском Воркера нужно настроить Фаервол:
-
-```text
-sudo ufw allow 8305
-```
+### 2.2 Запуск Производителя блоков \(Block Producer\) вместе со Снарк Воркером \(Snark Worker\):
 
 Описание изменяемых переменных:
 
-1. `--name coda-worker` - имя для контейнера можно использовать любое, либо оставить так, как есть
+1. `--name coda` - имя для контейнера можно использовать любое, либо оставить так, как есть
 2. `--memory 16g` - ограничение количества оперативной памяти, которое может использовать контейнер
 3. `--cpus 8` - ограничение количества ядер процессора, которые может использовать контейнер
 4. `-snark-worker-fee 0.25` - можно установить комиссию Снарк Воркера
@@ -49,21 +99,33 @@ sudo ufw allow 8305
 
 ```text
 sudo docker run -d \
---name coda-worker \
--p 8305:8305 \
+-e "CODA_PRIVKEY_PASS=$CODA_PASS" \
+--mount type=bind,source="$(pwd)"/keys,target=/root/keys \
+--name coda \
+-p 8302:8302 \
+-p 8303:8303 \
+-p 127.0.0.1:3085:3085 \
 --memory 16g \
 --cpus 8 \
 --restart always \
 codaprotocol/coda-daemon:0.0.12-beta-feature-bump-genesis-timestamp-3e9b174 daemon \
--run-snark-worker $CODA_PUBLIC_KEY \
--snark-worker-fee 0.25 \
--work-selection seq \
+-block-producer-key $HOME/keys/my-wallet \
 -peer $SEED1 \
 -peer $SEED2 \
--external-port 8305
+-run-snark-worker $CODA_PUBLIC_KEY \
+-snark-worker-fee 0.25 \
+-work-selection seq
 ```
 
-## 2. Просмотр логов
+{% hint style="info" %}
+Для работы одновременно Производителя блоков \(Block Producer\) и Снарк Воркера \(Snark Worker\) нужно настраивать Снарк Стоппер. Чтобы ненадолго останавливать Воркера во время производства блока.
+
+Перейдите по ссылке ниже, чтобы настроить Снарк Стоппер.
+{% endhint %}
+
+{% page-ref page="../nastroika-snark-stoppera.md" %}
+
+## 3. Просмотр логов
 
 Посмотреть запущенные контейнеры:
 
@@ -83,7 +145,7 @@ sudo docker logs --follow coda -f
 sudo docker logs --follow coda-worker -f
 ```
 
-### Альтернативный вывод логов
+### 3.1 Альтернативный вывод логов
 
 ```text
 sudo docker exec coda coda client status | grep "Block producers"
@@ -100,7 +162,7 @@ Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPY
 
 ![](../../.gitbook/assets/image.png)
 
-## 3. Команды Докера
+## 4. Команды Докера
 
 Остановка контейнера осуществляется командой:
 

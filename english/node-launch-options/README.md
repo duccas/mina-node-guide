@@ -1,5 +1,9 @@
 # Node launch options
 
+{% hint style="warning" %}
+IMPORTANT! Read each point of the guide carefully so that there are no problems with the launch.
+{% endhint %}
+
 There are 2 options for running a Coda node at the moment.   
 Please select the option that suits you below:
 

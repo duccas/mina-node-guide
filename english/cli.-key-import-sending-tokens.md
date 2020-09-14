@@ -35,7 +35,7 @@ Wait for the node to sync. The `Sync status:` field should say `Synced`. If the 
  We import an account with a key with the following command:
 
 ```text
-coda accounts import -privkey-path keys/my-wallet
+coda accounts import -privkey-path $HOME/keys/my-wallet
 ```
 
 The list of your accounts can be viewed with the command below:
@@ -65,7 +65,7 @@ coda client create-token \
 
 In response, we get the following:
 
-{% code title="\#ПРИМЕР ОТВЕТА " %}
+{% code title="\#EXAMPLE OF ANSWER " %}
 ```text
 Dispatched create new token command with ID 2cUDm3QoJ14znWj5LxN8hjwwuvtwi9FGXcy56i4dPvYizPNwr3V9c9ePYxy3pJKjgogNx28jwHhqupi6wHFgXBmU5iX27iK1zUvJarj6wJsUG8segWXc4LGPed66YbYk3u9HiWw4v8cYYEqcy1mU6hqfj5JPMPthEBifxUMHZTqCwZmYWSdiERxB6PtPEdXVraWaYPVU4Q8vtpSN7oSTK1AXyXLYYR835CBrNSmgbLvoBDNroCKwcQrzw4b76BFNLe6EuWvBcMgX6npeeAbPg8z8iJ4PKz3gA64o1Y72kCrqyqus718LwXcmp5jxsYvJB2CJHzyZ
 ```
@@ -121,7 +121,7 @@ coda client get-balance \
 
 After a while, we should see 1,000 coda tokens on our balance.
 
-{% code title="\#ПРИМЕР ОТВЕТА" %}
+{% code title="\#EXAMPLE OF ANSWER" %}
 ```text
 coda client get-balance \
 -token 2 \

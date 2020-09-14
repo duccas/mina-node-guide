@@ -3,7 +3,7 @@
 There are 2 options for running a Coda node at the moment.   
 Please select the option that suits you below:
 
-### Preparing to launch
+### Preparing keys
 
 {% page-ref page="preparing-to-launch.md" %}
 

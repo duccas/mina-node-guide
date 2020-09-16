@@ -7,7 +7,7 @@
 Update the packages on the server to the latest versions:
 
 ```text
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 ```
 
 Install Docker:

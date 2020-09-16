@@ -7,7 +7,7 @@
 Обновляем пакеты на сервере до новейших версий:
 
 ```text
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 ```
 
 Установим Докер:

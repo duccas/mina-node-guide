@@ -151,7 +151,7 @@ coda client send-payment \
 -sender $CODA_PUBLIC_KEY \
 -receiver B62qoDWfBZUxKpaoQCoFqr12wkaY84FrhxXNXzgBkMUi2Tz4K8kBDiv \
 -token 2 \
--memo "My First TX" \
+-fee 0.1 \
 -amount 50
 ```
 

@@ -150,17 +150,10 @@ coda client create-token-account \
 coda client send-payment \
 -sender $CODA_PUBLIC_KEY \
 -receiver B62qoDWfBZUxKpaoQCoFqr12wkaY84FrhxXNXzgBkMUi2Tz4K8kBDiv \
+-token 2 \
 -fee 0.1 \
 -amount 50
 ```
 
 Готово. Токены отправлены.
-
-```text
-coda client send-payment \
--sender B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82 \
--receiver B62qk5jqp4nYPwDDdd9XJAV8bYQ5cSzaZ9Me7ccaMdSSJpqKasDqMx9 \
--fee 0.1 \
--amount 10
-```
 

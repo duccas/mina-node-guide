@@ -30,7 +30,6 @@ chmod 600 $HOME/keys/my-wallet
 ```text
 echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
 echo 'export SEED1=ВАШ SEED1' >> $HOME/.profile
-echo 'export SEED2=ВАШ SEED2' >> $HOME/.profile
 echo 'export CODA_PASS=ВАШ ПАРОЛЬ' >> $HOME/.profile
 source .profile
 ```
@@ -41,7 +40,6 @@ source .profile
 ```text
 echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
 echo 'export SEED1=/ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr' >> $HOME/.profile
-echo 'export SEED2=/ip4/35.231.128.243/tcp/10001/ipfs/12D3KooWB79AmjiywL1kMGeKHizFNQE9naThM2ooHgwFcUzt6Yt1' >> $HOME/.profile
 echo 'export CODA_PASS=qwerty123' >> $HOME/.profile
 source .profile
 ```

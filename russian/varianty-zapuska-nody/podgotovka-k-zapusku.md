@@ -44,3 +44,11 @@ source .profile
 ```
 {% endcode %}
 
+Экспортируем.
+
+```text
+export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)
+export SEED1=/dns4/pickles.o1test.net/tcp/10001/p2p/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr
+export CODA_PASS=qwerty123
+```
+

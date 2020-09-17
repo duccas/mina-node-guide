@@ -109,7 +109,7 @@ coda client get-balance \
 coda client mint-tokens \
 -sender $CODA_PUBLIC_KEY \
 -token 2 \
--amount 1000
+-amount 10
 ```
 
 Проверим баланс командой \(баланс появится не сразу, нужно подождать около 5 минут\):

@@ -157,11 +157,3 @@ coda client send-payment \
 
 Готово. Токены отправлены.
 
-```text
-coda client send-payment \
--sender B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82 \
--receiver B62qoA9yJn43fRCNKPJXjBDbmUnXHxL2cXKRR2J7Frz6PxpTLCKazdt \
--fee 0.5 \
--amount 1
-```
-

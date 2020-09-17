@@ -52,7 +52,6 @@ sudo apt-get install coda-testnet-postake-medium-curves
 ```text
 coda daemon \
 -peer $SEED1 \
--peer $SEED2 \
 -block-producer-pubkey $CODA_PUBLIC_KEY
 ```
 
@@ -65,7 +64,6 @@ coda daemon \
 ```text
 coda daemon \
 -peer $SEED1 \
--peer $SEED2 \
 -run-snark-worker $CODA_PUBLIC_KEY \
 -snark-worker-fee 0.25 
 ```

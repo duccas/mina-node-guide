@@ -27,7 +27,7 @@ Replace `YOUR SEED1` and `YOUR SEED2` with the peers sent to you by email. And a
 
 ```text
 echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export SEED1=/dns4/pickles.o1test.net/tcp/10001/p2p/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr' >> $HOME/.profile
+echo 'export SEED1=YOUR SEED1' >> $HOME/.profile
 echo 'export CODA_PASS=YOUR PASSWORD' >> $HOME/.profile
 source .profile
 ```
@@ -37,7 +37,7 @@ An example of how it should look:
 {% code title="\#EXAMPLE" %}
 ```text
 echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export SEED1=/dns4/pickles.o1test.net/tcp/10001/p2p/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr' >> $HOME/.profile
+echo 'export SEED1=/dns1/o1test.net/tcp/10001/p2p/1548HgtdaFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vDyajjkf' >> $HOME/.profile
 echo 'export CODA_PASS=qwerty123' >> $HOME/.profile
 source .profile
 ```

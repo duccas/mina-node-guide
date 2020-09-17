@@ -82,8 +82,7 @@ sudo docker run -d \
 --restart always \
 codaprotocol/coda-daemon:0.0.16-beta5-master-fdc283b daemon \
 -block-producer-key $HOME/keys/my-wallet \
--peer $SEED1 \
--peer $SEED2
+-peer $SEED1
 ```
 
 ### 2.2 Запуск Производителя блоков \(Block Producer\) вместе со Снарк Воркером \(Snark Worker\):
@@ -121,7 +120,6 @@ sudo docker run -d \
 codaprotocol/coda-daemon:0.0.16-beta5-master-fdc283b daemon \
 -block-producer-key $HOME/keys/my-wallet \
 -peer $SEED1 \
--peer $SEED2 \
 -run-snark-worker $CODA_PUBLIC_KEY \
 -snark-worker-fee 0.25 \
 -work-selection seq

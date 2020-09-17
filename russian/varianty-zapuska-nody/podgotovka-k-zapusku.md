@@ -24,12 +24,11 @@ chmod 600 $HOME/keys/my-wallet
 
 Теперь запишем ваш публичный ключ и SEED пиры на сервер в файл `.profile`, чтобы в следующий раз больше их не экспортировать\(пиры должны прислать на ваш email перед запуском тестнет 3.3\).
 
-Замените `ВАШ SEED1` и `ВАШ SEED2` на пиры присланные вам на email.  
-А так же `ВАШ ПАРОЛЬ` на пароль от публичного ключа.
+Замените `ВАШ ПАРОЛЬ` на пароль от публичного ключа.
 
 ```text
 echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export SEED1=ВАШ SEED1' >> $HOME/.profile
+echo 'export SEED1=/dns4/pickles.o1test.net/tcp/10001/p2p/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr' >> $HOME/.profile
 echo 'export CODA_PASS=ВАШ ПАРОЛЬ' >> $HOME/.profile
 source .profile
 ```
@@ -39,7 +38,7 @@ source .profile
 {% code title="\#ПРИМЕР" %}
 ```text
 echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export SEED1=/ip4/34.74.183.100/tcp/10001/ipfs/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr' >> $HOME/.profile
+echo 'export SEED1=/dns4/pickles.o1test.net/tcp/10001/p2p/12D3KooWAFFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vxhAsgr' >> $HOME/.profile
 echo 'export CODA_PASS=qwerty123' >> $HOME/.profile
 source .profile
 ```

@@ -113,9 +113,9 @@ sudo docker run -d \
 --name coda \
 -p 8302:8302 \
 -p 8303:8303 \
--p 3085:3085 \
+-p 127.0.0.1:3085:3085 \
 --memory 16g \
---cpus 8 \
+--cpus 6 \
 --restart always \
 codaprotocol/coda-daemon:0.0.16-beta6 daemon \
 -block-producer-key $HOME/keys/my-wallet \

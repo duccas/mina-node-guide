@@ -46,6 +46,12 @@ coda accounts list
 
 ### 4. Account unlocking:
 
+First, let's export the Public Key:
+
+```text
+export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)
+```
+
 Let's unlock the account so that you can move tokens:
 
 ```text

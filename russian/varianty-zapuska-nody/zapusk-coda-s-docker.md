@@ -25,40 +25,18 @@ sudo systemctl enable docker
 
 ### 1.2 Настройка Фаервола
 
-Для того, чтобы Докер мог увидеть открытые порты через IPTABLES нужно сделать следующее.   
-Вводим команду: 
-
-```text
-sudo nano /etc/default/docker
-```
-
-Затем вставляем строку `DOCKER_OPTS="--iptables=false"` в открывшийся файл.  
-Сохраняем `CTRL+C` и закрываем `CTRL+X`.  
-  
-И перезагружаем Докер:
-
-```text
-sudo systemctl restart docker
-```
-
-Открываем порты 22, 8302 и 8303 и активируем Firewall:
-
-```text
-sudo ufw allow 22 \
-&& sudo ufw allow 8302 \
-&& sudo ufw allow 8303 \
-&& yes | sudo ufw enable
-```
-
-Проверяем статус открытых портов командой:
-
-```text
-sudo ufw status
-```
-
 {% hint style="info" %}
-Если у вас на сервере не установлен UFW, установите его используя команду `sudo apt install ufw`
+Если на вашем VPS сервере есть встроенный Фаервол, то следует там открыть порты 8302 и 8303.  
+  
+Если же его нет, то следуйте командам ниже:
 {% endhint %}
+
+Открываем порты 8302 и 8303:
+
+```text
+sudo iptables -A INPUT -p tcp --dport 8302 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8303 -j ACCEPT
+```
 
 ## 2. Варианты запуска ноды
 
@@ -94,7 +72,7 @@ codaprotocol/coda-daemon:0.0.16-beta6 daemon \
 Для начала нужно закрыть порт 3085:
 
 ```text
-sudo ufw deny 3085
+iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 ```
 
 Описание изменяемых переменных:

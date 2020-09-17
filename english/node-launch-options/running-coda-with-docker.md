@@ -25,39 +25,18 @@ sudo systemctl enable docker
 
 ### 1.2 Firewall configuration
 
-In order for Docker to see the open ports through UFW, you need to do the following. We enter the command:
-
-```text
-sudo nano /etc/default/docker
-```
-
-Then we insert the line `DOCKER_OPTS="--iptables=false"` to the opened file.  
-Save `CTRL+C` and close `CTRL+X`.  
-  
-And restart Docker:
-
-```text
-sudo systemctl restart docker
-```
-
-Open ports 22, 8302 and 8303 and activate the Firewall:
-
-```text
-sudo ufw allow 22 \
-&& sudo ufw allow 8302 \
-&& sudo ufw allow 8303 \
-&& yes | sudo ufw enable
-```
-
-We check the status of open ports with the command:
-
-```text
-sudo ufw status
-```
-
 {% hint style="info" %}
-If you do not have UFW installed on your server, install it using the command`sudo apt install ufw`
+If your VPS server has a built-in Firewall, then you should open ports 8302 and 8303 there.
+
+If not, then follow the commands below:
 {% endhint %}
+
+Open ports 8302 and 8303:
+
+```text
+sudo iptables -A INPUT -p tcp --dport 8302 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8303 -j ACCEPT
+```
 
 ## 2. Node launch options
 

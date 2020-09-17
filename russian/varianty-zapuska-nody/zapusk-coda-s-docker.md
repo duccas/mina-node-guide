@@ -69,7 +69,7 @@ codaprotocol/coda-daemon:0.0.16-beta6 daemon \
 Если вы не хотите запускать Snark Worker. Вы можете сразу перейти к шагу 3.
 {% endhint %}
 
-Для начала нужно закрыть порт 3085:
+Для начала нужно закрыть порт 3085 для входящих соединений:
 
 ```text
 iptables -I INPUT 1 -p tcp --sport 3085 -j DROP

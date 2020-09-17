@@ -96,7 +96,7 @@ Accounts are held for token IDs:
 
 ```text
 coda client get-balance \
--token 1 -public-key $CODA_PUBLIC_KEY
+-public-key $CODA_PUBLIC_KEY
 ```
 
 Мы увидим баланс coda токенов.

@@ -75,7 +75,7 @@ sudo ufw status
 ```text
 sudo docker run -d \
 -e "CODA_PRIVKEY_PASS=$CODA_PASS" \
---mount type=bind,source="$(pwd)"/keys,target=/root/keys \
+--mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
 --name coda \
 -p 8302:8302 \
 -p 8303:8303 \
@@ -109,7 +109,7 @@ sudo ufw deny 3085
 ```text
 sudo docker run -d \
 -e "CODA_PRIVKEY_PASS=$CODA_PASS" \
---mount type=bind,source="$(pwd)"/keys,target=/root/keys \
+--mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
 --name coda \
 -p 8302:8302 \
 -p 8303:8303 \

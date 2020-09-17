@@ -118,12 +118,7 @@ sudo docker run -d \
 --cpus 8 \
 --restart always \
 codaprotocol/coda-daemon:0.0.16-beta6 daemon \
--peer 104.196.71.252:10009 \
--peer 34.75.105.213:10005 \
--peer 34.75.140.108:10007 \
--peer 35.231.144.67:10001 \
--peer 104.196.28.119:10006 \
--peer 34.75.105.122:10400 \
+-peer $SEED1 \
 -block-producer-key $HOME/keys/my-wallet \
 -run-snark-worker $CODA_PUBLIC_KEY \
 -snark-worker-fee 0.25 \

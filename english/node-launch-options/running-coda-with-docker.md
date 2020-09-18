@@ -58,7 +58,7 @@ sudo docker run -d \
 -p 8302:8302 \
 -p 8303:8303 \
 --restart always \
-codaprotocol/coda-daemon:0.0.16-beta6 daemon \
+codaprotocol/coda-daemon:0.0.16-beta7 daemon \
 -block-producer-key $HOME/keys/my-wallet \
 -peer $SEED1
 ```
@@ -95,7 +95,7 @@ sudo docker run -d \
 --memory 16g \
 --cpus 8 \
 --restart always \
-codaprotocol/coda-daemon:0.0.16-beta6 daemon \
+codaprotocol/coda-daemon:0.0.16-beta7 daemon \
 -peer $SEED1 \
 -block-producer-key $HOME/keys/my-wallet \
 -run-snark-worker $CODA_PUBLIC_KEY \

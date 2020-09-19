@@ -72,7 +72,7 @@ If you don't want to launch the Snark Worker. You can go directly to step 3.
 First you need to close port 3085:
 
 ```text
-sudo ufw deny 3085
+iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 ```
 
 Variables description:

@@ -77,7 +77,7 @@ iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 
 Variables description:
 
-1. `--name coda` - you can use any name for the container, or leave it as it is
+1. `--name mina` - you can use any name for the container, or leave it as it is
 2. `--memory 16g` - limiting the amount of RAM that the container can use
 3. `--cpus 8` - limiting the number of processor cores that a container can use
 4. `-snark-worker-fee 0.25` - you can set the Snark Worker fee
@@ -86,9 +86,9 @@ You need to enter all the data in the command below:
 
 ```text
 sudo docker run -d \
--e "CODA_PRIVKEY_PASS=$CODA_PASS" \
+-e "MINA_PRIVKEY_PASS=$MINA_PASS" \
 --mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
---name coda \
+--name mina \
 -p 8302:8302 \
 -p 8303:8303 \
 -p 127.0.0.1:3085:3085 \
@@ -98,8 +98,8 @@ sudo docker run -d \
 codaprotocol/coda-daemon:0.0.16-beta7 daemon \
 -peer $SEED1 \
 -block-producer-key $HOME/keys/my-wallet \
--run-snark-worker $CODA_PUBLIC_KEY \
--snark-worker-fee 0.25 \
+-run-snark-worker $MINA_PUBLIC_KEY \
+-snark-worker-fee 0.035 \
 -work-selection seq
 ```
 
@@ -122,20 +122,20 @@ sudo docker ps -a
 Container logs:
 
 ```text
-sudo docker logs --follow coda -f
+sudo docker logs --follow mina -f
 ```
 
 ### 3.1 Alternative log output
 
 ```text
-sudo docker exec coda coda client status | grep "Block producers"
+sudo docker exec mina mina client status | grep "Block producers"
 ```
 
 The output will only show the line with the block producer running. See example below:
 
 {% code title="\#EXAMPLE" %}
 ```text
-root@Coda:~# sudo docker exec coda coda client status | grep "Block producers"
+root@Coda:~# sudo docker exec mina mina client status | grep "Block producers"
 Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPYURMmxVPFe4VjXfrxjYeFWEzMmqTpc8suhsRvA51NjvRe6rmWv9eerUjRJFjdRTWcoBdyuyDnGC3GbtKdWhv5b9CajERMD7PHj3z4)
 ```
 {% endcode %}
@@ -147,18 +147,18 @@ Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPY
 The container is stopped by the command:
 
 ```text
-sudo docker stop coda
+sudo docker stop mina
 ```
 
 Removing a container:
 
 ```text
-sudo docker rm coda
+sudo docker rm mina
 ```
 
 Removing a running container:
 
 ```text
-sudo docker rm -f coda
+sudo docker rm -f mina
 ```
 

@@ -84,7 +84,7 @@ Now you need to add your public key and Worker fee to the stopper config. Open t
 nano $HOME/coda-snark-stopper/config.yml
 ```
 
-In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$CODA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.25 
+In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MINA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.25 
 
 Done.
 

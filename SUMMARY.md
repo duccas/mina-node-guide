@@ -19,7 +19,7 @@
 * [Node launch options](english/node-launch-options/README.md)
   * [Preparing public keys](english/node-launch-options/preparing-to-launch.md)
   * [Running Mina with Docker](english/node-launch-options/running-coda-with-docker.md)
-  * [Running Coda without Docker](english/node-launch-options/running-coda-without-docker.md)
+  * [Running Mina without Docker](english/node-launch-options/running-coda-without-docker.md)
 * [CLI. Key import, sending tokens](english/cli.-key-import-sending-tokens.md)
 * [Setting up TMUX](english/setting-up-tmux.md)
 * [Setting up Snark Stopper](english/setting-up-snark-stopper.md)

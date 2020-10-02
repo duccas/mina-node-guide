@@ -1,4 +1,4 @@
-# Running Coda without Docker
+# Running Mina without Docker
 
 {% hint style="warning" %}
 We recommend using `tmux`before starting to run multiple sessions in one terminal.
@@ -36,19 +36,19 @@ brew install wget
 Installing packages `coda`.
 
 ```text
-brew install codaprotocol/coda/coda
+brew install minaprotocol/mina/mina
 ```
 
 Running a node:
 
 ```text
-brew services start coda
+brew services start mina
 ```
 
-If you already have the `coda` package installed, you need to update it with the command below. If you have not previously installed `coda`, then you can skip this command.
+If you already have the `mina` package installed, you need to update it with the command below. If you have not previously installed `mina`, then you can skip this command.
 
 ```text
-brew upgrade coda
+brew upgrade mina
 ```
 
 ## 3. Installation for `Ubuntu 18.04 / Debian 9`
@@ -56,16 +56,16 @@ brew upgrade coda
 Removing previous versions:
 
 ```text
-sudo apt-get remove coda-testnet-postake-medium-curves
-sudo apt-get remove coda-kademlia
+sudo apt-get remove mina-testnet-postake-medium-curves
+sudo apt-get remove mina-kademlia
 ```
 
 Download the distribution `Coda`:
 
 ```text
-echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/coda.list
+echo "deb [trusted=yes] http://packages.o1test.net unstable main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install coda-testnet-postake-medium-curves
+sudo apt-get install mina-testnet-postake-medium-curves
 ```
 
 ### 3.1 Running a node
@@ -73,24 +73,24 @@ sudo apt-get install coda-testnet-postake-medium-curves
 By the command:
 
 ```text
-coda daemon \
+mina daemon \
 -peer $SEED1
 ```
 
 Block Producer Launch:
 
 ```text
-coda client set-staking -public-key $CODA_PUBLIC_KEY
+mina client set-staking -public-key $MINA_PUBLIC_KEY
 ```
 
 Launching Snark Worker:
 
 ```text
-coda client set-snark-work-fee 0.25
-coda client set-snark-worker -address $CODA_PUBLIC_KEY
+mina client set-snark-work-fee 0.25
+mina client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
-Here you can set the Worker commission `coda client set-snark-work-fee 0.25`, or leave it as it is. 
+Here you can set the Worker commission `mina client set-snark-work-fee 0.25`, or leave it as it is. 
 
 Next, go to the next section and start with Point 2:
 
@@ -101,9 +101,9 @@ Next, go to the next section and start with Point 2:
 ### 4.1 Launch of the Block Producer:
 
 ```text
-coda daemon \
+mina daemon \
 -peer $SEED1 \
--block-producer-pubkey $CODA_PUBLIC_KEY
+-block-producer-pubkey $MINA_PUBLIC_KEY
 ```
 
 ### 4.2 Snark Worker Launch:
@@ -113,9 +113,9 @@ Variables description:
 `-snark-worker-fee 0.25` - you need to set the worker's fee, or leave it as it is
 
 ```text
-coda daemon \
+mina daemon \
 -peer $SEED1 \
--run-snark-worker $CODA_PUBLIC_KEY \
+-run-snark-worker $MINA_PUBLIC_KEY \
 -snark-worker-fee 0.25 
 ```
 

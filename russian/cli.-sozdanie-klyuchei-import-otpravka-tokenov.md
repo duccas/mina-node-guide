@@ -2,7 +2,7 @@
 
 ## Использование CLI
 
-### 1. Для доступа к командам [Mina CLI](https://codaprotocol.com/docs/cli-reference):
+### 1. Для доступа к командам [Mina CLI](https://minaprotocol.com/docs/cli-reference):
 
 {% hint style="warning" %}
 Этот шаг нужно выполнять только если вы запускали ноду с помощью Докера. Если же вы не использовали Докер, переходите сразу к шагу 2.

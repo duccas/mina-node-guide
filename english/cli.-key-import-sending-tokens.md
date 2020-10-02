@@ -2,7 +2,7 @@
 
 ## Using CLI
 
-### 1. To access [Mina CLI](https://codaprotocol.com/docs/cli-reference) commands :
+### 1. To access [Mina CLI](https://minaprotocol.com/docs/cli-reference) commands :
 
 {% hint style="warning" %}
 This step only needs to be done if you started the node using Docker. If you haven't used Docker, skip straight to step 2.

@@ -12,7 +12,7 @@ _\*Баллы Testnet предназначены исключительно дл
 
 ## English
 
-This tutorial will help you install the Mina test node. And also complete all tasks to get test points \(pts\). 
+This tutorial will help you install the Mina test node for testnet 3.3. And also complete all tasks to get test points \(pts\). 
 
 Carefully go through all the installation points and there should be no problems!
 

@@ -86,7 +86,7 @@ git clone https://github.com/c29r3/coda-snark-stopper.git \
 nano $HOME/coda-snark-stopper/config.yml
 ```
 
-В строке `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` измените `YOUR_PUBLIC_KEY` на `$CODA_PUBLIC_KEY`  
+В строке `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` измените `YOUR_PUBLIC_KEY` на `$MINA_PUBLIC_KEY`  
 В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25 \(значение должно быть такое же как в команде запуска ноды\)
 
 Готово.

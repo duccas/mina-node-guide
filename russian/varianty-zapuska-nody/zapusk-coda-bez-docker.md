@@ -1,4 +1,4 @@
-# Запуск Coda без Докера
+# Запуск Mina без Докера
 
 {% hint style="warning" %}
 Рекомендуем перед запуском использовать `tmux` для запуска нескольких сессий в одном терминале.
@@ -36,19 +36,19 @@ brew install wget
 Установка пакетов `coda`.
 
 ```text
-brew install codaprotocol/coda/coda
+brew install minaprotocol/mina/mina
 ```
 
 Запуск ноды:
 
 ```text
-brew services start coda
+brew services start mina
 ```
 
-Если у вас уже установлен пакет `coda` его нужно обновить командой ниже. Если вы ранее не устанавливали `coda`, то можно эту команду не запускать.
+Если у вас уже установлен пакет `mina` его нужно обновить командой ниже. Если вы ранее не устанавливали `mina`, то можно эту команду не запускать.
 
 ```text
-brew upgrade coda
+brew upgrade mina
 ```
 
 ## 3. Установка для `Ubuntu 18.04 / Debian 9`
@@ -56,16 +56,16 @@ brew upgrade coda
 Удаление предыдущих версий:
 
 ```text
-sudo apt-get remove coda-testnet-postake-medium-curves
-sudo apt-get remove coda-kademlia
+sudo apt-get remove mina-testnet-postake-medium-curves
+sudo apt-get remove mina-kademlia
 ```
 
 Скачиваем дистрибутив `Coda`:
 
 ```text
-echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/coda.list
+echo "deb [trusted=yes] http://packages.o1test.net unstable main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install coda-testnet-postake-medium-curves
+sudo apt-get install mina-testnet-postake-medium-curves
 ```
 
 ### 3.1 Запуск ноды
@@ -73,24 +73,24 @@ sudo apt-get install coda-testnet-postake-medium-curves
 Производим командой:
 
 ```text
-coda daemon \
+mina daemon \
 -peer $SEED1
 ```
 
 Запуск Производителя блоков:
 
 ```text
-coda client set-staking -public-key $CODA_PUBLIC_KEY
+mina client set-staking -public-key $MINA_PUBLIC_KEY
 ```
 
 Запуск Снарк Воркера:
 
 ```text
-coda client set-snark-work-fee 0.25
-coda client set-snark-worker -address $CODA_PUBLIC_KEY
+mina client set-snark-work-fee 0.25
+mina client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
-Здесь вы можете установить комиссию Воркера `coda client set-snark-work-fee 0.25`, либо оставить как есть.
+Здесь вы можете установить комиссию Воркера `mina client set-snark-work-fee 0.25`, либо оставить как есть.
 
 Далее переходим в следующий раздел и начинаем с Пункта 2:
 
@@ -101,9 +101,9 @@ coda client set-snark-worker -address $CODA_PUBLIC_KEY
 ### 4.1 Запуск Производителя блоков \(Block Producer\):
 
 ```text
-coda daemon \
+mina daemon \
 -peer $SEED1 \
--block-producer-pubkey $CODA_PUBLIC_KEY
+-block-producer-pubkey $MINA_PUBLIC_KEY
 ```
 
 ### 4.2  Запуск Снарк Воркера \(Snark Worker\):
@@ -113,9 +113,9 @@ coda daemon \
 `-snark-worker-fee 0.25` - нужно установить комиссию воркера, либо оставить так, как есть
 
 ```text
-coda daemon \
+mina daemon \
 -peer $SEED1 \
--run-snark-worker $CODA_PUBLIC_KEY \
+-run-snark-worker $MINA_PUBLIC_KEY \
 -snark-worker-fee 0.25 
 ```
 

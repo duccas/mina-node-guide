@@ -2,14 +2,14 @@
 
 ## Использование CLI
 
-### 1. Для доступа к командам [Coda CLI](https://codaprotocol.com/docs/cli-reference):
+### 1. Для доступа к командам [Mina CLI](https://codaprotocol.com/docs/cli-reference):
 
 {% hint style="warning" %}
 Этот шаг нужно выполнять только если вы запускали ноду с помощью Докера. Если же вы не использовали Докер, переходите сразу к шагу 2.
 {% endhint %}
 
 ```text
-sudo docker exec -it coda bash
+sudo docker exec -it mina bash
 ```
 
 Выход из CLI осуществляется командой:
@@ -21,7 +21,7 @@ exit
 ### 2. Проверка статуса, состояния узла:
 
 ```text
-coda client status
+mina client status
 ```
 
 Выглядит это вот так:
@@ -36,13 +36,13 @@ coda client status
  Импорт аккаунта с ключем производим следующей командой:
 
 ```text
-coda accounts import -privkey-path $HOME/keys/my-wallet
+mina accounts import -privkey-path $HOME/keys/my-wallet
 ```
 
 Список ваших аккаунтов можно посмотреть командой ниже:
 
 ```text
-coda accounts list
+mina accounts list
 ```
 
 ### 4. Разблокировка аккаунта:
@@ -50,13 +50,13 @@ coda accounts list
 Для начала экспортируем Публичный ключ:
 
 ```text
-export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)
+export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)
 ```
 
 Разблокируем аккаунт, чтобы можно было перемещать токены:
 
 ```text
-coda accounts unlock -public-key $CODA_PUBLIC_KEY
+mina accounts unlock -public-key $MINA_PUBLIC_KEY
 ```
 
 В поле ввода пароля пишем ваш пароль от ключа и жмем ENTER.
@@ -66,8 +66,8 @@ coda accounts unlock -public-key $CODA_PUBLIC_KEY
 Теперь создадим токены:
 
 ```text
-coda client create-token \
--sender $CODA_PUBLIC_KEY
+mina client create-token \
+-sender $MINA_PUBLIC_KEY
 ```
 
 В ответ мы получим следующее:
@@ -83,8 +83,8 @@ Dispatched create new token command with ID 2cUDm3QoJ14znWj5LxN8hjwwuvtwi9FGXcy5
 Чтобы проводить следующие операции нам нужно знать ID токенов. Получим его следующей командой:
 
 ```text
-coda client get-tokens \
--public-key $CODA_PUBLIC_KEY
+mina client get-tokens \
+-public-key $MINA_PUBLIC_KEY
 ```
 
 В ответ мы получим следующее:
@@ -101,19 +101,19 @@ Accounts are held for token IDs:
 Баланс токенов проверяем командой ниже с вашим ID токенов:
 
 ```text
-coda client get-balance \
--public-key $CODA_PUBLIC_KEY
+mina client get-balance \
+-public-key $MINA_PUBLIC_KEY
 ```
 
-Мы увидим баланс coda токенов.
+Мы увидим баланс mina токенов.
 
 ### 8. Минт токенов
 
 Чтобы сминтить новые токены нужно выполнить команду `mint-tokens`. Будут созданы 1,000 токенов в учетной записи отправителя транзакции под номером token ID 2.
 
 ```text
-coda client mint-tokens \
--sender $CODA_PUBLIC_KEY \
+mina client mint-tokens \
+-sender $MINA_PUBLIC_KEY \
 -token 2 \
 -amount 10
 ```
@@ -121,18 +121,18 @@ coda client mint-tokens \
 Проверим баланс командой \(баланс появится не сразу, нужно подождать около 5 минут\):
 
 ```text
-coda client get-balance \
+mina client get-balance \
 -token 2 \
--public-key $CODA_PUBLIC_KEY
+-public-key $MINA_PUBLIC_KEY
 ```
 
-Через некоторое время мы должны увидеть на балансе 1,000 coda токенов.
+Через некоторое время мы должны увидеть на балансе 1,000 mina токенов.
 
 {% code title="\#ПРИМЕР ОТВЕТА" %}
 ```text
-coda client get-balance \
+mina client get-balance \
 -token 2 \
--public-key $CODA_PUBLIC_KEY
+-public-key $MINA_PUBLIC_KEY
 Balance: 1000 tokens
 ```
 {% endcode %}
@@ -143,8 +143,8 @@ Balance: 1000 tokens
 Чтобы это сделать нам сначала нужно добавить получателя командой ниже:
 
 ```text
-coda client create-token-account \
--sender $CODA_PUBLIC_KEY \
+mina client create-token-account \
+-sender $MINA_PUBLIC_KEY \
 -receiver B62qoDWfBZUxKpaoQCoFqr12wkaY84FrhxXNXzgBkMUi2Tz4K8kBDiv \
 -token 2
 ```
@@ -153,8 +153,8 @@ coda client create-token-account \
 В поле `-memo "My First TX"` вместо `My First TX` можно вписать что угодно. Либо оставить так, как есть.
 
 ```text
-coda client send-payment \
--sender $CODA_PUBLIC_KEY \
+mina client send-payment \
+-sender $MINA_PUBLIC_KEY \
 -receiver B62qoDWfBZUxKpaoQCoFqr12wkaY84FrhxXNXzgBkMUi2Tz4K8kBDiv \
 -token 2 \
 -fee 0.1 \

@@ -1,4 +1,4 @@
-# Running Coda with Docker
+# Running Mina with Docker
 
 ## 1. Preparation
 
@@ -48,13 +48,13 @@ Choose only one launch option from the 2 suggested below \(paragraph 2.1 or 2.2\
 
 Variables description:
 
-`--name coda` - you can use any name for the container, or leave it as it is
+`--name mina` - you can use any name for the container, or leave it as it is
 
 ```text
 sudo docker run -d \
--e "CODA_PRIVKEY_PASS=$CODA_PASS" \
+-e "MINA_PRIVKEY_PASS=$MINA_PASS" \
 --mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
---name coda \
+--name mina \
 -p 8302:8302 \
 -p 8303:8303 \
 --restart always \

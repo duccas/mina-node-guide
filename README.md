@@ -2,7 +2,7 @@
 
 ## Russian
 
-Данное руководство поможет установить ноду Coda для тестнета 3.3. А также выполнить все задания для получение тестовых поинтов \(pts\).
+Данное руководство поможет установить ноду Mina для тестнета 3.3. А также выполнить все задания для получение тестовых поинтов \(pts\).
 
 Внимательно пройдитесь по всем пунктам установки и проблем быть не должно! 
 
@@ -12,7 +12,7 @@ _\*Баллы Testnet предназначены исключительно дл
 
 ## English
 
-This tutorial will help you install the Coda test node. And also complete all tasks to get test points \(pts\). 
+This tutorial will help you install the Mina test node. And also complete all tasks to get test points \(pts\). 
 
 Carefully go through all the installation points and there should be no problems!
 

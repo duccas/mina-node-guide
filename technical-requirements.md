@@ -1,5 +1,5 @@
 ---
-description: The characteristics required to run a Coda node.
+description: The characteristics required to run a Mina node.
 ---
 
 # Technical Requirements

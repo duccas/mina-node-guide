@@ -26,9 +26,9 @@ Now we will write your public key and SEED peers to the server in the `.profile`
 Replace `YOUR SEED1` and `YOUR SEED2` with the peers sent to you by email. And also `YOUR PASSWORD` for the public key password.
 
 ```text
-echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
 echo 'export SEED1=YOUR SEED1' >> $HOME/.profile
-echo 'export CODA_PASS=YOUR PASSWORD' >> $HOME/.profile
+echo 'export MINA_PASS=YOUR PASSWORD' >> $HOME/.profile
 source .profile
 ```
 
@@ -36,9 +36,9 @@ An example of how it should look:
 
 {% code title="\#EXAMPLE" %}
 ```text
-echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
 echo 'export SEED1=/dns1/o1test.net/tcp/10001/p2p/1548HgtdaFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vDyajjkf' >> $HOME/.profile
-echo 'export CODA_PASS=qwerty123' >> $HOME/.profile
+echo 'export MINA_PASS=qwerty123' >> $HOME/.profile
 source .profile
 ```
 {% endcode %}

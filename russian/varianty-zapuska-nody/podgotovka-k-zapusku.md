@@ -27,9 +27,9 @@ chmod 600 $HOME/keys/my-wallet
 Замените `ВАШ ПАРОЛЬ` и `ВАШ СИД` на пароль от публичного ключа и SEED пир присланный вам на эмейл.
 
 ```text
-echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
 echo 'export SEED1=ВАШ СИД' >> $HOME/.profile
-echo 'export CODA_PASS=ВАШ ПАРОЛЬ' >> $HOME/.profile
+echo 'export MINA_PASS=ВАШ ПАРОЛЬ' >> $HOME/.profile
 source .profile
 ```
 
@@ -37,9 +37,9 @@ source .profile
 
 {% code title="\#ПРИМЕР" %}
 ```text
-echo 'export CODA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
 echo 'export SEED1=/dns1/o1test.net/tcp/10001/p2p/1548HgtdaFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vDyajjkf' >> $HOME/.profile
-echo 'export CODA_PASS=qwerty123' >> $HOME/.profile
+echo 'export MINA_PASS=qwerty123' >> $HOME/.profile
 source .profile
 ```
 {% endcode %}

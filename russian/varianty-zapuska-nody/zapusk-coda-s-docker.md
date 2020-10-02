@@ -1,4 +1,4 @@
-# Запуск Coda с Докером
+# Запуск Mina с Докером
 
 ## 1. Подготовка к запуску
 
@@ -52,9 +52,9 @@ sudo iptables -A INPUT -p tcp --dport 8303 -j ACCEPT
 
 ```text
 sudo docker run -d \
--e "CODA_PRIVKEY_PASS=$CODA_PASS" \
+-e "MINA_PRIVKEY_PASS=$MINA_PASS" \
 --mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
---name coda \
+--name mina \
 -p 8302:8302 \
 -p 8303:8303 \
 --restart always \
@@ -77,7 +77,7 @@ iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 
 Описание изменяемых переменных:
 
-1. `--name coda` - имя для контейнера можно использовать любое, либо оставить так, как есть
+1. `--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть
 2. `--memory 16g` - ограничение количества оперативной памяти, которое может использовать контейнер
 3. `--cpus 8` - ограничение количества ядер процессора, которые может использовать контейнер
 4. `-snark-worker-fee 0.25` - можно установить комиссию Снарк Воркера
@@ -86,9 +86,9 @@ iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 
 ```text
 sudo docker run -d \
--e "CODA_PRIVKEY_PASS=$CODA_PASS" \
+-e "MINA_PRIVKEY_PASS=$MINA_PASS" \
 --mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
---name coda \
+--name mina \
 -p 8302:8302 \
 -p 8303:8303 \
 -p 127.0.0.1:3085:3085 \
@@ -98,7 +98,7 @@ sudo docker run -d \
 codaprotocol/coda-daemon:0.0.16-beta7 daemon \
 -peer $SEED1 \
 -block-producer-key $HOME/keys/my-wallet \
--run-snark-worker $CODA_PUBLIC_KEY \
+-run-snark-worker $MINA_PUBLIC_KEY \
 -snark-worker-fee 0.035 \
 -work-selection seq
 ```
@@ -122,20 +122,20 @@ sudo docker ps -a
 Логи контейнера Производителя Блоков:
 
 ```text
-sudo docker logs --follow coda -f
+sudo docker logs --follow mina -f
 ```
 
 ### 3.1 Альтернативный вывод логов
 
 ```text
-sudo docker exec coda coda client status | grep "Block producers"
+sudo docker exec mina mina client status | grep "Block producers"
 ```
 
 Вывод покажет только строку с запущенным производителем блоков. Пример ниже:
 
 {% code title="\#ПРИМЕР" %}
 ```text
-root@Coda:~# sudo docker exec coda coda client status | grep "Block producers"
+root@Mina:~# sudo docker exec mina mina client status | grep "Block producers"
 Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPYURMmxVPFe4VjXfrxjYeFWEzMmqTpc8suhsRvA51NjvRe6rmWv9eerUjRJFjdRTWcoBdyuyDnGC3GbtKdWhv5b9CajERMD7PHj3z4)
 ```
 {% endcode %}
@@ -147,18 +147,18 @@ Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPY
 Остановка контейнера осуществляется командой:
 
 ```text
-sudo docker stop coda
+sudo docker stop mina
 ```
 
 Удаление контейнера:
 
 ```text
-sudo docker rm coda
+sudo docker rm mina
 ```
 
 Удаление запущенного контейнера:
 
 ```text
-sudo docker rm -f coda
+sudo docker rm -f mina
 ```
 

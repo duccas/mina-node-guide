@@ -104,11 +104,11 @@ Run container:
 
 ```text
 docker run -d \
---volume config.yml:/mina/ \
+--volume $(pwd)/config.yml:/mina/config.yml \
 --net=host \
 --restart always \
 --name snark-stopper \
-snark-stopper
+c29r3/snark-stopper
 ```
 
 Logs:

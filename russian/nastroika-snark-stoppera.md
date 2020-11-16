@@ -6,7 +6,7 @@
 
 {% hint style="info" %}
 Данный скрипт создан пользователем @whataday2day\#1271  
-[https://github.com/c29r3/coda-snark-stopper](https://github.com/c29r3/coda-snark-stopper)
+[https://github.com/c29r3/mina-snark-stopper](https://github.com/c29r3/mina-snark-stopper)
 {% endhint %}
 
 ## Подготовка
@@ -66,7 +66,7 @@ yes | sudo apt install git
 
 Проверьте файл конфигурации. Есть несколько вариантов, которые вы можете переназначить.
 
-### Установка:
+### 1. Установка без Докера:
 
 {% hint style="info" %}
 Запускать нужно в новой сессии TMUX
@@ -83,11 +83,39 @@ git clone https://github.com/c29r3/coda-snark-stopper.git \
 Открываем конфиг командой:
 
 ```text
-nano $HOME/coda-snark-stopper/config.yml
+nano $HOME/mina-snark-stopper/config.yml
 ```
 
 В строке `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` измените `YOUR_PUBLIC_KEY` на `$MINA_PUBLIC_KEY`  
 В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25 \(значение должно быть такое же как в команде запуска ноды\)
 
 Готово.
+
+### 2. Установка с Докером:
+
+Копируем репозиторий:
+
+```text
+sudo apt install docker.io -y \
+&& git clone https://github.com/c29r3/mina-snark-stopper.git \
+&& cd mina-snark-stopper \
+&& docker build . -t snark-stopper
+```
+
+Запускаем контейнер:
+
+```text
+docker run -d \
+--volume $(pwd)/config.yml:/mina/config.yml \
+--net=host \
+--restart always \
+--name snark-stopper \
+c29r3/snark-stopper
+```
+
+Просмотр логов:
+
+```text
+docker logs -f snark-stopper
+```
 

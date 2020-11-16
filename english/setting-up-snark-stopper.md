@@ -6,7 +6,7 @@ The script will be useful for those who run the Block Producer and Snark Worker 
 
 {% hint style="info" %}
 This script was created by the user @whataday2day\#1271  
-[https://github.com/c29r3/coda-snark-stopper](https://github.com/c29r3/coda-snark-stopper)
+[https://github.com/c29r3/mina-snark-stopper](https://github.com/c29r3/mina-snark-stopper)
 {% endhint %}
 
 ## Preparation
@@ -65,26 +65,55 @@ Your snark worker should be RUNNING.
 
 Check the config file. There are several options that you can remap.
 
-### Install:
+### 1. Install without Docker:
 
 {% hint style="info" %}
 You need to run in a new TMUX session
 {% endhint %}
 
 ```text
-git clone https://github.com/c29r3/coda-snark-stopper.git \
-&& cd coda-snark-stopper \
+sudo apt-get update && sudo apt-get install tmux -y \
+&& git clone https://github.com/c29r3/mina-snark-stopper.git \
+&& cd mina-snark-stopper \
 && pip3 install -r requirements.txt \
-&& python3 snark-stopper.py
+&& tmux new -s snark-stopper -d python3 snark-stopper.py
 ```
 
 Now you need to add your public key and Worker fee to the stopper config. Open the config with the command:
 
 ```text
-nano $HOME/coda-snark-stopper/config.yml
+nano $HOME/mina-snark-stopper/config.yml
 ```
 
 In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MINA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.25 
 
 Done.
+
+### 2. Install with Docker:
+
+Clone repo and build:
+
+```text
+sudo apt install docker.io -y \
+&& git clone https://github.com/c29r3/mina-snark-stopper.git \
+&& cd mina-snark-stopper \
+&& docker build . -t snark-stopper
+```
+
+Run container:
+
+```text
+docker run -d \
+--volume config.yml:/mina/ \
+--net=host \
+--restart always \
+--name snark-stopper \
+snark-stopper
+```
+
+Logs:
+
+```text
+docker logs -f snark-stopper
+```
 

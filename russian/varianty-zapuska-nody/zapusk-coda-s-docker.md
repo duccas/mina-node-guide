@@ -48,22 +48,26 @@ sudo iptables -A INPUT -p tcp --dport 8303 -j ACCEPT
 
 Описание изменяемых переменных:
 
-`--name coda` - имя для контейнера можно использовать любое, либо оставить так, как есть
+`--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть  
+`-work-selection seq` или `-work-selection rand` 
 
 ```text
-sudo docker run -d \
--e "MINA_PRIVKEY_PASS=$MINA_PASS" \
---mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
---name mina \
--p 8302:8302 \
--p 8303:8303 \
+sudo docker run --name mina -d \
+-p 8301-8305:8301-8305 \
+-p 127.0.0.1:3085:3085 \
+-v $(pwd)/keys:/root/keys:ro \
+-v $(pwd)/.coda-config:/root/.coda-config \
 --restart always \
-codaprotocol/coda-daemon:0.0.16-beta7 daemon \
--block-producer-key $HOME/keys/my-wallet \
--peer $SEED1
+minaprotocol/mina-daemon-baked:pickles-public-mina069333b-auto0b96a534 daemon \
+-peer-list-file $HOME/peers.txt \
+-block-producer-key $KEYPATH \
+-block-producer-password $CODA_PRIVKEY_PASS \
+-insecure-rest-server \
+-log-level Info \
+-work-selection seq
 ```
 
-### 2.2 Запуск Производителя блоков \(Block Producer\) вместе со Снарк Воркером \(Snark Worker\):
+### 2.2 Запуск Снарк Воркера \(Snark Worker\) к Производителю Блоков:
 
 {% hint style="warning" %}
 Если вы не хотите запускать Snark Worker. Вы можете сразу перейти к шагу 3.
@@ -75,41 +79,53 @@ codaprotocol/coda-daemon:0.0.16-beta7 daemon \
 iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 ```
 
-Описание изменяемых переменных:
+#### Теперь можно запускать Снарк Воркер.
 
-1. `--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть
-2. `--memory 16g` - ограничение количества оперативной памяти, которое может использовать контейнер
-3. `--cpus 8` - ограничение количества ядер процессора, которые может использовать контейнер
-4. `-snark-worker-fee 0.25` - можно установить комиссию Снарк Воркера
-
-Нужно внести все данные в команду ниже:
+Установим комиссию Воркера:  
+`set-snark-work-fee 0.025` - значение комиссии `0.025` можно сменить на любое другое.
 
 ```text
-sudo docker run -d \
--e "MINA_PRIVKEY_PASS=$MINA_PASS" \
---mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
---name mina \
--p 8302:8302 \
--p 8303:8303 \
--p 127.0.0.1:3085:3085 \
---memory 16g \
---cpus 8 \
---restart always \
-codaprotocol/coda-daemon:0.0.16-beta7 daemon \
--peer $SEED1 \
--block-producer-key $HOME/keys/my-wallet \
--run-snark-worker $MINA_PUBLIC_KEY \
--snark-worker-fee 0.035 \
--work-selection seq
+sudo docker exec -it mina coda client set-snark-work-fee 0.025
+```
+
+Запустим Воркер:
+
+```text
+sudo docker exec -it mina coda client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
 {% hint style="info" %}
-Для работы одновременно Производителя блоков \(Block Producer\) и Снарк Воркера \(Snark Worker\) нужно настраивать Снарк Стоппер. Чтобы ненадолго останавливать Воркера во время производства блока.
+Для работы одновременно Производителя блоков \(Block Producer\) и Снарк Воркера \(Snark Worker\) можно настраивать Снарк Стоппер. Чтобы ненадолго останавливать Воркера во время производства блока.
 
 Перейдите по ссылке ниже, чтобы настроить Снарк Стоппер.
 {% endhint %}
 
 {% page-ref page="../nastroika-snark-stoppera.md" %}
+
+### 2.3 Запуск только Снарк Воркера \(без Производителя Блоков\)
+
+Для начала запустим ноду без Производителя и Снарка.
+
+Описание изменяемых переменных:
+
+`--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть  
+`-work-selection seq` или `-work-selection rand` 
+
+```text
+sudo docker run --name mina -d \
+-p 8301-8305:8301-8305 \
+-p 127.0.0.1:3085:3085 \
+-v $(pwd)/keys:/root/keys:ro \
+-v $(pwd)/.coda-config:/root/.coda-config \
+--restart always \
+minaprotocol/mina-daemon-baked:pickles-public-mina069333b-auto0b96a534 daemon \
+-peer-list-file $HOME/peers.txt \
+-insecure-rest-server \
+-log-level Info \
+-work-selection seq
+```
+
+Теперь переходим выше к пункту **2.2** и запускаем Снарк Воркера.
 
 ## 3. Просмотр логов
 
@@ -119,7 +135,7 @@ codaprotocol/coda-daemon:0.0.16-beta7 daemon \
 sudo docker ps -a
 ```
 
-Логи контейнера Производителя Блоков:
+Логи контейнера с нодой:
 
 ```text
 sudo docker logs --follow mina -f
@@ -128,15 +144,15 @@ sudo docker logs --follow mina -f
 ### 3.1 Альтернативный вывод логов
 
 ```text
-sudo docker exec mina mina client status | grep "Block producers"
+sudo docker exec -it mina coda client status | grep "Block producers"
 ```
 
 Вывод покажет только строку с запущенным производителем блоков. Пример ниже:
 
 {% code title="\#ПРИМЕР" %}
 ```text
-root@Mina:~# sudo docker exec mina mina client status | grep "Block producers"
-Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPYURMmxVPFe4VjXfrxjYeFWEzMmqTpc8suhsRvA51NjvRe6rmWv9eerUjRJFjdRTWcoBdyuyDnGC3GbtKdWhv5b9CajERMD7PHj3z4)
+root@Mina:~# sudo docker exec mina coda client status | grep "Block producers"
+Block producers running:         1 (B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82)
 ```
 {% endcode %}
 

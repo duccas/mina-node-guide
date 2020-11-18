@@ -14,7 +14,7 @@ Apply for Coda Genesis:
 
 Mina Snark Stopper from @whataday2day\#1271:
 
-{% embed url="https://github.com/c29r3/coda-snark-stopper" %}
+{% embed url="https://github.com/c29r3/mina-snark-stopper" %}
 
 
 

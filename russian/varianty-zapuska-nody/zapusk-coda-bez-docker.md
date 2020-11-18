@@ -4,6 +4,8 @@
 Рекомендуем перед запуском использовать `tmux` для запуска нескольких сессий в одном терминале.
 {% endhint %}
 
+{% page-ref page="../nastroika-tmux.md" %}
+
 ## 1. Настройка Фаервола
 
 Открываем порты 22, 8302 и 8303 и активируем Firewall:
@@ -56,16 +58,23 @@ brew upgrade mina
 Удаление предыдущих версий:
 
 ```text
-sudo apt-get remove mina-testnet-postake-medium-curves
-sudo apt-get remove mina-kademlia
+sudo apt-get remove -y coda-testnet-postake-medium-curves
 ```
 
-Скачиваем дистрибутив `Coda`:
+Создадим папку `.coda-config`:
 
 ```text
-echo "deb [trusted=yes] http://packages.o1test.net unstable main" | sudo tee /etc/apt/sources.list.d/mina.list
+mkdir .coda-config
+```
+
+Скачиваем дистрибутив `Mina`:
+
+```text
 sudo apt-get update
-sudo apt-get install mina-testnet-postake-medium-curves
+sudo apt-get install -y apt-transport-https ca-certificates
+echo "deb [trusted=yes] http://packages.o1test.net unstable main" | sudo tee /etc/apt/sources.list.d/coda.list
+sudo apt-get update
+sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.0.16-beta7+-4.1-turbo-pickles-2f36b15 --allow-downgrades
 ```
 
 ### 3.1 Запуск ноды
@@ -73,49 +82,36 @@ sudo apt-get install mina-testnet-postake-medium-curves
 Производим командой:
 
 ```text
-mina daemon \
--peer $SEED1
+coda daemon \
+-peer-list-file ~/peers.txt \
+-config-file ~/.coda-config/daemon.json \
+-generate-genesis-proof true \
+-log-level Info
+```
+
+Перед запуском производителя нужно импортировать и разблокировать ключи:
+
+```text
+coda accounts import -privkey-path $KEYPATH
+coda accounts unlock -public-key $MINA_PUBLIC_KEY
 ```
 
 Запуск Производителя блоков:
 
 ```text
-mina client set-staking -public-key $MINA_PUBLIC_KEY
+coda client set-staking -public-key $MINA_PUBLIC_KEY
 ```
 
 Запуск Снарк Воркера:
 
 ```text
-mina client set-snark-work-fee 0.25
-mina client set-snark-worker -address $MINA_PUBLIC_KEY
+coda client set-snark-work-fee 0.025
+coda client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
-Здесь вы можете установить комиссию Воркера `mina client set-snark-work-fee 0.25`, либо оставить как есть.
+Здесь вы можете установить комиссию Воркера `coda client set-snark-work-fee 0.025`, либо оставить как есть.
 
 Далее переходим в следующий раздел и начинаем с Пункта 2:
 
 {% page-ref page="../cli.-sozdanie-klyuchei-import-otpravka-tokenov.md" %}
-
-## 4. Альтернативный запуск Производителя Блоков и Снарк Воркера.
-
-### 4.1 Запуск Производителя блоков \(Block Producer\):
-
-```text
-mina daemon \
--peer $SEED1 \
--block-producer-pubkey $MINA_PUBLIC_KEY
-```
-
-### 4.2  Запуск Снарк Воркера \(Snark Worker\):
-
-Описание изменяемых переменных:
-
-`-snark-worker-fee 0.25` - нужно установить комиссию воркера, либо оставить так, как есть
-
-```text
-mina daemon \
--peer $SEED1 \
--run-snark-worker $MINA_PUBLIC_KEY \
--snark-worker-fee 0.25 
-```
 

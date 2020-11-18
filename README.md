@@ -2,7 +2,7 @@
 
 ## Russian
 
-Данное руководство поможет установить ноду Mina для тестнета 3.3. А также выполнить все задания для получение тестовых поинтов \(pts\).
+Данное руководство поможет установить ноду Mina для тестнета 4.1. А также выполнить все задания для получение тестовых поинтов \(pts\).
 
 Внимательно пройдитесь по всем пунктам установки и проблем быть не должно! 
 
@@ -12,7 +12,7 @@ _\*Баллы Testnet предназначены исключительно дл
 
 ## English
 
-This tutorial will help you install the Mina test node for testnet 3.3. And also complete all tasks to get test points \(pts\). 
+This tutorial will help you install the Mina test node for testnet 4.1. And also complete all tasks to get test points \(pts\). 
 
 Carefully go through all the installation points and there should be no problems!
 
@@ -30,21 +30,9 @@ Discord - garethtdavies\#4963
 
 Discord - whataday2day\#1271 - Snark Stopper Creator
 
-Twitter - [https://twitter.com/kinsnifa](https://twitter.com/kinsnifa)
+Twitter - [https://twitter.com/DuccaHVU](https://twitter.com/DuccaHVU)
 
 Telegram - [https://t.me/ducca](https://t.me/ducca)
 
-## Our Resourses
-
-Website - [https://icohigh.net/](https://icohigh.net/)
-
 Github - [https://github.com/icohigh](https://github.com/icohigh)
-
-Twitter - [https://twitter.com/icohigh\_net](https://twitter.com/icohigh_net)
-
-Facebook - [https://www.facebook.com/icohigh/](https://www.facebook.com/icohigh/)
-
-Telegram News - [https://t.me/icohigh](https://t.me/icohigh)
-
-Telegram Analytics - [https://t.me/icohigh\_analytics](https://t.me/icohigh_analytics)
 

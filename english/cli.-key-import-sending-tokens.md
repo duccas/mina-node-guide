@@ -80,7 +80,23 @@ coda client send-payment \
 
 Done. Tokens have been sent.
 
-### 5. Token creation
+### 6. Check the balance of tokens
+
+The token balance is checked by the command below with your token ID:
+
+```text
+coda client get-balance \
+-public-key $MINA_PUBLIC_KEY
+```
+
+We will see the balance of mina tokens.
+
+{% hint style="info" %}
+Attention!   
+Points from 7 to 10 will not be used in testnet 4.1
+{% endhint %}
+
+### 7. Token creation
 
 Now let's create tokens:
 
@@ -97,7 +113,7 @@ Dispatched create new token command with ID 2cUDm3QoJ14znWj5LxN8hjwwuvtwi9FGXcy5
 ```
 {% endcode %}
 
-### 6. Get the ID of the tokens
+### 8. Get the ID of the tokens
 
 To carry out the following operations, we need to know the ID of the tokens. We get it with the following command:
 
@@ -115,18 +131,7 @@ Accounts are held for token IDs:
 ```
 {% endcode %}
 
-### 7. Check the balance of tokens
-
-The token balance is checked by the command below with your token ID:
-
-```text
-coda client get-balance \
--public-key $MINA_PUBLIC_KEY
-```
-
-We will see the balance of mina tokens.
-
-### 8. Mint tokens
+### 9. Mint tokens
 
 To mince new tokens, you need to run the `mint-tokens` command. 1,000 tokens will be created in the account of the sender of the transaction under token ID 2.
 
@@ -156,7 +161,7 @@ Balance: 1000 tokens
 ```
 {% endcode %}
 
-### 9. Sending tokens
+### 10. Sending tokens
 
 Now you can send tokens.   
 To do this, we first need to add a recipient with the command below:

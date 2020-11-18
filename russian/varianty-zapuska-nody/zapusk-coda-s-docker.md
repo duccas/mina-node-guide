@@ -58,7 +58,7 @@ sudo docker run --name mina -d \
 -v $(pwd)/keys:/root/keys:ro \
 -v $(pwd)/.coda-config:/root/.coda-config \
 --restart always \
-minaprotocol/mina-daemon-baked:pickles-public-mina069333b-auto0b96a534 daemon \
+minaprotocol/mina-daemon-baked:turbo-pickles-mina2f36b15-autoa2ec945 daemon \
 -peer-list-file $HOME/peers.txt \
 -block-producer-key $KEYPATH \
 -block-producer-password $CODA_PRIVKEY_PASS \
@@ -118,7 +118,7 @@ sudo docker run --name mina -d \
 -v $(pwd)/keys:/root/keys:ro \
 -v $(pwd)/.coda-config:/root/.coda-config \
 --restart always \
-minaprotocol/mina-daemon-baked:pickles-public-mina069333b-auto0b96a534 daemon \
+minaprotocol/mina-daemon-baked:turbo-pickles-mina2f36b15-autoa2ec945 daemon \
 -peer-list-file $HOME/peers.txt \
 -insecure-rest-server \
 -log-level Info \

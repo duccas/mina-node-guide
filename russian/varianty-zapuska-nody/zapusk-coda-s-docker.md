@@ -141,6 +141,12 @@ sudo docker ps -a
 sudo docker logs --follow mina -f
 ```
 
+Статус ноды:
+
+```text
+sudo docker exec -it mina coda client status
+```
+
 ### 3.1 Альтернативный вывод логов
 
 ```text

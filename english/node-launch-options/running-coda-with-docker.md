@@ -141,6 +141,12 @@ Node container logs:
 sudo docker logs --follow mina -f
 ```
 
+Node status:
+
+```text
+sudo docker exec -it mina coda client status
+```
+
 ### 3.1 Alternative log output
 
 ```text

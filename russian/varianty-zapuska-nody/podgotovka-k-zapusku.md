@@ -17,6 +17,7 @@
 
 ```text
 chmod 700 $HOME/keys
+chmod 600 $HOME/keys/my-wallet
 ```
 
 ## 2. Экспорт ключей

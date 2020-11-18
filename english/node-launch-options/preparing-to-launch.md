@@ -16,6 +16,7 @@ Use any file manager \(Filezilla\) and connect to your server. Copy the `keys` f
 
 ```text
 chmod 700 $HOME/keys
+chmod 600 $HOME/keys/my-wallet
 ```
 
 ## 2. Exporting keys

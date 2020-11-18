@@ -73,10 +73,11 @@ yes | sudo apt install git
 {% endhint %}
 
 ```text
-git clone https://github.com/c29r3/coda-snark-stopper.git \
-&& cd coda-snark-stopper \
+sudo apt-get update && sudo apt-get install tmux -y \
+&& git clone https://github.com/c29r3/mina-snark-stopper.git \
+&& cd mina-snark-stopper \
 && pip3 install -r requirements.txt \
-&& python3 snark-stopper.py
+&& tmux new -s snark-stopper -d python3 snark-stopper.py
 ```
 
 Теперь нужно добавить в конфиг стоппера ваш публичный ключ и комиссию Воркера.  
@@ -87,20 +88,35 @@ nano $HOME/mina-snark-stopper/config.yml
 ```
 
 В строке `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` измените `YOUR_PUBLIC_KEY` на `$MINA_PUBLIC_KEY`  
-В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25 \(значение должно быть такое же как в команде запуска ноды\)
+В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25 \(1000000000 на 25000000\)
+
+{% hint style="info" %}
+1 MINA = 1,000,000,000 nanomina
+{% endhint %}
 
 Готово.
 
 ### 2. Установка с Докером:
 
-Копируем репозиторий:
+Скачиваем файл с конфигом:
 
 ```text
-sudo apt install docker.io -y \
-&& git clone https://github.com/c29r3/mina-snark-stopper.git \
-&& cd mina-snark-stopper \
-&& docker build . -t snark-stopper
+wget https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml
 ```
+
+Теперь нужно добавить в конфиг стоппера ваш публичный ключ и комиссию Воркера.  
+Открываем конфиг командой:
+
+```text
+nano $HOME/config.yml
+```
+
+В строке `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` измените `YOUR_PUBLIC_KEY` на `$MINA_PUBLIC_KEY`  
+В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25 \(1000000000 на 25000000\)
+
+{% hint style="info" %}
+1 MINA = 1,000,000,000 nanomina
+{% endhint %}
 
 Запускаем контейнер:
 

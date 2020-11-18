@@ -3,7 +3,7 @@
 ## 1. Install TMUX
 
 ```text
-sudo apt install tmux
+sudo apt install tmux -y
 ```
 
 ### 1.1 Configuring TMUX

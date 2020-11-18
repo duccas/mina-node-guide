@@ -48,68 +48,84 @@ Choose only one launch option from the 2 suggested below \(paragraph 2.1 or 2.2\
 
 Variables description:
 
-`--name mina` - you can use any name for the container, or leave it as it is
+`--name mina` - you can use any name for the container, or leave it as it is  
+`-work-selection seq` or `-work-selection rand` 
 
 ```text
-sudo docker run -d \
--e "MINA_PRIVKEY_PASS=$MINA_PASS" \
---mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
---name mina \
--p 8302:8302 \
--p 8303:8303 \
+sudo docker run --name mina -d \
+-p 8301-8305:8301-8305 \
+-p 127.0.0.1:3085:3085 \
+-v $(pwd)/keys:/root/keys:ro \
+-v $(pwd)/.coda-config:/root/.coda-config \
 --restart always \
-codaprotocol/coda-daemon:0.0.16-beta7 daemon \
--block-producer-key $HOME/keys/my-wallet \
--peer $SEED1
+minaprotocol/mina-daemon-baked:pickles-public-mina069333b-auto0b96a534 daemon \
+-peer-list-file $HOME/peers.txt \
+-block-producer-key $KEYPATH \
+-block-producer-password $CODA_PRIVKEY_PASS \
+-insecure-rest-server \
+-log-level Info \
+-work-selection seq
 ```
 
-### 2.2 Launch of Block Producer with Snark Worker:
+### 2.2 Run Snark Worker to Block Producer:
 
 {% hint style="warning" %}
-If you don't want to launch the Snark Worker. You can go directly to step 3.
+If you don't want to launch Snark Worker. You can go directly to step 3.
 {% endhint %}
 
-First you need to close port 3085:
+First, you need to close port 3085 for incoming connections:
 
 ```text
 iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 ```
 
-Variables description:
+#### The Snark Worker can now be launched.
 
-1. `--name mina` - you can use any name for the container, or leave it as it is
-2. `--memory 16g` - limiting the amount of RAM that the container can use
-3. `--cpus 8` - limiting the number of processor cores that a container can use
-4. `-snark-worker-fee 0.25` - you can set the Snark Worker fee
-
-You need to enter all the data in the command below:
+Let's set the Worker fee:  
+`set-snark-work-fee 0.025` - the commission value of `0.025` can be changed to any other.
 
 ```text
-sudo docker run -d \
--e "MINA_PRIVKEY_PASS=$MINA_PASS" \
---mount type=bind,source="$(pwd)"/keys,target=$HOME/keys \
---name mina \
--p 8302:8302 \
--p 8303:8303 \
--p 127.0.0.1:3085:3085 \
---memory 16g \
---cpus 8 \
---restart always \
-codaprotocol/coda-daemon:0.0.16-beta7 daemon \
--peer $SEED1 \
--block-producer-key $HOME/keys/my-wallet \
--run-snark-worker $MINA_PUBLIC_KEY \
--snark-worker-fee 0.035 \
--work-selection seq
+sudo docker exec -it mina coda client set-snark-work-fee 0.025
+```
+
+Run Worker:
+
+```text
+sudo docker exec -it mina coda client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
 {% hint style="info" %}
-For both Block Producer and Snark Worker to work, you need to configure the Snark Stopper. To briefly stop the Worker during block production. 
+For both Block Producer and Snark Worker to work, you may configure the Snark Stopper. To briefly stop the Worker during block production. 
 
 Follow the link below to set up your Snark Stopper.
 {% endhint %}
 
 {% page-ref page="../setting-up-snark-stopper.md" %}
+
+### 2.3 Run only Snark Worker \(without Block Producer\)
+
+First, let's launch a node without a Producer and a Snark.
+
+Variables description:
+
+`--name mina` - you can use any name for the container, or leave it as it is  
+`-work-selection seq` or `-work-selection rand` 
+
+```text
+sudo docker run --name mina -d \
+-p 8301-8305:8301-8305 \
+-p 127.0.0.1:3085:3085 \
+-v $(pwd)/keys:/root/keys:ro \
+-v $(pwd)/.coda-config:/root/.coda-config \
+--restart always \
+minaprotocol/mina-daemon-baked:pickles-public-mina069333b-auto0b96a534 daemon \
+-peer-list-file $HOME/peers.txt \
+-insecure-rest-server \
+-log-level Info \
+-work-selection seq
+```
+
+Now go to point **2.2** above and launch the Snark Worker.
 
 ## 3. Viewing logs
 
@@ -119,7 +135,7 @@ View running containers:
 sudo docker ps -a
 ```
 
-Container logs:
+Node container logs:
 
 ```text
 sudo docker logs --follow mina -f

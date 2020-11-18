@@ -2,7 +2,7 @@
 
 ## 1. Preparing public keys
 
-Before starting the node, you need to copy the folder with the keys to your server, created earlier for registration in the testnet 3.3.
+Before starting the node, you need to copy the folder with the keys to your server, created earlier for registration in the testnet 4.1.
 
 {% hint style="info" %}
 This step must be performed if, when creating public keys, you saved them to your local computer and deleted the server. If you did not delete the server and use it to start the node, then you should go to step 1.2.
@@ -16,30 +16,29 @@ Use any file manager \(Filezilla\) and connect to your server. Copy the `keys` f
 
 ```text
 chmod 700 $HOME/keys
-chmod 600 $HOME/keys/my-wallet
 ```
 
-## 2. Exporting keys and SEED peers
+## 2. Exporting keys
 
-Now we will write your public key and SEED peers to the server in the `.profile` file so that they will not be exported next time \(peers should send them to your email before launching testnet 3.3\).
+Now we will write your public key to the server in the `.profile` file so that they will not be exported next time \(peers should send them to your email before launching testnet 4.1\).
 
-Replace `YOUR SEED1` and `YOUR SEED2` with the peers sent to you by email. And also `YOUR PASSWORD` for the public key password.
+Replace `YOUR PASSWORD` for the public key password.
 
 ```text
+echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.profile
 echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export SEED1=YOUR SEED1' >> $HOME/.profile
-echo 'export MINA_PASS=YOUR PASSWORD' >> $HOME/.profile
-source .profile
+echo 'export CODA_PRIVKEY_PASS=YOUR PASSWORD' >> $HOME/.profile
+source ~/.profile
 ```
 
 An example of how it should look:
 
 {% code title="\#EXAMPLE" %}
 ```text
+echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.profile
 echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export SEED1=/dns1/o1test.net/tcp/10001/p2p/1548HgtdaFq2yEQFFzhU5dt64AWqawRuomG9hL8rSmm5vDyajjkf' >> $HOME/.profile
-echo 'export MINA_PASS=qwerty123' >> $HOME/.profile
-source .profile
+echo 'export CODA_PRIVKEY_PASS=qwerty123' >> $HOME/.profile
+source ~/.profile
 ```
 {% endcode %}
 

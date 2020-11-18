@@ -4,6 +4,8 @@
 We recommend using `tmux`before starting to run multiple sessions in one terminal.
 {% endhint %}
 
+{% page-ref page="../setting-up-tmux.md" %}
+
 ## 1. Firewall configuration
 
 Open ports 22, 8302 and 8303 and activate the Firewall:
@@ -60,62 +62,56 @@ sudo apt-get remove mina-testnet-postake-medium-curves
 sudo apt-get remove mina-kademlia
 ```
 
-Download the distribution `Coda`:
+Let's create a folder `.coda-config`:
 
 ```text
-echo "deb [trusted=yes] http://packages.o1test.net unstable main" | sudo tee /etc/apt/sources.list.d/mina.list
+mkdir .coda-config
+```
+
+Downloading package `Mina`:
+
+```text
 sudo apt-get update
-sudo apt-get install mina-testnet-postake-medium-curves
+sudo apt-get install -y apt-transport-https ca-certificates
+echo "deb [trusted=yes] http://packages.o1test.net unstable main" | sudo tee /etc/apt/sources.list.d/coda.list
+sudo apt-get update
+sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.0.16-beta7+-4.1-turbo-pickles-2f36b15 --allow-downgrades
 ```
 
-### 3.1 Running a node
+### 3.1 Run a Node
 
-By the command:
+Produced by the command:
 
 ```text
-mina daemon \
--peer $SEED1
+coda daemon \
+-peer-list-file ~/peers.txt \
+-config-file ~/.coda-config/daemon.json \
+-generate-genesis-proof true \
+-log-level Info
 ```
 
-Block Producer Launch:
+Before starting the block producer, you need to import and unlock the keys:
 
 ```text
-mina client set-staking -public-key $MINA_PUBLIC_KEY
+coda accounts import -privkey-path $KEYPATH
+coda accounts unlock -public-key $MINA_PUBLIC_KEY
 ```
 
-Launching Snark Worker:
+Run Block Producer:
 
 ```text
-mina client set-snark-work-fee 0.25
-mina client set-snark-worker -address $MINA_PUBLIC_KEY
+coda client set-staking -public-key $MINA_PUBLIC_KEY
 ```
 
-Here you can set the Worker commission `mina client set-snark-work-fee 0.25`, or leave it as it is. 
+Run Snark Worker:
+
+```text
+coda client set-snark-work-fee 0.025
+```
+
+Here you can set the Worker commission `coda client set-snark-work-fee 0.25`, or leave it as it is. 
 
 Next, go to the next section and start with Point 2:
 
 {% page-ref page="../cli.-key-import-sending-tokens.md" %}
-
-## 4. Alternative launch of Block Producer and Snark Worker.
-
-### 4.1 Launch of the Block Producer:
-
-```text
-mina daemon \
--peer $SEED1 \
--block-producer-pubkey $MINA_PUBLIC_KEY
-```
-
-### 4.2 Snark Worker Launch:
-
-Variables description:
-
-`-snark-worker-fee 0.25` - you need to set the worker's fee, or leave it as it is
-
-```text
-mina daemon \
--peer $SEED1 \
--run-snark-worker $MINA_PUBLIC_KEY \
--snark-worker-fee 0.25 
-```
 

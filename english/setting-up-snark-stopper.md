@@ -82,7 +82,7 @@ sudo apt-get update && sudo apt-get install tmux -y \
 Now you need to add your public key and Worker fee to the stopper config. Open the config with the command:
 
 ```text
-nano $HOME/config.yml
+nano $HOME/mina-snark-stopper/config.yml
 ```
 
 In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MINA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.025 \(1000000000 to 25000000\)
@@ -95,13 +95,17 @@ Done.
 
 ### 2. Install with Docker:
 
-Clone repo and build:
+Download the config file:
 
 ```text
-sudo apt install docker.io -y \
-&& git clone https://github.com/c29r3/mina-snark-stopper.git \
-&& cd mina-snark-stopper \
-&& docker build . -t snark-stopper
+wget https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml
+```
+
+Now you need to add your public key and Worker commission to the stopper config.   
+Open the config with the command:
+
+```text
+nano $HOME/config.yml
 ```
 
 Run container:

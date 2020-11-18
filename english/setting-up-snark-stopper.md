@@ -108,6 +108,12 @@ Open the config with the command:
 nano $HOME/config.yml
 ```
 
+In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MINA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.025 \(1000000000 to 25000000\)
+
+{% hint style="info" %}
+1 MINA = 1,000,000,000 nanomina
+{% endhint %}
+
 Run container:
 
 ```text

@@ -86,7 +86,7 @@ iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 `set-snark-work-fee 0.025` - значение комиссии `0.025` можно сменить на любое другое.
 
 ```text
-sudo docker exec -it mina coda client set-snark-work-fee 0.025
+sudo docker exec -it mina coda client set-snark-work-fee 0.0235
 ```
 
 Запустим Воркер:

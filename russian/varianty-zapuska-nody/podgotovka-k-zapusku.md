@@ -52,7 +52,7 @@ source ~/.profile
 Выглядит она примерно так:
 
 ```text
-wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/coda-automation/master/terraform/testnets/turbo-pickles/peers.txt
+wget -O ~/peers.txt {URL}
 ```
 
 Вставляем в терминал и скачиваем пиры.  

@@ -49,7 +49,7 @@ Before the launch of Testnet 4.1, participants should receive a link to download
 It looks something like this:
 
 ```text
-wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/coda-automation/master/terraform/testnets/turbo-pickles/peers.txt
+wget -O ~/peers.txt {URL}
 ```
 
 Insert into the terminal and download the peers.   

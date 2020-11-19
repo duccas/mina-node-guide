@@ -1,4 +1,4 @@
-# Preparing public keys
+# Preparing public keys and peers
 
 ## 1. Preparing public keys
 
@@ -42,4 +42,16 @@ echo 'export CODA_PRIVKEY_PASS=qwerty123' >> $HOME/.profile
 source ~/.profile
 ```
 {% endcode %}
+
+## 3. Preparation of peers
+
+Before the launch of Testnet 4.1, participants should receive a link to download peers by email to launch the node.   
+It looks something like this:
+
+```text
+wget -O ~/peers.txt <URL>
+```
+
+Insert into the terminal and download the peers.   
+Done.
 

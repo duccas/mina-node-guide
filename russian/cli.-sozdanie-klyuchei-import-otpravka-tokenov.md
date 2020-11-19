@@ -72,10 +72,10 @@ coda accounts unlock -public-key $MINA_PUBLIC_KEY
 
 ```text
 coda client send-payment \
--sender $MINA_PUBLIC_KEY \
--receiver B62qqtwygyMDh56idVbEAWRzaJCMFg3EXBnUcohZbBemaH6W2HmmG3b \
+-sender B62qnJHBeVJqWamtDhWDPwrX7Y5jiXKcMKTuvug9LQ8ictwNTWN7YvJ \
+-receiver B62qndJi5mnRoBZ8SAYDM1oR2SgAk5WpZC8hGpJUZ4e64kDHGbFMeLJ \
 -fee 0.1 \
--amount 1
+-amount 2
 ```
 
 Готово. Токены отправлены.

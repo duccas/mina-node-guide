@@ -74,7 +74,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 echo "deb [trusted=yes] http://packages.o1test.net unstable main" | sudo tee /etc/apt/sources.list.d/coda.list
 sudo apt-get update
-sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.0.16-beta7+-4.1-turbo-pickles-2f36b15 --allow-downgrades
+sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.0.16-beta7-757342b --allow-downgrades
 ```
 
 ### 3.1 Запуск ноды

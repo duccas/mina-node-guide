@@ -55,6 +55,7 @@ sudo iptables -A INPUT -p tcp --dport 8303 -j ACCEPT
 sudo docker run --name mina -d \
 -p 8301-8305:8301-8305 \
 -p 127.0.0.1:3085:3085 \
+--mount type=bind,source="$(pwd)/peers.txt,dst=/root/peers.txt",readonly \
 -v $(pwd)/keys:/root/keys:ro \
 -v $(pwd)/.coda-config:/root/.coda-config \
 --restart always \
@@ -115,6 +116,7 @@ sudo docker exec -it mina coda client set-snark-worker -address $MINA_PUBLIC_KEY
 sudo docker run --name mina -d \
 -p 8301-8305:8301-8305 \
 -p 127.0.0.1:3085:3085 \
+--mount type=bind,source="$(pwd)/peers.txt,dst=/root/peers.txt",readonly \
 -v $(pwd)/keys:/root/keys:ro \
 -v $(pwd)/.coda-config:/root/.coda-config \
 --restart always \

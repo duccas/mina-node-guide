@@ -27,20 +27,20 @@ chmod 600 $HOME/keys/my-wallet
 Замените `ВАШ ПАРОЛЬ`на пароль от публичного ключа.
 
 ```text
-echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.profile
-echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export CODA_PRIVKEY_PASS=ВАШ ПАРОЛЬ' >> $HOME/.profile
-source ~/.profile
+echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
+echo 'export CODA_PRIVKEY_PASS=ВАШ ПАРОЛЬ' >> $HOME/.bashrc
+source ~/.bashrc
 ```
 
 Пример, как это должно выглядеть:
 
 {% code title="\#ПРИМЕР" %}
 ```text
-echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.profile
-echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export CODA_PRIVKEY_PASS=qwerty123' >> $HOME/.profile
-source ~/.profile
+echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
+echo 'export CODA_PRIVKEY_PASS=qwerty123' >> $HOME/.bashrc
+source ~/.bashrc
 ```
 {% endcode %}
 

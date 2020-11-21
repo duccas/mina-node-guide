@@ -17,43 +17,7 @@ This script was created by the user @whataday2day\#1271
 sudo apt install jq -y
 ```
 
-### **Install Python 3.6**
-
-Set the following requirements
-
-```text
-sudo apt-get install software-properties-common python-software-properties
-```
-
-Run the following command to add the PPA:
-
-```text
-sudo add-apt-repository ppa:jonathonf/python-3.6
-```
-
-Press Enter to continue.
-
-Update repositories:
-
-```text
-sudo apt-get update
-```
-
-Finally, install Python 3.6:
-
-```text
-sudo apt-get install python3.6
-```
-
-After installation, you can check the installed version by running the following command:
-
-```text
-python3.6 -V
-```
-
-## Installing Snark Stopper
-
-Install the git package if it is not installed on the server:
+### Install the git package if it is not installed on the server:
 
 ```text
 yes | sudo apt install git
@@ -72,11 +36,13 @@ You need to run in a new TMUX session
 {% endhint %}
 
 ```text
-sudo apt-get update && sudo apt-get install tmux -y \
+sudo apt-get update \
+&& sudo apt-get install python3-venv tmux git -y \
 && git clone https://github.com/c29r3/mina-snark-stopper.git \
 && cd mina-snark-stopper \
-&& pip3 install -r requirements.txt \
-&& tmux new -s snark-stopper -d python3 snark-stopper.py
+&& python3 -m venv venv \
+&& source ./venv/bin/activate \
+&& pip3 install -r requirements.txt
 ```
 
 Now you need to add your public key and Worker fee to the stopper config. Open the config with the command:
@@ -92,6 +58,19 @@ In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MIN
 {% endhint %}
 
 Done.
+
+### 1.1 Run
+
+```text
+cd mina-snark-stopper; \
+tmux new -s snark-stopper -d venv/bin/python3 snark-stopper.py
+```
+
+Logs:
+
+```text
+tmux attach -t snark-stopper
+```
 
 ### 2. Install with Docker:
 

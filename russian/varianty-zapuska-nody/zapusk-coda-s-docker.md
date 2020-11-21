@@ -65,7 +65,7 @@ minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina757342b-auto811bf26 daemon 
 -block-producer-password $CODA_PRIVKEY_PASS \
 -insecure-rest-server \
 -log-level Info \
--work-selection seq
+-work-selection rand
 ```
 
 ### 2.2 Запуск Снарк Воркера \(Snark Worker\) к Производителю Блоков:

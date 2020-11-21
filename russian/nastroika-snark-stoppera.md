@@ -17,41 +17,6 @@
 sudo apt install jq -y
 ```
 
-### **Установка Python 3.6**
-
-Вы можете также установить Python 3.6 из Personal Package Archive J Fernyhough \(PPA\).  
-Установить следующие требования
-
-```text
-sudo apt-get install software-properties-common python-software-properties
-```
-
-Выполните следующую команду, чтобы добавить PPA:
-
-```text
-sudo add-apt-repository ppa:jonathonf/python-3.6
-```
-
-Нажмите клавишу ВВОД, чтобы продолжить.
-
-Обновите репозитории:
-
-```text
-sudo apt-get update
-```
-
-Наконец, установите Python версии 3.6:
-
-```text
-sudo apt-get install python3.6
-```
-
-После установки, вы можете проверить установленную версию, выполнив следующую команду:
-
-```text
-python3.6 -V
-```
-
 ## Установка Снарк Стоппера
 
 Устанавливаем пакет git, если он не установлен на сервере:
@@ -73,11 +38,13 @@ yes | sudo apt install git
 {% endhint %}
 
 ```text
-sudo apt-get update && sudo apt-get install tmux -y \
+sudo apt-get update \
+&& sudo apt-get install python3-venv tmux git -y \
 && git clone https://github.com/c29r3/mina-snark-stopper.git \
 && cd mina-snark-stopper \
-&& pip3 install -r requirements.txt \
-&& tmux new -s snark-stopper -d python3 snark-stopper.py
+&& python3 -m venv venv \
+&& source ./venv/bin/activate \
+&& pip3 install -r requirements.txt
 ```
 
 Теперь нужно добавить в конфиг стоппера ваш публичный ключ и комиссию Воркера.  
@@ -94,7 +61,18 @@ nano $HOME/mina-snark-stopper/config.yml
 1 MINA = 1,000,000,000 nanomina
 {% endhint %}
 
-Готово.
+### 1.1 Запуск
+
+```text
+cd mina-snark-stopper; \
+tmux new -s snark-stopper -d venv/bin/python3 snark-stopper.py
+```
+
+Просмотр логов:
+
+```text
+tmux attach -t snark-stopper
+```
 
 ### 2. Установка с Докером:
 

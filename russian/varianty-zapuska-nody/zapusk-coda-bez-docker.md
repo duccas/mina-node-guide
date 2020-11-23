@@ -72,9 +72,9 @@ mkdir .coda-config
 ```text
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
-echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
+echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/coda.list
 sudo apt-get update
-sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.0.16-beta7-757342b --allow-downgrades
+sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.0.17-beta5-8245234 --allow-downgrades
 ```
 
 ### 3.1 Запуск ноды

@@ -53,19 +53,20 @@ Variables description:
 
 ```text
 sudo docker run --name mina -d \
+--restart always \
 -p 8301-8305:8301-8305 \
 -p 127.0.0.1:3085:3085 \
---mount type=bind,source="$(pwd)/peers.txt,dst=/root/peers.txt",readonly \
+-v $(pwd)/peers.txt:/root/peers.txt \
 -v $(pwd)/keys:/root/keys:ro \
 -v $(pwd)/.coda-config:/root/.coda-config \
---restart always \
-minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina8245234-auto3a4e5ce daemon \
+minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina4995551-auto3a4e5ce daemon \
 -peer-list-file $HOME/peers.txt \
 -block-producer-key $KEYPATH \
 -block-producer-password $CODA_PRIVKEY_PASS \
 -insecure-rest-server \
+-file-log-level Debug \
 -log-level Info \
--work-selection seq
+-work-selection rand
 ```
 
 ### 2.2 Run Snark Worker to Block Producer:
@@ -120,11 +121,12 @@ sudo docker run --name mina -d \
 -v $(pwd)/keys:/root/keys:ro \
 -v $(pwd)/.coda-config:/root/.coda-config \
 --restart always \
-minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina8245234-auto3a4e5ce daemon \
+minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina4995551-auto3a4e5ce daemon \
 -peer-list-file $HOME/peers.txt \
 -insecure-rest-server \
+-file-log-level Debug \
 -log-level Info \
--work-selection seq
+-work-selection rand
 ```
 
 Now go to point **2.2** above and launch the Snark Worker.

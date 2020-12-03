@@ -161,7 +161,7 @@ sudo docker exec -it mina coda client status | grep "Block producers"
 
 {% code title="\#ПРИМЕР" %}
 ```text
-root@Mina:~# sudo docker exec mina coda client status | grep "Block producers"
+root@Mina:~# sudo docker exec -it mina coda client status | grep "Block producers"
 Block producers running:         1 (B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82)
 ```
 {% endcode %}

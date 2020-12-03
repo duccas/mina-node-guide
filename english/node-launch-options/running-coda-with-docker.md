@@ -154,14 +154,14 @@ sudo docker exec -it mina coda client status
 ### 3.1 Alternative log output
 
 ```text
-sudo docker exec mina coda client status | grep "Block producers"
+sudo docker exec -it mina coda client status | grep "Block producers"
 ```
 
 The output will only show the line with the block producer running. See example below:
 
 {% code title="\#EXAMPLE" %}
 ```text
-root@Coda:~# sudo docker exec mina coda client status | grep "Block producers"
+root@Coda:~# sudo docker exec -it mina coda client status | grep "Block producers"
 Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPYURMmxVPFe4VjXfrxjYeFWEzMmqTpc8suhsRvA51NjvRe6rmWv9eerUjRJFjdRTWcoBdyuyDnGC3GbtKdWhv5b9CajERMD7PHj3z4)
 ```
 {% endcode %}

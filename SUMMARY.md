@@ -24,3 +24,7 @@
 * [Setting up TMUX](english/setting-up-tmux.md)
 * [Setting up Snark Stopper](english/setting-up-snark-stopper.md)
 
+---
+
+* [Troubleshooting guide from @Garethtdavies](https://hackmd.io/@garethtdavies/rJg5G_BiD)
+

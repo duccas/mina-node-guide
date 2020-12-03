@@ -26,20 +26,20 @@ Now we will write your public key to the server in the `.profile` file so that t
 Replace `YOUR PASSWORD` for the public key password.
 
 ```text
-echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.profile
-echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export CODA_PRIVKEY_PASS=YOUR PASSWORD' >> $HOME/.profile
-source ~/.profile
+echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
+echo 'export CODA_PRIVKEY_PASS=YOUR PASSWORD' >> $HOME/.bashrc
+source ~/.bashrc
 ```
 
 An example of how it should look:
 
 {% code title="\#EXAMPLE" %}
 ```text
-echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.profile
-echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.profile
-echo 'export CODA_PRIVKEY_PASS=qwerty123' >> $HOME/.profile
-source ~/.profile
+echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
+echo 'export CODA_PRIVKEY_PASS=qwerty123' >> $HOME/.bashrc
+source ~/.bashrc
 ```
 {% endcode %}
 

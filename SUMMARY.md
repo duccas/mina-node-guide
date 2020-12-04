@@ -27,4 +27,8 @@
 ---
 
 * [Troubleshooting guide from @Garethtdavies](https://hackmd.io/@garethtdavies/rJg5G_BiD)
+* [Guide from @Garethtdavies](https://medium.com/@_garethtdavies/running-coda-with-docker-c32070843227)
+* [Mina Snark Stopper from @Whataday2day](https://github.com/c29r3/mina-snark-stopper)
+* [Official Mina docs](https://minaprotocol.com/docs)
+* [Mina Genesis](https://minaprotocol.com/genesis)
 

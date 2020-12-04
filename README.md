@@ -1,8 +1,8 @@
 # Summary
 
 {% hint style="success" %}
-**Release date:** 04.12.2020 at 01:27 AM UTC  
-**Current version:** \[DIRTY\]9652f8ee092ea77e29f5ab49fa0a295e36743e8b
+**Release date:** 04.12.2020 at 21:40 AM UTC  
+**Current version:** \[DIRTY\]f5aa1fb1b6fa4e0fabbc8f7221c0ca94d31fa0c9
 {% endhint %}
 
 ## Russian

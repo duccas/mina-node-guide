@@ -1,5 +1,10 @@
 # Summary
 
+{% hint style="success" %}
+**Release date:** 04.12.2020 at 01:27 AM UTC  
+**Current version:** \[DIRTY\]9652f8ee092ea77e29f5ab49fa0a295e36743e8b
+{% endhint %}
+
 ## Russian
 
 Данное руководство поможет установить ноду Mina для тестнета 4.1. А также выполнить все задания для получение тестовых поинтов \(pts\).

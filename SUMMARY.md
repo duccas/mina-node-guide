@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Summary](README.md)
-* [Links to related materials](links-to-related-materials.md)
 * [Technical Requirements](technical-requirements.md)
 
 ## RUSSIAN

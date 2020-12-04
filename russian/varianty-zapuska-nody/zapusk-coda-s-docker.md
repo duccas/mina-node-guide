@@ -126,7 +126,7 @@ minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina9652f8e-autod61d39d6 daemon
 -insecure-rest-server \
 -file-log-level Debug \
 -log-level Info \
--work-selection seq
+-work-selection rand
 ```
 
 Теперь переходим выше к пункту **2.2** и запускаем Снарк Воркера.

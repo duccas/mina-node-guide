@@ -56,9 +56,9 @@ sudo docker run --name mina -d \
 --restart always \
 -p 8301-8305:8301-8305 \
 -p 127.0.0.1:3085:3085 \
--v $(pwd)/peers.txt:/root/peers.txt \
--v $(pwd)/keys:/root/keys:ro \
--v $(pwd)/.coda-config:/root/.coda-config \
+-v $(pwd)/peers.txt:$HOME/peers.txt \
+-v $(pwd)/keys:$HOME/keys:ro \
+-v $(pwd)/.coda-config:$HOME/.coda-config \
 minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina9652f8e-autod61d39d6 daemon \
 -peer-list-file $HOME/peers.txt \
 -block-producer-key $KEYPATH \
@@ -118,8 +118,8 @@ sudo docker run --name mina -d \
 -p 8301-8305:8301-8305 \
 -p 127.0.0.1:3085:3085 \
 --mount type=bind,source="$(pwd)/peers.txt,dst=/root/peers.txt",readonly \
--v $(pwd)/keys:/root/keys:ro \
--v $(pwd)/.coda-config:/root/.coda-config \
+-v $(pwd)/keys:$HOME/keys:ro \
+-v $(pwd)/.coda-config:$HOME/.coda-config \
 --restart always \
 minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina9652f8e-autod61d39d6 daemon \
 -peer-list-file $HOME/peers.txt \

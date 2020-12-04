@@ -23,7 +23,7 @@
 * [Setting up TMUX](english/setting-up-tmux.md)
 * [Setting up Snark Stopper](english/setting-up-snark-stopper.md)
 
----
+## Related materials
 
 * [Troubleshooting guide from @Garethtdavies](https://hackmd.io/@garethtdavies/rJg5G_BiD)
 * [Guide from @Garethtdavies](https://medium.com/@_garethtdavies/running-coda-with-docker-c32070843227)

@@ -75,7 +75,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.0.17-beta9-f5aa1fb --allow-downgrades
+sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.0.17-beta10-880882e --allow-downgrades
 ```
 
 ### 3.1 Run a Node

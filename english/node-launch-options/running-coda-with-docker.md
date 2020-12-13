@@ -159,7 +159,7 @@ The output will only show the line with the block producer running. See example 
 {% code title="\#EXAMPLE" %}
 ```text
 root@Coda:~# sudo docker exec -it mina coda client status | grep "Block producers"
-Block producers running:         1 (4vsRCVfshM6QYPWn8TFMLdYbCdf9abRW1t71dAjCXQPYURMmxVPFe4VjXfrxjYeFWEzMmqTpc8suhsRvA51NjvRe6rmWv9eerUjRJFjdRTWcoBdyuyDnGC3GbtKdWhv5b9CajERMD7PHj3z4)
+Block producers running:         1 (B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82)
 ```
 {% endcode %}
 

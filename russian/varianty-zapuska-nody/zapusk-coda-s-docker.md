@@ -10,17 +10,12 @@
 sudo apt update && sudo apt upgrade -y
 ```
 
-Установим Докер:
+Установим и активируем Докер:
 
 ```text
-sudo apt install docker.io curl -y
-```
-
-Активируем Докер:
-
-```text
-sudo systemctl start docker
-sudo systemctl enable docker
+sudo apt install docker.io curl -y \
+&& sudo systemctl start docker \
+&& sudo systemctl enable docker
 ```
 
 ### 1.2 Настройка Фаервола
@@ -34,8 +29,7 @@ sudo systemctl enable docker
 Открываем порты 8302 и 8303:
 
 ```text
-sudo iptables -A INPUT -p tcp --dport 8302 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 8303 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8302:8303 -j ACCEPT
 ```
 
 ## 2. Варианты запуска ноды

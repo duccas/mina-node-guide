@@ -29,8 +29,7 @@ If not, then follow the commands below:
 Open ports 8302 and 8303:
 
 ```text
-sudo iptables -A INPUT -p tcp --dport 8302 -j ACCEPT
-sudo iptables -A INPUT -p tcp --dport 8303 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8302:8303 -j ACCEPT
 ```
 
 ## 2. Node launch options

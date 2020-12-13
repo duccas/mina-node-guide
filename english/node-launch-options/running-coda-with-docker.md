@@ -10,17 +10,12 @@ Update the packages on the server to the latest versions:
 sudo apt update && sudo apt upgrade -y
 ```
 
-Install Docker:
+Install and activate Docker:
 
 ```text
-sudo apt install docker.io curl -y
-```
-
-Activate Docker:
-
-```text
-sudo systemctl start docker
-sudo systemctl enable docker
+sudo apt install docker.io curl -y \
+&& sudo systemctl start docker \
+&& sudo systemctl enable docker
 ```
 
 ### 1.2 Firewall configuration

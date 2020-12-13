@@ -42,8 +42,10 @@ sudo iptables -A INPUT -p tcp --dport 8302:8303 -j ACCEPT
 
 Описание изменяемых переменных:
 
-`--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть  
-`-work-selection seq` или `-work-selection rand` 
+`--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть;  
+  
+По умолчанию `-work-selection` для Снарк Воркера является случайным `rand`.  
+Вы можете изменить это, добавив флаг `-work-selection seq` в конец команды запуска, которая будет работать с заданиями в том порядке, в котором они должны быть включены из состояния сканирования и скорее всего приведет к включению ваших снарков без потенциально длительной задержки.
 
 ```text
 sudo docker run --name mina -d \
@@ -59,8 +61,7 @@ minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina880882e-autoa026dd9 daemon 
 -block-producer-password $CODA_PRIVKEY_PASS \
 -insecure-rest-server \
 -file-log-level Debug \
--log-level Info \
--work-selection rand
+-log-level Info
 ```
 
 ### 2.2 Запуск Снарк Воркера \(Snark Worker\) к Производителю Блоков:
@@ -100,12 +101,20 @@ sudo docker exec -it mina coda client set-snark-worker -address $MINA_PUBLIC_KEY
 
 ### 2.3 Запуск только Снарк Воркера \(без Производителя Блоков\)
 
-Для начала запустим ноду без Производителя и Снарка.
+Нужно закрыть порт 3085 для входящих соединений:
+
+```text
+iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
+```
 
 Описание изменяемых переменных:
 
-`--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть  
-`-work-selection seq` или `-work-selection rand` 
+`--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть;
+
+По умолчанию `-work-selection` для Снарк Воркера является случайным `rand`.  
+Вы можете изменить это, добавив флаг `-work-selection seq` в конец команды запуска, которая будет работать с заданиями в том порядке, в котором они должны быть включены из состояния сканирования и скорее всего приведет к включению ваших снарков без потенциально длительной задержки;
+
+`set-snark-work-fee 0.025` - значение комиссии Воркера `0.025` можно сменить на любое другое.
 
 ```text
 sudo docker run --name mina -d \
@@ -117,13 +126,13 @@ sudo docker run --name mina -d \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
 minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina880882e-autoa026dd9 daemon \
 -peer-list-file $HOME/peers.txt \
+-snark-worker-fee 0.025 \
+-run-snark-worker $MINA_PUBLIC_KEY \
+-work-selection seq \
 -insecure-rest-server \
 -file-log-level Debug \
--log-level Info \
--work-selection rand
+-log-level Info
 ```
-
-Теперь переходим выше к пункту **2.2** и запускаем Снарк Воркера.
 
 ## 3. Просмотр логов
 
@@ -168,6 +177,12 @@ Block producers running:         1 (B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2
 
 ```text
 sudo docker stop mina
+```
+
+Рестарт контейнера
+
+```text
+sudo docker restart mina
 ```
 
 Удаление контейнера:

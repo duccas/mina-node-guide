@@ -42,8 +42,9 @@ Choose only one launch option from the 2 suggested below \(paragraph 2.1 or 2.2\
 
 Variables description:
 
-`--name mina` - you can use any name for the container, or leave it as it is  
-`-work-selection seq` or `-work-selection rand` 
+`--name mina` - you can use any name for the container, or leave it as it is;
+
+ By default, the `-work-selection` for a snark worker is random `rand`. You can change this by adding the `-work-selection seq` flag to the command, which will work on jobs in the order required to be included from the scan state and will likely result in your snarks being included without a potentially lengthy delay.
 
 ```text
 sudo docker run --name mina -d \
@@ -59,8 +60,7 @@ minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina880882e-autoa026dd9 daemon 
 -block-producer-password $CODA_PRIVKEY_PASS \
 -insecure-rest-server \
 -file-log-level Debug \
--log-level Info \
--work-selection rand
+-log-level Info
 ```
 
 ### 2.2 Run Snark Worker to Block Producer:
@@ -104,8 +104,11 @@ First, let's launch a node without a Producer and a Snark.
 
 Variables description:
 
-`--name mina` - you can use any name for the container, or leave it as it is  
-`-work-selection seq` or `-work-selection rand` 
+`--name mina` - you can use any name for the container, or leave it as it is;
+
+By default, the `-work-selection` for a snark worker is random `rand`. You can change this by adding the `-work-selection seq` flag to the command, which will work on jobs in the order required to be included from the scan state and will likely result in your snarks being included without a potentially lengthy delay;
+
+`set-snark-work-fee 0.025` - the commission value of `0.025` can be changed to any other.
 
 ```text
 sudo docker run --name mina -d \
@@ -117,13 +120,13 @@ sudo docker run --name mina -d \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
 minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina880882e-autoa026dd9 daemon \
 -peer-list-file $HOME/peers.txt \
+-snark-worker-fee 0.025 \
+-run-snark-worker $MINA_PUBLIC_KEY \
+-work-selection seq \
 -insecure-rest-server \
 -file-log-level Debug \
--log-level Info \
--work-selection rand
+-log-level Info
 ```
-
-Now go to point **2.2** above and launch the Snark Worker.
 
 ## 3. Viewing logs
 
@@ -170,6 +173,12 @@ The container is stopped by the command:
 sudo docker stop mina
 ```
 
+Restart container:
+
+```text
+sudo docker restart mina
+```
+
 Removing a container:
 
 ```text
@@ -180,5 +189,13 @@ Removing a running container:
 
 ```text
 sudo docker rm -f mina
+```
+
+## 5. Others
+
+Deleting config folder:
+
+```text
+rm -rf ~/.coda-config
 ```
 

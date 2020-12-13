@@ -107,6 +107,7 @@ Run Snark Worker:
 
 ```text
 coda client set-snark-work-fee 0.025
+coda client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
 Here you can set the Worker commission `coda client set-snark-work-fee 0.25`, or leave it as it is. 

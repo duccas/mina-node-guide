@@ -1,10 +1,10 @@
 # Summary
 
 {% hint style="success" %}
-**Release date:** 06.12.2020 at 20:55 AM UTC  
-**Current version:** \[DIRTY\]880882e45e48aaf987aca191f488c7f65609c305  
-**New image:** minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina880882e-autoa026dd9  
-**New package:** mina-testnet-postake-medium-curves=0.0.17-beta10-880882e
+**Release date:** 15.12.2020 at 01:12 AM UTC  
+**Current version:** \[DIRTY\]78ff1c7f3d2531a7a1de97903f5fa2c9c2b8dd43  
+**New image:** minaprotocol/mina-daemon-baked:4.1-turbo-pickles-mina78ff1c7-autoe7f1072  
+**New package:** mina-testnet-postake-medium-curves=0.0.17-beta11-78ff1c7
 {% endhint %}
 
 ## Russian

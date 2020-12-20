@@ -1,10 +1,10 @@
 # Summary
 
 {% hint style="success" %}
-**Release date:** 16.12.2020 at 06:50 AM UTC \(Hard-Fork\)  
-**Current version:** \[DIRTY\]56b97f1b73165b089725b85eef65c859460be2ea  
-**New image:** minaprotocol/mina-daemon-baked:4.1-turbo-pickles-forked-mina56b97f1-autoeaa923f  
-**New package:** mina-testnet-postake-medium-curves=0.1.0-beta1-56b97f1
+**Release date:** 20.12.2020 at 02:30 AM UTC  
+**Current version:** \[DIRTY\]41db20648b566908881a17c8b0248d05f517f25a  
+**New image:** codaprotocol/coda-daemon-baked:0.1.1-41db206-turbo-pickles-534f712  
+**New package:** mina-testnet-postake-medium-curves=0.1.1-41db206
 {% endhint %}
 
 ## Russian

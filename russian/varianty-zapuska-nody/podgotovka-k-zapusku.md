@@ -52,7 +52,7 @@ source ~/.bashrc
 Выглядит она примерно так:
 
 ```text
-wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/coda-automation/master/terraform/testnets/turbo-pickles/peers.txt
+wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/coda-automation/bug-bounty-net/terraform/testnets/testworld/peers.txt
 ```
 
 Вставляем в терминал и скачиваем пиры.  

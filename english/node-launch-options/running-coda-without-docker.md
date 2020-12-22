@@ -85,7 +85,6 @@ Produced by the command:
 ```text
 coda daemon \
 -peer-list-file ~/peers.txt \
--config-file ~/.coda-config/daemon.json \
 -generate-genesis-proof true \
 -log-level Info
 ```

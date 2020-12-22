@@ -84,7 +84,6 @@ sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.1.1+-temporary
 ```text
 coda daemon \
 -peer-list-file ~/peers.txt \
--config-file ~/.coda-config/daemon.json \
 -generate-genesis-proof true \
 -log-level Info
 ```

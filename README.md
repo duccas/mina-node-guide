@@ -1,10 +1,10 @@
 # Summary
 
 {% hint style="success" %}
-**Release date:** 22.12.2020 at 08:07 AM UTC  
-**Current version:** \[DIRTY\]cf2b7679e4b14cfbeb6f68641dc2681b9ddb4edd  
-**New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.1.1-temporary-qa-staging-ci-wait-cf2b767-testworld-f226fed  
-**New package:** mina-testnet-postake-medium-curves=0.1.1+-temporary-qa-staging-ci-wait-cf2b767
+**Release date:** 22.12.2020 at 20:12 AM UTC  
+**Current version:** \[DIRTY\]bbda99d20108c49a215a4f5bb860d9cd0063e65d  
+**New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.1.1-add-testworld-ledger-bbda99d-testworld-4af8f09  
+**New package:** mina-testnet-postake-medium-curves=0.1.1+-add-testworld-ledger-bbda99d
 {% endhint %}
 
 ## Russian

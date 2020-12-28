@@ -64,7 +64,7 @@ gcr.io/o1labs-192920/coda-daemon-baked:0.1.1-add-testworld-ledger-bbda99d-testwo
 -log-level Info
 ```
 
-### 2.2 Запуск Снарк Воркера \(Snark Worker\) к Производителю Блоков:
+### 2.1.1 Запуск Снарк Воркера \(Snark Worker\) к Производителю Блоков:
 
 {% hint style="warning" %}
 Если вы не хотите запускать Snark Worker. Вы можете сразу перейти к шагу 3.
@@ -99,7 +99,7 @@ sudo docker exec -it mina coda client set-snark-worker -address $MINA_PUBLIC_KEY
 
 {% page-ref page="../nastroika-snark-stoppera.md" %}
 
-### 2.3 Запуск только Снарк Воркера \(без Производителя Блоков\)
+### 2.2 Запуск только Снарк Воркера \(без Производителя Блоков\)
 
 Нужно закрыть порт 3085 для входящих соединений:
 

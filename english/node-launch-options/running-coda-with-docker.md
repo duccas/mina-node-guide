@@ -40,9 +40,10 @@ Choose only one launch option from the 2 suggested below \(paragraph 2.1 or 2.2\
 
 ### 2.1 Run only Block Producer:
 
-Variables description:
-
-`--name mina` - you can use any name for the container, or leave it as it is;
+Variables description:  
+  
+`--name mina` - you can use any name for the container, or leave it as it is;  
+`-block-producer-password "YOUR PASS"` - instead `YOUR PASS` enter the password for your key.
 
  By default, the `-work-selection` for a snark worker is random `rand`. You can change this by adding the `-work-selection seq` flag to the command, which will work on jobs in the order required to be included from the scan state and will likely result in your snarks being included without a potentially lengthy delay.
 
@@ -57,7 +58,7 @@ sudo docker run --name mina -d \
 minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e daemon \
 -peer-list-file $HOME/peers.txt \
 -block-producer-key $KEYPATH \
--block-producer-password "naughty blue worm" \
+-block-producer-password "YOUR PASS" \
 -insecure-rest-server \
 -file-log-level Info \
 -log-level Info

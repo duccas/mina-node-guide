@@ -43,6 +43,7 @@ sudo iptables -A INPUT -p tcp --dport 8302:8303 -j ACCEPT
 Описание изменяемых переменных:
 
 `--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть;  
+`-block-producer-password "YOUR PASS"` - вместо `YOUR PASS` укажите пароль от вашего ключа.  
   
 По умолчанию `-work-selection` для Снарк Воркера является случайным `rand`.  
 Вы можете изменить это, добавив флаг `-work-selection seq` в конец команды запуска, которая будет работать с заданиями в том порядке, в котором они должны быть включены из состояния сканирования и скорее всего приведет к включению ваших снарков без потенциально длительной задержки.
@@ -58,7 +59,7 @@ sudo docker run --name mina -d \
 minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e daemon \
 -peer-list-file $HOME/peers.txt \
 -block-producer-key $KEYPATH \
--block-producer-password "naughty blue worm" \
+-block-producer-password "YOUR PASS" \
 -insecure-rest-server \
 -file-log-level Info \
 -log-level Info

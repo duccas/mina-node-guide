@@ -57,7 +57,7 @@ sudo docker run --name mina -d \
 minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e daemon \
 -peer-list-file $HOME/peers.txt \
 -block-producer-key $KEYPATH \
--block-producer-password $CODA_PRIVKEY_PASS \
+-block-producer-password "naughty blue worm" \
 -insecure-rest-server \
 -file-log-level Debug \
 -log-level Info

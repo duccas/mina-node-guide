@@ -67,12 +67,9 @@ chmod 600 $HOME/keys/my-wallet
 
 Now we will write your public key to the server in the `.profile` file so that they will not be exported next time.
 
-Replace `YOUR PASSWORD` for the public key password.
-
 ```text
 echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
 echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
-echo 'export CODA_PRIVKEY_PASS="YOUR PASSWORD"' >> $HOME/.bashrc
 source ~/.bashrc
 ```
 
@@ -82,7 +79,6 @@ An example of how it should look:
 ```text
 echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
 echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
-echo 'export CODA_PRIVKEY_PASS="go mina go"' >> $HOME/.bashrc
 source ~/.bashrc
 ```
 {% endcode %}

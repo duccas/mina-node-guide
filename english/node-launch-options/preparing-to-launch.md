@@ -11,7 +11,7 @@ rm -rf ~/keys
 mkdir ~/keys
 ```
 
-The link to download the archive with the keys will come to your email. It looks like this: https://storage.googleapis.com/keys/852e16aab662123131378d3ad08bd404a0f\_1937.zip
+The link to download the archive with the keys will come to your email.
 
 Replace`<YOUR LINK>` to the link from the email.
 
@@ -23,7 +23,7 @@ Example:
 
 {% code title="\#ПРИМЕР" %}
 ```text
-wget -O ~/keys/new-keys.zip https://storage.googleapis.com/keys/852e16aab662123131378d3ad08bd404a0f_1937.zip
+wget -O ~/keys/new-keys.zip https://keys.com/keys/12031398-0-0dskfhskjdfh12313.zip
 ```
 {% endcode %}
 

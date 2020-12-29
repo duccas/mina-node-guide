@@ -74,7 +74,7 @@ minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e daemon \
 Для начала нужно закрыть порт 3085 для входящих соединений:
 
 ```text
-iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
+sudo iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 ```
 
 #### Теперь можно запускать Снарк Воркер.
@@ -105,7 +105,7 @@ sudo docker exec -it mina coda client set-snark-worker -address $MINA_PUBLIC_KEY
 Нужно закрыть порт 3085 для входящих соединений:
 
 ```text
-iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
+sudo iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
 ```
 
 Описание изменяемых переменных:

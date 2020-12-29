@@ -11,7 +11,7 @@ rm -rf ~/keys
 mkdir ~/keys
 ```
 
-The link to download the archive with the keys will come to your email. It looks like this: https://storage.googleapis.com/testworldkeys/852e16aab6622a2278d3ad08bd404a0f\_1937.zip
+The link to download the archive with the keys will come to your email. It looks like this: https://storage.googleapis.com/testworldkeys/852e16aab662123131378d3ad08bd404a0f\_1937.zip
 
 Replace`<YOUR LINK>` to the link from the email.
 

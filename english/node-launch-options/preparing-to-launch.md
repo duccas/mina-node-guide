@@ -2,15 +2,59 @@
 
 ## 1. Preparing public keys
 
-Before starting the node, you need to copy the folder with the keys to your server, created earlier for registration in the testnet 4.1.
+Before starting the node, you need to copy the keys to your server. 
 
-{% hint style="info" %}
-This step must be performed if, when creating public keys, you saved them to your local computer and deleted the server. If you did not delete the server and use it to start the node, then you should go to step 1.2.
-{% endhint %}
+Let's delete the old key folder and create a new one:
 
-Use any file manager \(Filezilla\) and connect to your server. Copy the `keys` folder to the server root.
+```text
+rm -rf ~/keys
+mkdir ~/keys
+```
 
-![](../../.gitbook/assets/image%20%281%29.png)
+The link to download the archive with the keys will come to your email. It looks like this: https://storage.googleapis.com/testworldkeys/852e16aab6622a2278d3ad08bd404a0f\_1937.zip
+
+Replace`<YOUR LINK>` to the link from the email.
+
+```text
+wget -O ~/keys/new-keys.zip <YOUR LINK>
+```
+
+Example:
+
+{% code title="\#ПРИМЕР" %}
+```text
+wget -O ~/keys/new-keys.zip https://storage.googleapis.com/testworldkeys/852e16aab6622a2278d3ad08bd404a0f_5454.zip
+```
+{% endcode %}
+
+Let's go to the folder `keys` and unpack the downloaded files:
+
+```text
+cd ~/keys
+unzip new-keys.zip
+```
+
+As a result, we will see that 2 files with the names `extra_fish_account_1937` and `extra_fish_account_1937.pub`.
+
+![](../../.gitbook/assets/image%20%284%29.png)
+
+Now these files need to be renamed to the correct view. Replace in commands below `<FILE NAME>` on file names after unpacking.
+
+```text
+mv <FILE NAME> my-wallet
+mv <FILE NAME>.pub my-wallet.pub
+```
+
+Example:
+
+{% code title="\#ПРИМЕР" %}
+```text
+mv extra_fish_account_1937 my-wallet
+mv extra_fish_account_1937.pub my-wallet.pub
+```
+{% endcode %}
+
+We paste into the terminal. Done.
 
 ### 1.2 You need to give the folders and files read and write permissions:
 

@@ -59,7 +59,7 @@ minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e daemon \
 -block-producer-key $KEYPATH \
 -block-producer-password "naughty blue worm" \
 -insecure-rest-server \
--file-log-level Debug \
+-file-log-level Info \
 -log-level Info
 ```
 
@@ -124,7 +124,7 @@ minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e daemon \
 -run-snark-worker $MINA_PUBLIC_KEY \
 -work-selection seq \
 -insecure-rest-server \
--file-log-level Debug \
+-file-log-level Info \
 -log-level Info
 ```
 

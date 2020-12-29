@@ -74,7 +74,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl mina-testnet-postake-medium-curves=0.1.1+-add-testworld-ledger-bbda99d --allow-downgrades
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.0-efc44df --allow-downgrades
 ```
 
 ### 3.1 Запуск ноды

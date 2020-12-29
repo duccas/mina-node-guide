@@ -1,10 +1,10 @@
 # Summary
 
 {% hint style="success" %}
-**Release date:** 22.12.2020 at 20:12 AM UTC  
-**Current version:** \[DIRTY\]bbda99d20108c49a215a4f5bb860d9cd0063e65d  
+**Release date:** 28.12.2020 at 23:09 AM UTC  
+**Current version:** \[DIRTY\]efc44df72dfc8fd1dab7ba5992e2566c10792fa3  
 **New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.1.1-add-testworld-ledger-bbda99d-testworld-4af8f09  
-**New package:** mina-testnet-postake-medium-curves=0.1.1+-add-testworld-ledger-bbda99d
+**New package:** mina-testnet-postake-medium-curves=0.2.0-efc44df
 {% endhint %}
 
 ## Russian

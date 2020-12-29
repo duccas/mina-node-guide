@@ -2,16 +2,59 @@
 
 ## 1. Подготовка публичных ключей
 
-Перед запуском ноды нужно скопировать папку с ключами на ваш сервер, созданную ранее для регистрации в тестнет 4.1. 
+Перед запуском ноды нужно скопировать ключи на ваш сервер. 
 
-{% hint style="info" %}
-Этот пункт нужно выполнять в том случае, если при создании публичных ключей вы их сохранили на свой локальный компьютер и удалили сервер.   
-Если вы не удаляли сервер и используете его же для запуска ноды, то вам следует перейти к пункту 1.2.
-{% endhint %}
+Удалим старую папку с ключами и создадим новую:
 
-Используйте любой файловый менеджер \(Filezilla\) и подключитесь к своему серверу. Скопируйте в корень сервера папку `keys` .
+```text
+rm -rf ~/keys
+mkdir ~/keys
+```
 
-![](../../.gitbook/assets/image%20%281%29.png)
+Ссылка на скачивание архива с ключами придет на ваш емейл. Она выглядит вот так: https://storage.googleapis.com/testworldkeys/852e16aab6622a2278d3ad08bd404a0f\_1937.zip
+
+Замените `<ВАША ССЫЛКА>` на ссылку из письма.
+
+```text
+wget -O ~/keys/new-keys.zip <ВАША ССЫЛКА>
+```
+
+Пример готовой команды:
+
+{% code title="\#ПРИМЕР" %}
+```text
+wget -O ~/keys/new-keys.zip https://storage.googleapis.com/testworldkeys/852e16aab6622a2278d3ad08bd404a0f_5454.zip
+```
+{% endcode %}
+
+Зайдем в папку `keys` и распакуем скачанные файлы:
+
+```text
+cd ~/keys
+unzip new-keys.zip
+```
+
+В результате мы увидим, что распакованы 2 файла с именами `extra_fish_account_1937` и `extra_fish_account_1937.pub`.
+
+![](../../.gitbook/assets/image%20%284%29.png)
+
+Теперь эти файлы нужно переименовать в правильный вид. Замените в командах ниже `<НАЗВАНИЕ ФАЙЛА>` на названия файлов после распаковки.
+
+```text
+mv <НАЗВАНИЕ ФАЙЛА> my-wallet
+mv <НАЗВАНИЕ ФАЙЛА>.pub my-wallet.pub
+```
+
+Выглядеть будет вот так:
+
+{% code title="\#ПРИМЕР" %}
+```text
+mv extra_fish_account_1937 my-wallet
+mv extra_fish_account_1937.pub my-wallet.pub
+```
+{% endcode %}
+
+Вставляем в терминал. Готово.
 
 ### 1.2 Нужно дать папке права на запись и чтение:
 
@@ -22,14 +65,14 @@ chmod 600 $HOME/keys/my-wallet
 
 ## 2. Экспорт ключей
 
-Теперь запишем ваш публичный ключ на сервер в файл `.bashrc`, чтобы в следующий раз больше их не экспортировать\(пиры должны прислать на ваш email перед запуском тестнет 4.1\).
+Теперь запишем ваш публичный ключ на сервер в файл `.bashrc`, чтобы в следующий раз больше их не экспортировать.
 
 Замените `ВАШ ПАРОЛЬ`на пароль от публичного ключа.
 
 ```text
 echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
 echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
-echo 'export CODA_PRIVKEY_PASS=ВАШ ПАРОЛЬ' >> $HOME/.bashrc
+echo 'export CODA_PRIVKEY_PASS="ВАШ ПАРОЛЬ"' >> $HOME/.bashrc
 source ~/.bashrc
 ```
 
@@ -39,7 +82,7 @@ source ~/.bashrc
 ```text
 echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
 echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
-echo 'export CODA_PRIVKEY_PASS=qwerty123' >> $HOME/.bashrc
+echo 'export CODA_PRIVKEY_PASS="qwerty123"' >> $HOME/.bashrc
 source ~/.bashrc
 ```
 {% endcode %}
@@ -48,13 +91,13 @@ source ~/.bashrc
 
 ## 3. Подготовка пиров
 
-Перед запуском тестнета 4.1 участникам на email должна прийти ссылка на скачивание пиров для запуска ноды.   
-Выглядит она примерно так:
+Перед запуском тестнета Testworld участникам на email должна прийти ссылка на скачивание пиров для запуска ноды.   
+Ссылка на скачивание пиров:
 
 ```text
 wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/coda-automation/bug-bounty-net/terraform/testnets/testworld/peers.txt
 ```
 
-Вставляем в терминал и скачиваем пиры.  
+Вставляем в терминал и скачиваем.  
 Готово.
 

@@ -11,7 +11,7 @@ rm -rf ~/keys
 mkdir ~/keys
 ```
 
-Ссылка на скачивание архива с ключами придет на ваш емейл. Она выглядит вот так: https://storage.googleapis.com/testworldkeys/852e16aab6622a2278d3ad08bd404a0f\_1937.zip
+Ссылка на скачивание архива с ключами придет на ваш емейл. Она выглядит вот так: https://storage.googleapis.com/keys/852e16aab6622a2278d3ad08bd404a0f\_1937.zip
 
 Замените `<ВАША ССЫЛКА>` на ссылку из письма.
 
@@ -23,7 +23,7 @@ wget -O ~/keys/new-keys.zip <ВАША ССЫЛКА>
 
 {% code title="\#ПРИМЕР" %}
 ```text
-wget -O ~/keys/new-keys.zip https://storage.googleapis.com/testworldkeys/852e16aab662123131378d3ad08bd404a0f_1937.zip
+wget -O ~/keys/new-keys.zip https://storage.googleapis.com/keys/852e16aab662123131378d3ad08bd404a0f_1937.zip
 ```
 {% endcode %}
 

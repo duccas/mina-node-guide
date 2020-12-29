@@ -62,7 +62,6 @@ nano $HOME/mina-snark-stopper/config.yml
 ### 1.1 Запуск
 
 ```text
-cd mina-snark-stopper; \
 tmux new -s snark-stopper -d venv/bin/python3 snark-stopper.py
 ```
 

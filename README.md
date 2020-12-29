@@ -3,7 +3,7 @@
 {% hint style="success" %}
 **Release date:** 28.12.2020 at 23:09 AM UTC  
 **Current version:** \[DIRTY\]efc44df72dfc8fd1dab7ba5992e2566c10792fa3  
-**New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.1.1-add-testworld-ledger-bbda99d-testworld-4af8f09  
+**New image:** minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e  
 **New package:** mina-testnet-postake-medium-curves=0.2.0-efc44df
 {% endhint %}
 

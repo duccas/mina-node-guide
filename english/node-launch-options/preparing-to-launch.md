@@ -45,7 +45,7 @@ source ~/.bashrc
 
 ## 3. Preparation of peers
 
-Before the launch of Testnet 4.1, participants should receive a link to download peers by email to launch the node.   
+Before the launch of Testnet Testworld, participants should receive a link to download peers by email to launch the node.   
 It looks something like this:
 
 ```text

@@ -21,7 +21,7 @@ wget -O ~/keys/new-keys.zip <YOUR LINK>
 
 Example:
 
-{% code title="\#ПРИМЕР" %}
+{% code title="\#EXAMPLE" %}
 ```text
 wget -O ~/keys/new-keys.zip https://keys.com/keys/12031398-0-0dskfhskjdfh12313.zip
 ```
@@ -47,7 +47,7 @@ mv <FILE NAME>.pub my-wallet.pub
 
 Example:
 
-{% code title="\#ПРИМЕР" %}
+{% code title="\#EXAMPLE" %}
 ```text
 mv extra_fish_account_1937 my-wallet
 mv extra_fish_account_1937.pub my-wallet.pub

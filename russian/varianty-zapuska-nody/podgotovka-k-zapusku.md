@@ -67,7 +67,7 @@ chmod 600 $HOME/keys/my-wallet
 
 Теперь запишем ваш публичный ключ на сервер в файл `.bashrc`, чтобы в следующий раз больше их не экспортировать.
 
-Замените `ВАШ ПАРОЛЬ`на пароль от публичного ключа.
+Замените `ВАШ ПАРОЛЬ`на пароль от публичного ключа, который прислали на вашу почту.
 
 ```text
 echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
@@ -82,7 +82,7 @@ source ~/.bashrc
 ```text
 echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
 echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
-echo 'export CODA_PRIVKEY_PASS="qwerty123"' >> $HOME/.bashrc
+echo 'export CODA_PRIVKEY_PASS="go mina go"' >> $HOME/.bashrc
 source ~/.bashrc
 ```
 {% endcode %}

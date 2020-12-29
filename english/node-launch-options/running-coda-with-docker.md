@@ -49,7 +49,7 @@ Variables description:
 ```text
 sudo docker run --name mina -d \
 --restart always \
--p 8301-8305:8301-8305 \
+-p 8302:8302 \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/peers.txt:$HOME/peers.txt \
 -v $(pwd)/keys:$HOME/keys:ro \
@@ -113,7 +113,7 @@ By default, the `-work-selection` for a snark worker is random `rand`. You can c
 ```text
 sudo docker run --name mina -d \
 --restart always \
--p 8301-8305:8301-8305 \
+-p 8302:8302 \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/peers.txt:$HOME/peers.txt \
 -v $(pwd)/keys:$HOME/keys:ro \

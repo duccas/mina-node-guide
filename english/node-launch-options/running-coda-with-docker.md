@@ -70,14 +70,6 @@ minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e daemon \
 If you don't want to launch Snark Worker. You can go directly to step 3.
 {% endhint %}
 
-First, you need to close port 3085 for incoming connections:
-
-```text
-iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
-```
-
-#### The Snark Worker can now be launched.
-
 Let's set the Worker fee:  
 `set-snark-work-fee 0.025` - the commission value of `0.025` can be changed to any other.
 

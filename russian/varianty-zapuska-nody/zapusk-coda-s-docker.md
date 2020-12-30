@@ -71,14 +71,6 @@ minaprotocol/mina-daemon-baked:0.2.0-efc44df-testworld-af5e10e daemon \
 Если вы не хотите запускать Snark Worker. Вы можете сразу перейти к шагу 3.
 {% endhint %}
 
-Для начала нужно закрыть порт 3085 для входящих соединений:
-
-```text
-sudo iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
-```
-
-#### Теперь можно запускать Снарк Воркер.
-
 Установим комиссию Воркера:  
 `set-snark-work-fee 0.025` - значение комиссии `0.025` можно сменить на любое другое.
 
@@ -101,12 +93,6 @@ sudo docker exec -it mina coda client set-snark-worker -address $MINA_PUBLIC_KEY
 {% page-ref page="../nastroika-snark-stoppera.md" %}
 
 ### 2.2 Запуск только Снарк Воркера \(без Производителя Блоков\)
-
-Нужно закрыть порт 3085 для входящих соединений:
-
-```text
-sudo iptables -I INPUT 1 -p tcp --sport 3085 -j DROP
-```
 
 Описание изменяемых переменных:
 

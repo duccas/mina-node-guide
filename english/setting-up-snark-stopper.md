@@ -29,6 +29,12 @@ Your snark worker should be RUNNING.
 
 Check the config file. There are several options that you can remap.
 
+Unblock the private network:
+
+```text
+sudo iptables -D OUTPUT -p tcp -d 172.16.0.0/12 -j DROP
+```
+
 ### 1. Install without Docker:
 
 {% hint style="info" %}

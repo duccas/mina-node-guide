@@ -132,7 +132,7 @@ sudo docker ps -a
 Логи контейнера с нодой:
 
 ```text
-sudo docker logs --follow mina -f
+sudo docker logs --follow mina -f --tail 100
 ```
 
 Статус ноды:

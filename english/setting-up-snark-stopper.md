@@ -57,11 +57,7 @@ Now you need to add your public key and Worker fee to the stopper config. Open t
 nano $HOME/mina-snark-stopper/config.yml
 ```
 
-In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MINA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.025 \(1000000000 to 25000000\)
-
-{% hint style="info" %}
-1 MINA = 1,000,000,000 nanomina
-{% endhint %}
+In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MINA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.025 
 
 Done.
 
@@ -93,11 +89,7 @@ Open the config with the command:
 nano $HOME/config.yml
 ```
 
-In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MINA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.025 \(1000000000 to 25000000\)
-
-{% hint style="info" %}
-1 MINA = 1,000,000,000 nanomina
-{% endhint %}
+In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MINA_PUBLIC_KEY` In the line `WORKER_FEE: 1`, replace the commission value, for example, from 1 to 0.025 
 
 Run container:
 
@@ -152,7 +144,19 @@ sudo docker rm -f snark-stopper \
 && sudo docker pull c29r3/snark-stopper
 ```
 
-### 4. Uninstall
+### 4. How to Update
+
+Delete the config file and container and download the new image:
+
+```text
+rm config.yml \
+&& sudo docker rm -f snark-stopper \
+&& sudo docker pull c29r3/snark-stopper
+```
+
+Then we continue from point 1 or 2.
+
+### 5. Uninstall
 
 ```text
 rm -rf mina-snark-stopper; \

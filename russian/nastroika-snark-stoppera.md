@@ -61,10 +61,6 @@ nano $HOME/mina-snark-stopper/config.yml
 В строке `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` измените `YOUR_PUBLIC_KEY` на `$MINA_PUBLIC_KEY`  
 В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25 \(1000000000 на 25000000\)
 
-{% hint style="info" %}
-1 MINA = 1,000,000,000 nanomina
-{% endhint %}
-
 ### 1.1 Запуск
 
 ```text
@@ -152,11 +148,23 @@ sudo docker rm -f snark-stopper \
 && sudo docker pull c29r3/snark-stopper
 ```
 
-### 4. Удаление
+### 4. Обновление
+
+Удаляем файл с конфигом и контейнер и скачиваем новый образ:
 
 ```text
-rm -rf mina-snark-stopper; \
-sudo docker rm -f snark-stopper; \
-sudo docker system prune -af
+rm config.yml \
+&& sudo docker rm -f snark-stopper \
+&& sudo docker pull c29r3/snark-stopper
+```
+
+Далее продолжаем с пункта 1 или 2.
+
+### 5. Удаление
+
+```text
+rm -rf mina-snark-stopper \
+&& sudo docker rm -f snark-stopper \
+&& sudo docker system prune -af
 ```
 

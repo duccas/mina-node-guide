@@ -59,7 +59,7 @@ nano $HOME/mina-snark-stopper/config.yml
 ```
 
 В строке `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` измените `YOUR_PUBLIC_KEY` на `$MINA_PUBLIC_KEY`  
-В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25 \(1000000000 на 25000000\)
+В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25
 
 ### 1.1 Запуск
 
@@ -89,16 +89,12 @@ nano $HOME/config.yml
 ```
 
 В строке `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` измените `YOUR_PUBLIC_KEY` на `$MINA_PUBLIC_KEY`  
-В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25 \(1000000000 на 25000000\)
-
-{% hint style="info" %}
-1 MINA = 1,000,000,000 nanomina
-{% endhint %}
+В строке `WORKER_FEE: 1` замените значение комиссии например с 1 на 0.25
 
 Запускаем контейнер:
 
 ```text
-docker run -d \
+sudo docker run -d \
 --volume $(pwd)/config.yml:/mina/config.yml \
 --net=host \
 --restart always \

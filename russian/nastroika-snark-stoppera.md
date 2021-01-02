@@ -32,7 +32,7 @@ yes | sudo apt install git
 Разблокируем приватную сеть:
 
 ```text
-sudo iptables -D OUTPUT -p tcp -d 172.16.0.0/12 -j DROP
+sudo iptables -D OUTPUT -d 172.16.0.0/12 -j DROP
 ```
 
 ## 1. Установка без Докера:
@@ -130,7 +130,7 @@ nc -t -vv localhost 3085
 Порт отвечает, но стоппер по-прежнему не может подключиться:
 
 ```text
-iptables -D OUTPUT -p tcp -d 172.16.0.0/12 -j DROP
+sudo iptables -D OUTPUT -d 172.16.0.0/12 -j DROP
 ```
 
 это из-за блокировки частных подсетей, которые использует докер.

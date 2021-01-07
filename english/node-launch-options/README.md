@@ -13,7 +13,7 @@ Please select the option that suits you below:
 
 ### Running Mina with Docker
 
-{% page-ref page="running-coda-with-docker.md" %}
+{% page-ref page="running-mina-with-docker.md" %}
 
 ### Running Mina without Docker
 

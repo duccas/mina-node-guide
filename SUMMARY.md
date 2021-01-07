@@ -17,7 +17,7 @@
 
 * [Node launch options](english/node-launch-options/README.md)
   * [Preparing public keys and peers](english/node-launch-options/preparing-to-launch.md)
-  * [Running Mina with Docker](english/node-launch-options/running-coda-with-docker.md)
+  * [Running Mina with Docker](english/node-launch-options/running-mina-with-docker.md)
   * [Running Mina without Docker](english/node-launch-options/running-coda-without-docker.md)
 * [CLI. Key import, sending tokens](english/cli.-key-import-sending-tokens.md)
 * [Setting up TMUX](english/setting-up-tmux.md)

@@ -75,7 +75,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.2-b7eff8e --allow-downgrades
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.2-1-b14e324 --allow-downgrades
 ```
 
 ### 3.1 Run a Node
@@ -86,7 +86,8 @@ Produced by the command:
 coda daemon \
 -peer-list-file ~/peers.txt \
 -generate-genesis-proof true \
--log-level Info
+-log-level Info \
+-super-catchup
 ```
 
 Before starting the block producer, you need to import and unlock the keys:

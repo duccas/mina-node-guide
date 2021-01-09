@@ -56,13 +56,14 @@ sudo docker run --name mina -d \
 -v $(pwd)/peers.txt:$HOME/peers.txt \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
-minaprotocol/mina-daemon-baked:0.2.2-b7eff8e-testworld-6ca92d6 daemon \
+minaprotocol/mina-daemon-baked:0.2.2-1-b14e324-testworld-7bca682 daemon \
 -peer-list-file $HOME/peers.txt \
 -block-producer-key $KEYPATH \
 -block-producer-password "YOUR PASS" \
 -insecure-rest-server \
 -file-log-level Info \
--log-level Info
+-log-level Info \
+-super-catchup
 ```
 
 ### 2.1.1 Запуск Снарк Воркера \(Snark Worker\) к Производителю Блоков:
@@ -111,14 +112,15 @@ sudo docker run --name mina -d \
 -v $(pwd)/peers.txt:$HOME/peers.txt \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
-minaprotocol/mina-daemon-baked:0.2.2-b7eff8e-testworld-6ca92d6 daemon \
+minaprotocol/mina-daemon-baked:0.2.2-1-b14e324-testworld-7bca682 daemon \
 -peer-list-file $HOME/peers.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \
 -work-selection seq \
 -insecure-rest-server \
 -file-log-level Info \
--log-level Info
+-log-level Info \
+-super-catchup
 ```
 
 ## 3. Просмотр логов

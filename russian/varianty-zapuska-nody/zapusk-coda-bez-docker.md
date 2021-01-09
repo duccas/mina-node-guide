@@ -53,7 +53,7 @@ brew services start mina
 brew upgrade mina
 ```
 
-## 3. Установка для `Ubuntu 18.04 / Debian 9`
+## 3. Подготовка для `Ubuntu 18.04 / Debian 9`
 
 Удаление предыдущих версий:
 
@@ -77,7 +77,13 @@ sudo apt-get update
 sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.2-1-b14e324 --allow-downgrades
 ```
 
-### 3.1 Запуск ноды
+## 4. Варианты запуска
+
+### 4.1 Запуск в Сервисе
+
+
+
+### 4.2 Запуск ноды в TMUX
 
 Производим командой:
 

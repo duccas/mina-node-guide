@@ -81,11 +81,60 @@ sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.2-1-b1
 
 ### 4.1 Запуск в Сервисе
 
+Настройка файла с флагами:
 
+```text
+mkdir $HOME/.mina-env && nano $HOME/.mina-env
+```
 
-### 4.2 Запуск ноды в TMUX
+Копируем и вставляем переменные в файл предварительно вписав ваш пароль от ключа вместо `ВАШ ПАРОЛЬ ДЛЯ КЛЮЧА`:
 
-Производим командой:
+```text
+CODA_PRIVKEY_PASS="ВАШ ПАРОЛЬ ДЛЯ КЛЮЧА"
+EXTRA_FLAGS=" -file-log-level Info -super-catchup "
+```
+
+Сохраняем и выходим: CTRL+S и CTRL+X
+
+### 4.1.1 Добавление флагов Снарк Воркера \(если нужно\)
+
+Добавляем в файл `.mina-env` флаги Снарк воркера с вашим ключем и комиссией:
+
+```text
+EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Info -super-catchup "
+```
+
+По умолчанию `-work-selection` для Снарк Воркера является случайным `rand`.  
+Вы можете изменить это, добавив флаг `-work-selection seq` в конец команды запуска, которая будет работать с заданиями в том порядке, в котором они должны быть включены из состояния сканирования и скорее всего приведет к включению ваших снарков без потенциально длительной задержки.
+
+### 4.2 Запускаем сервис
+
+```text
+systemctl --user daemon-reload
+systemctl --user start mina
+systemctl --user enable mina
+sudo loginctl enable-linger
+```
+
+Просмотр логов:
+
+```text
+journalctl --user-unit mina -n 1000 -f
+```
+
+### 4.3 Запуск ноды в TMUX
+
+Запускаем пустую сессию в Tmux:
+
+```text
+tmux new -s session
+```
+
+Подробнее о TMUX:
+
+{% page-ref page="../nastroika-tmux.md" %}
+
+И запуск в сессии производим командой:
 
 ```text
 coda daemon \

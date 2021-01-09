@@ -191,6 +191,6 @@ sudo docker rm -f mina
 Удаление папки с конфигом:
 
 ```text
-rm -rf ~/.coda-config
+rm -rf $HOME/.coda-config
 ```
 

@@ -10,6 +10,8 @@
   * [Запуск Mina с Докером](russian/varianty-zapuska-nody/zapusk-coda-s-docker.md)
   * [Запуск Mina без Докера](russian/varianty-zapuska-nody/zapusk-coda-bez-docker.md)
 * [CLI. Импорт ключа, отправка токенов](russian/cli.-sozdanie-klyuchei-import-otpravka-tokenov.md)
+* [Обновление для Докера](russian/obnovlenie-dlya-dokera.md)
+* [Обновление для Сервиса](russian/obnovlenie-dlya-servisa.md)
 * [Настройка TMUX](russian/nastroika-tmux.md)
 * [Настройка Снарк Стоппера](russian/nastroika-snark-stoppera.md)
 

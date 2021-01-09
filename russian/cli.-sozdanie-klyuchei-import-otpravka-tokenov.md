@@ -33,7 +33,13 @@ coda client status
 
 ### 3. Импортируем ключи
 
- Импорт аккаунта с ключем производим следующей командой:
+ Экспортируем приватный ключ:
+
+```text
+export KEYPATH=$HOME/keys/my-wallet
+```
+
+Импорт аккаунта с ключем производим следующей командой:
 
 ```text
 coda accounts import -privkey-path $KEYPATH
@@ -47,7 +53,7 @@ coda accounts list
 
 ### 4. Разблокировка аккаунта:
 
-Для начала экспортируем Публичный ключ:
+Экспортируем Публичный ключ:
 
 ```text
 export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)

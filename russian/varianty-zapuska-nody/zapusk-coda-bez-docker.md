@@ -84,7 +84,7 @@ sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.2-1-b1
 Настройка файла с флагами:
 
 ```text
-mkdir $HOME/.mina-env && nano $HOME/.mina-env
+touch $HOME/.mina-env && nano $HOME/.mina-env
 ```
 
 Копируем и вставляем переменные в файл предварительно вписав ваш пароль от ключа вместо `ВАШ ПАРОЛЬ ДЛЯ КЛЮЧА`:

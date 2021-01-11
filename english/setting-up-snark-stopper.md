@@ -1,3 +1,7 @@
+---
+description: v1.2.1
+---
+
 # Setting up Snark Stopper
 
 ## Description
@@ -149,8 +153,9 @@ sudo docker rm -f snark-stopper \
 Delete the config file and container and download the new image:
 
 ```text
-rm config.yml \
-&& sudo docker rm -f snark-stopper \
+sudo docker rm -f snark-stopper \
+&& rm config.yml \
+&& wget https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml \
 && sudo docker pull c29r3/snark-stopper
 ```
 

@@ -1,3 +1,7 @@
+---
+description: v1.2.1
+---
+
 # Настройка Снарк Стоппера
 
 ## Описание
@@ -149,8 +153,9 @@ sudo docker rm -f snark-stopper \
 Удаляем файл с конфигом и контейнер и скачиваем новый образ:
 
 ```text
-rm config.yml \
-&& sudo docker rm -f snark-stopper \
+sudo docker rm -f snark-stopper \
+&& rm config.yml \
+&& wget https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml \
 && sudo docker pull c29r3/snark-stopper
 ```
 

@@ -21,6 +21,8 @@
   * [Preparing public keys and peers](english/node-launch-options/preparing-to-launch.md)
   * [Running Mina with Docker](english/node-launch-options/running-mina-with-docker.md)
   * [Running Mina without Docker](english/node-launch-options/running-coda-without-docker.md)
+* [Update for Docker](english/update-for-docker.md)
+* [Update for Service](english/update-for-service.md)
 * [CLI. Key import, sending tokens](english/cli.-key-import-sending-tokens.md)
 * [Setting up TMUX](english/setting-up-tmux.md)
 * [Setting up Snark Stopper](english/setting-up-snark-stopper.md)

@@ -78,9 +78,63 @@ sudo apt-get update
 sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.4-16ebdd6 --allow-downgrades
 ```
 
-### 3.1 Run a Node
+## 4. Launch options
 
-Produced by the command:
+### 4.1 Launch in Service
+
+Setting up the `mina-env` file:
+
+```text
+nano .mina-env
+```
+
+We copy and paste the variables into the file after entering your password from the key instead of `YOUR PASS FOR KEYS`:
+
+```text
+CODA_PRIVKEY_PASS="YOUR PASS FOR KEYS"
+EXTRA_FLAGS=" -file-log-level Debug -super-catchup "
+```
+
+Save ans exit: CTRL+S and CTRL+X
+
+### 4.1.1 Adding Snark Worker flags \(if needed\)
+
+Add to file `.mina-env` Snark worker flags with your key and fee:
+
+```text
+EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Debug -super-catchup "
+```
+
+By default, the `-work-selection` for a snark worker is random `rand`. You can change this by adding the `-work-selection seq` flag to the command, which will work on jobs in the order required to be included from the scan state and will likely result in your snarks being included without a potentially lengthy delay.
+
+### 4.1.2 Start the service
+
+```text
+systemctl --user daemon-reload
+systemctl --user start mina
+systemctl --user enable mina
+sudo loginctl enable-linger
+```
+
+Viewing logs:
+
+```text
+journalctl --user-unit mina -n 1000 -f
+```
+
+### 4.2 Running a node in TMUX
+
+Start an empty session in Tmux:
+
+```text
+tmux new -s session
+```
+
+More about TMUX:
+
+{% page-ref page="../setting-up-tmux.md" %}
+
+And launch in session with the command:
 
 ```text
 coda daemon \

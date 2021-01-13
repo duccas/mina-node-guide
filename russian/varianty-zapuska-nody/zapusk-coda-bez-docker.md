@@ -122,7 +122,7 @@ sudo loginctl enable-linger
 journalctl --user-unit mina -n 1000 -f
 ```
 
-### 4.3 Запуск ноды в TMUX
+### 4.2 Запуск ноды в TMUX
 
 Запускаем пустую сессию в Tmux:
 

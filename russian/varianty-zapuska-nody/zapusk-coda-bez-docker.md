@@ -91,7 +91,7 @@ nano .mina-env
 
 ```text
 CODA_PRIVKEY_PASS="ВАШ ПАРОЛЬ ДЛЯ КЛЮЧА"
-EXTRA_FLAGS=" -file-log-level Info -super-catchup "
+EXTRA_FLAGS=" -file-log-level Debug -super-catchup "
 ```
 
 Сохраняем и выходим: CTRL+S и CTRL+X
@@ -101,7 +101,7 @@ EXTRA_FLAGS=" -file-log-level Info -super-catchup "
 Добавляем в файл `.mina-env` флаги Снарк воркера с вашим ключем и комиссией:
 
 ```text
-EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Info -super-catchup "
+EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Debug -super-catchup "
 ```
 
 По умолчанию `-work-selection` для Снарк Воркера является случайным `rand`.  

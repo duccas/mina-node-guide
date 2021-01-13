@@ -47,7 +47,7 @@ nano .mina-env
 Добавляем флаг `-super-catchup` в конец строки `EXTRA_FLAGS`
 
 ```text
-EXTRA_FLAGS=" -file-log-level Info -super-catchup"
+EXTRA_FLAGS=" -file-log-level Debug -super-catchup"
 ```
 
 Сохраняем и выходим: CTRL+S и CTRL+X

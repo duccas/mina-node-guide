@@ -60,7 +60,7 @@ minaprotocol/mina-daemon-baked:0.2.4-16ebdd6-testworld-16ebdd6 daemon \
 -block-producer-key $KEYPATH \
 -block-producer-password "YOUR PASS" \
 -insecure-rest-server \
--file-log-level Info \
+-file-log-level Debug \
 -log-level Info \
 -super-catchup
 ```
@@ -118,7 +118,7 @@ minaprotocol/mina-daemon-baked:0.2.4-16ebdd6-testworld-16ebdd6 daemon \
 -run-snark-worker $MINA_PUBLIC_KEY \
 -work-selection seq \
 -insecure-rest-server \
--file-log-level Info \
+-file-log-level Debug \
 -log-level Info \
 -super-catchup
 ```

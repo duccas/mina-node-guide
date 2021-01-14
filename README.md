@@ -1,7 +1,7 @@
 # Summary
 
 {% hint style="success" %}
-**Release date:** 14.01.2021 at 21:24 PM UTC  
+**Release date:** 13.01.2021 at 21:24 PM UTC  
 **Current version:** \[DIRTY\]16ebdd6597ab050fdaf8a075cc39d9b7be1233cf  
 **New image:** minaprotocol/mina-daemon-baked:0.2.4-16ebdd6-testworld-16ebdd6  
 **New package:** mina-testnet-postake-medium-curves=0.2.4-16ebdd6

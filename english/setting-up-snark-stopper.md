@@ -1,5 +1,5 @@
 ---
-description: v1.2.1
+description: v1.2.4
 ---
 
 # Setting up Snark Stopper

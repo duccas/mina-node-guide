@@ -93,7 +93,7 @@ We will see the balance of mina tokens.
 
 {% hint style="warning" %}
 Attention!   
-Points from 7 to 10 will not be used in testnet 4.1
+Points from 7 to 10 will not be used in testnet 5.1
 {% endhint %}
 
 ### 7. Token creation

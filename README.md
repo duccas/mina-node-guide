@@ -1,10 +1,10 @@
 # Summary
 
 {% hint style="success" %}
-**Release date:** 13.01.2021 at 21:24 PM UTC  
-**Current version:** \[DIRTY\]16ebdd6597ab050fdaf8a075cc39d9b7be1233cf  
-**New image:** minaprotocol/mina-daemon-baked:0.2.4-16ebdd6-testworld-16ebdd6  
-**New package:** mina-testnet-postake-medium-curves=0.2.4-16ebdd6
+**Release date:** 15.01.2021 at 05:24 AM UTC  
+**Current version:** \[DIRTY\]d44a1339bdbdd5ebe747124c7146f435a3f73453  
+**New image:** minaprotocol/mina-daemon-baked:0.2.5-d44a133-testworld-d44a133  
+**New package:** mina-testnet-postake-medium-curves=0.2.5-d44a133
 {% endhint %}
 
 ## Russian

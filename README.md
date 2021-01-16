@@ -2,7 +2,7 @@
 
 {% hint style="success" %}
 **Release date:** 16.01.2021 at 03:494 AM UTC  
-**Current version:** \[DIRTY\]d44a1339bdbdd5ebe747124c7146f435a3f73453  
+**Current version:** \[DIRTY\]5c08d6d51111d31269e77f3c62a544b3262ee4c8  
 **New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.2.6-5c08d6d-5c08d6d-testworld-2258826  
 **New package:** mina-testnet-postake-medium-curves=0.2.6-5c08d6d
 {% endhint %}

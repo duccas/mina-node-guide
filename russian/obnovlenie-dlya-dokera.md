@@ -23,10 +23,10 @@ sudo docker system prune -a
 Скачиваем новое обновление: 
 
 ```text
-sudo docker pull minaprotocol/mina-daemon-baked:0.2.5-d44a133-testworld-d44a133
+sudo docker pull gcr.io/o1labs-192920/coda-daemon-baked:0.2.6-5c08d6d-5c08d6d-testworld-2258826
 ```
 
-Где `minaprotocol/mina-daemon-baked:0.2.5-d44a133-testworld-d44a133` - версия нового образа докера.
+Где `gcr.io/o1labs-192920/coda-daemon-baked:0.2.6-5c08d6d-5c08d6d-testworld-2258826` - версия нового образа докера.
 
 ## 3. Запуск
 

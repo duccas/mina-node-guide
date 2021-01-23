@@ -55,7 +55,7 @@ sudo docker run --name mina -d \
 -v $(pwd)/peers.txt:$HOME/peers.txt \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
-gcr.io/o1labs-192920/coda-daemon-baked:0.2.6-5c08d6d-5c08d6d-testworld-2258826 daemon \
+minaprotocol/mina-daemon-baked:0.2.9-a940247-testworld-a940247 daemon \
 -peer-list-file $HOME/peers.txt \
 -block-producer-key $KEYPATH \
 -block-producer-password "YOUR PASS" \
@@ -112,7 +112,7 @@ sudo docker run --name mina -d \
 -v $(pwd)/peers.txt:$HOME/peers.txt \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
-gcr.io/o1labs-192920/coda-daemon-baked:0.2.6-5c08d6d-5c08d6d-testworld-2258826 daemon \
+minaprotocol/mina-daemon-baked:0.2.9-a940247-testworld-a940247 daemon \
 -peer-list-file $HOME/peers.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \

@@ -1,10 +1,10 @@
 # Summary
 
 {% hint style="success" %}
-**Release date:** 16.01.2021 at 03:49 AM UTC  
-**Current version:** \[DIRTY\]5c08d6d51111d31269e77f3c62a544b3262ee4c8  
-**New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.2.6-5c08d6d-5c08d6d-testworld-2258826  
-**New package:** mina-testnet-postake-medium-curves=0.2.6-5c08d6d
+**Release date:** 23.01.2021 at 05:13 AM UTC  
+**Current version:** \[DIRTY\]a9402473584c36b347d52df4f4000b7286385987  
+**New image:** minaprotocol/mina-daemon-baked:0.2.9-a940247-testworld-a940247  
+**New package:** mina-testnet-postake-medium-curves=0.2.9-a940247
 {% endhint %}
 
 ## Russian

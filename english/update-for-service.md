@@ -25,10 +25,10 @@ Downloading the new update:
 ```text
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.10-62e11d5
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.9-a940247
 ```
 
-Where `mina-testnet-postake-medium-curves=0.2.10-62e11d5` - version of the new package.
+Where `mina-testnet-postake-medium-curves=0.2.9-a940247` - version of the new package.
 
 ## 3. Change configuration
 

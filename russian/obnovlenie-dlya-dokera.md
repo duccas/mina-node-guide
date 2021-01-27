@@ -23,10 +23,10 @@ sudo docker system prune -a
 Скачиваем новое обновление: 
 
 ```text
-sudo docker pull minaprotocol/mina-daemon-baked:0.2.10-62e11d5-testworld-62e11d5
+sudo docker pull minaprotocol/mina-daemon-baked:0.2.9-a940247-testworld-a940247
 ```
 
-Где `minaprotocol/mina-daemon-baked:0.2.10-62e11d5-testworld-62e11d5` - версия нового образа докера.
+Где `minaprotocol/mina-daemon-baked:0.2.9-a940247-testworld-a940247` - версия нового образа докера.
 
 ## 3. Запуск
 

@@ -25,10 +25,10 @@ sudo apt-get remove mina-testnet-postake-medium-curves
 ```text
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.9-a940247
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.10-62e11d5
 ```
 
-Где `mina-testnet-postake-medium-curves=0.2.9-a940247` - версия нового пакета.
+Где `mina-testnet-postake-medium-curves=0.2.10-62e11d5` - версия нового пакета.
 
 ## 3. Изменение конфигурации
 

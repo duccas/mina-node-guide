@@ -23,10 +23,10 @@ sudo docker system prune -a
 Downloading the new update:
 
 ```text
-sudo docker pull minaprotocol/mina-daemon-baked:0.2.9-a940247-testworld-a940247
+sudo docker pull minaprotocol/mina-daemon-baked:0.2.10-62e11d5-testworld-62e11d5
 ```
 
-Where `minaprotocol/mina-daemon-baked:0.2.9-a940247-testworld-a940247` - version of the new docker image.
+Where `minaprotocol/mina-daemon-baked:0.2.10-62e11d5-testworld-62e11d5` - version of the new docker image.
 
 ## 3. Launch
 

@@ -97,7 +97,7 @@ source ~/.bashrc
 Ссылка на скачивание пиров:
 
 ```text
-wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/coda-automation/bug-bounty-net/terraform/testnets/testworld/peers.txt
+wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/mina/encore-peers/automation/terraform/testnets/testworld/peers.txt
 ```
 
 Вставляем в терминал и скачиваем.  

@@ -74,7 +74,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.2.12-718eba4
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.3.0-5493fe3
 ```
 
 ## 4. Варианты запуска

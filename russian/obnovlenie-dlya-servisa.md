@@ -33,7 +33,7 @@ sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.3.0-5493
 Скачивание новых пиров:
 
 ```text
-wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/mina/encore-peers/automation/
+wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/mina/encore-peers/automation/terraform/testnets/encore/peers.txt
 ```
 
 ## 3. Изменение конфигурации

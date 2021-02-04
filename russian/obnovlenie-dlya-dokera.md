@@ -28,6 +28,12 @@ sudo docker pull minaprotocol/mina-daemon-baked:0.3.0-5493fe3-encore-6fe6a3e
 
 Где `minaprotocol/mina-daemon-baked:0.3.0-5493fe3-encore-6fe6a3e` - версия нового образа докера.
 
+Скачивание новых пиров:
+
+```text
+wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/mina/encore-peers/automation/terraform/testnets/encore/peers.txt
+```
+
 ## 3. Запуск
 
 Все готово к запуску.   

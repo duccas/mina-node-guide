@@ -2,7 +2,7 @@
 
 {% hint style="success" %}
 **Version:** Encore  
-**Release date:** 12.02.2021 at 19:50 UTC  
+**Release date:** 11.02.2021 at 19:50 UTC  
 **Current version:** \[DIRTY\]3ef86631e3a38150b5092faec47da144b0a46020  
 **New image:** minaprotocol/mina-daemon-baked:0.3.3-3ef8663-encore-3b5824a  
 **New package:** mina-testnet-postake-medium-curves=0.3.3-3ef8663

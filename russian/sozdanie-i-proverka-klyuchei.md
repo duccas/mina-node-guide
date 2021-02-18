@@ -16,7 +16,7 @@ sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.4.2-245a
 sudo apt-get install mina-generate-keypair=0.2.12-718eba4
 ```
 
-## Генерируем ключи
+## Создание ключей
 
 При создании ключей вас попросят создать пароль.
 

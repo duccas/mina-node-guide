@@ -53,17 +53,15 @@ sudo docker run --name mina -d \
 --restart always \
 -p 8302:8302 \
 -p 127.0.0.1:3085:3085 \
--v $(pwd)/peers.txt:$HOME/peers.txt \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
-minaprotocol/mina-daemon-baked:0.3.3-3ef8663-encore-3b5824a daemon \
--peer-list-file $HOME/peers.txt \
+gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538 daemon \
+--peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt \
 -block-producer-key $KEYPATH \
 -block-producer-password "YOUR PASS" \
 -insecure-rest-server \
 -file-log-level Debug \
--log-level Info \
--super-catchup
+-log-level Info
 ```
 
 ### 2.1.1 Запуск Снарк Воркера \(Snark Worker\) к Производителю Блоков:
@@ -109,18 +107,16 @@ sudo docker run --name mina -d \
 --restart always \
 -p 8302:8302 \
 -p 127.0.0.1:3085:3085 \
--v $(pwd)/peers.txt:$HOME/peers.txt \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
-minaprotocol/mina-daemon-baked:0.3.3-3ef8663-encore-3b5824a daemon \
--peer-list-file $HOME/peers.txt \
+gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538 daemon \
+--peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \
 -work-selection seq \
 -insecure-rest-server \
 -file-log-level Debug \
--log-level Info \
--super-catchup
+-log-level Info
 ```
 
 ## 3. Просмотр логов

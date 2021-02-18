@@ -75,7 +75,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.3.3-3ef8663
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.4.2-245a3f7
 ```
 
 ## 4. Launch options
@@ -92,7 +92,7 @@ We copy and paste the variables into the file after entering your password from 
 
 ```text
 CODA_PRIVKEY_PASS="YOUR PASS FOR KEYS"
-EXTRA_FLAGS=" -file-log-level Debug -super-catchup "
+EXTRA_FLAGS=" -file-log-level Debug"
 ```
 
 Save ans exit: CTRL+S and CTRL+X
@@ -102,7 +102,7 @@ Save ans exit: CTRL+S and CTRL+X
 Add to file `.mina-env` Snark worker flags with your key and fee:
 
 ```text
-EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Debug -super-catchup "
+EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Debug "
 ```
 
 By default, the `-work-selection` for a snark worker is random `rand`. You can change this by adding the `-work-selection seq` flag to the command, which will work on jobs in the order required to be included from the scan state and will likely result in your snarks being included without a potentially lengthy delay.
@@ -138,10 +138,9 @@ And launch in session with the command:
 
 ```text
 coda daemon \
--peer-list-file ~/peers.txt \
+--peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt \
 -generate-genesis-proof true \
--log-level Info \
--super-catchup
+-log-level Info
 ```
 
 Before starting the block producer, you need to import and unlock the keys:

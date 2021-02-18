@@ -74,7 +74,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.3.3-3ef8663
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.4.2-245a3f7
 ```
 
 ## 4. Варианты запуска
@@ -91,7 +91,7 @@ nano .mina-env
 
 ```text
 CODA_PRIVKEY_PASS="ВАШ ПАРОЛЬ ДЛЯ КЛЮЧА"
-EXTRA_FLAGS=" -file-log-level Debug -super-catchup "
+EXTRA_FLAGS=" -file-log-level Debug "
 ```
 
 Сохраняем и выходим: CTRL+S и CTRL+X
@@ -101,7 +101,7 @@ EXTRA_FLAGS=" -file-log-level Debug -super-catchup "
 Добавляем в файл `.mina-env` флаги Снарк воркера с вашим ключем и комиссией:
 
 ```text
-EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Debug -super-catchup "
+EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Debug "
 ```
 
 По умолчанию `-work-selection` для Снарк Воркера является случайным `rand`.  
@@ -138,10 +138,9 @@ tmux new -s session
 
 ```text
 coda daemon \
--peer-list-file ~/peers.txt \
+--peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt \
 -generate-genesis-proof true \
--log-level Info \
--super-catchup
+-log-level Info
 ```
 
 **Выходим из сессии командой CTRL+B и теперь жмем D.**

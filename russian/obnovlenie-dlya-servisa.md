@@ -25,15 +25,15 @@ sudo apt-get remove mina-testnet-postake-medium-curves
 ```text
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.3.3-3ef8663
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.4.2-245a3f7
 ```
 
-Где `0.3.3` - версия нового пакета.
+Где `0.4.2` - версия нового пакета.
 
 Скачивание новых пиров:
 
 ```text
-wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/mina/encore-peers/automation/terraform/testnets/encore/peers.txt
+wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/zenith_seeds.txt
 ```
 
 ## 3. Изменение конфигурации
@@ -53,7 +53,7 @@ nano .mina-env
 Добавляем флаг `-super-catchup` в конец строки `EXTRA_FLAGS`
 
 ```text
-EXTRA_FLAGS=" -file-log-level Debug -super-catchup"
+EXTRA_FLAGS=" -file-log-level Debug"
 ```
 
 Сохраняем и выходим: CTRL+S и CTRL+X

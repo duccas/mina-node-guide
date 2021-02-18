@@ -89,7 +89,7 @@ Before the launch of Testnet Testworld, participants should receive a link to do
 It looks something like this:
 
 ```text
-wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/mina/encore-peers/automation/terraform/testnets/testworld/peers.txt
+wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/zenith_seeds.txt
 ```
 
 Insert into the terminal and download the peers.   

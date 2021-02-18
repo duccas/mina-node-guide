@@ -25,17 +25,15 @@ Downloading the new update:
 ```text
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.3.3-3ef8663
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.4.2-245a3f7
 ```
 
-Where `0.3.3` - version of the new package.
+Where `0.4.2` - version of the new package.
 
 ## 3. Change configuration
 
 {% hint style="info" %}
 Do this item only if you need to change something in the configuration files. `.mina-env` or service file`mina.service .`
-
-For example, in the latest update, you need to add the flag `-super-catchup`
 {% endhint %}
 
 Go to the file with flags:
@@ -47,7 +45,7 @@ nano .mina-env
 Add a flag `-super-catchup` to the end of the line `EXTRA_FLAGS`
 
 ```text
-EXTRA_FLAGS=" -file-log-level Debug -super-catchup"
+EXTRA_FLAGS=" -file-log-level Debug"
 ```
 
 Save and exit: CTRL+S and CTRL+X

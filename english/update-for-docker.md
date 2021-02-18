@@ -23,10 +23,10 @@ sudo docker system prune -a
 Downloading the new update:
 
 ```text
-sudo docker pull minaprotocol/mina-daemon-baked:0.3.3-3ef8663-encore-3b5824a
+sudo docker pull gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538
 ```
 
-Where `0.3.3` - version of the new docker image.
+Where `0.4.2` - version of the new docker image.
 
 ## 3. Launch
 

@@ -1,11 +1,11 @@
 # Summary
 
 {% hint style="success" %}
-**Version:** Encore  
-**Release date:** 11.02.2021 at 19:50 UTC  
-**Current version:** \[DIRTY\]3ef86631e3a38150b5092faec47da144b0a46020  
-**New image:** minaprotocol/mina-daemon-baked:0.3.3-3ef8663-encore-3b5824a  
-**New package:** mina-testnet-postake-medium-curves=0.3.3-3ef8663
+**Version:** Encore   
+**Release date:** 19.02.2021 at 00:00 UTC  
+**Current version:** \[DIRTY\]245a3f7d883c516f5f16742cb1ca672872612851  
+**New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538  
+**New package:** mina-testnet-postake-medium-curves=0.4.2-245a3f7
 {% endhint %}
 
 ## Russian

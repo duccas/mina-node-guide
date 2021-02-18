@@ -23,15 +23,15 @@ sudo docker system prune -a
 Скачиваем новое обновление: 
 
 ```text
-sudo docker pull minaprotocol/mina-daemon-baked:0.3.3-3ef8663-encore-3b5824a
+sudo docker pull gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538
 ```
 
-Где `0.3.3` - версия нового образа докера.
+Где `0.4.2` - версия нового образа докера.
 
 Скачивание новых пиров:
 
 ```text
-wget -O ~/peers.txt https://raw.githubusercontent.com/MinaProtocol/mina/encore-peers/automation/terraform/testnets/encore/peers.txt
+wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/zenith_seeds.txt
 ```
 
 ## 3. Запуск

@@ -14,6 +14,7 @@
 * [CLI. Импорт ключа, отправка токенов](russian/cli.-sozdanie-klyuchei-import-otpravka-tokenov.md)
 * [Настройка TMUX](russian/nastroika-tmux.md)
 * [Настройка Снарк Стоппера](russian/nastroika-snark-stoppera.md)
+* [Создание и проверка ключей](russian/sozdanie-i-proverka-klyuchei.md)
 
 ## ENGLISH
 

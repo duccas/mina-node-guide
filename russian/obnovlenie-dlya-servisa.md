@@ -40,8 +40,6 @@ wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/zenith_seeds.txt
 
 {% hint style="info" %}
 Делайте этот пункт только если нужно изменить что-либо в конфигурационных файлах `.mina-env` или файл сервиса`mina.service .`
-
-Например в последнем обновлении нужно добавить флаг `-super-catchup`
 {% endhint %}
 
 Заходим в файл с флагами:

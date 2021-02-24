@@ -16,6 +16,8 @@
 **Current version:** \[DIRTY\]245a3f7d883c516f5f16742cb1ca672872612851  
 **New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538  
 **New package:** mina-testnet-postake-medium-curves=0.4.2-245a3f7
+
+**Peer list url:** [https://storage.googleapis.com/seed-lists/zenith\_seeds.txt](https://storage.googleapis.com/seed-lists/zenith_seeds.txt)[.txt](https://storage.googleapis.com/seed-lists/devnet_seeds.txt)
 {% endhint %}
 
 ## Russian

@@ -1,6 +1,16 @@
 # Summary
 
 {% hint style="success" %}
+**Version:** Devnet  
+**Release date:** 24.02.2021 at 21:02 UTC  
+**Current version:** \[DIRTY\]245a3f7d883c516f5f16742cb1ca672872612851  
+**New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-devnet-4744658  
+**New package:** mina-testnet-postake-medium-curves=0.4.2-245a3f7
+
+**Peer list url:** [https://storage.googleapis.com/seed-lists/devnet\_seeds.txt](https://storage.googleapis.com/seed-lists/devnet_seeds.txt)
+{% endhint %}
+
+{% hint style="success" %}
 **Version:** Encore   
 **Release date:** 19.02.2021 at 00:00 UTC  
 **Current version:** \[DIRTY\]245a3f7d883c516f5f16742cb1ca672872612851  

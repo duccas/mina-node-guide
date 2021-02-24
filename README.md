@@ -11,7 +11,7 @@
 {% endhint %}
 
 {% hint style="success" %}
-**Version:** Encore   
+**Version:** Zenith   
 **Release date:** 19.02.2021 at 00:00 UTC  
 **Current version:** \[DIRTY\]245a3f7d883c516f5f16742cb1ca672872612851  
 **New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538  

@@ -54,7 +54,7 @@ sudo docker run --name mina -d \
 -p 8302:8302 \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
--v $(pwd)/.coda-config:$HOME/.coda-config \
+-v $(pwd)/.mina-config:$HOME/.mina-config \
 minaprotocol/mina-daemon-baked:1.0.0-fd39808 daemon \
 --peer-list-url https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt \
 -block-producer-key $KEYPATH \
@@ -108,7 +108,7 @@ sudo docker run --name mina -d \
 -p 8302:8302 \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
--v $(pwd)/.coda-config:$HOME/.coda-config \
+-v $(pwd)/.mina-config:$HOME/.mina-config \
 minaprotocol/mina-daemon-baked:1.0.0-fd39808 daemon \
 --peer-list-url https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt \
 -snark-worker-fee 0.025 \

@@ -64,7 +64,7 @@ sudo apt-get remove -y coda-testnet-postake-medium-curves
 Создадим папку `.coda-config`:
 
 ```text
-mkdir .coda-config
+mkdir .mina-config
 ```
 
 Скачиваем дистрибутив `Mina`:

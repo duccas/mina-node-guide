@@ -65,7 +65,7 @@ sudo apt-get remove mina-kademlia
 Let's create a folder `.coda-config`:
 
 ```text
-mkdir .coda-config
+mkdir .mina-config
 ```
 
 Downloading package `Mina`:

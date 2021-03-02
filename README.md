@@ -7,7 +7,7 @@
 **New image:** minaprotocol/mina-daemon-baked:1.0.0-fd39808  
 **New package:** mina-testnet-postake-medium-curves=1.0.0-fd39808
 
-**Peer list url:** [https://storage.googleapis.com/seed-lists/finalfinal2\_seeds.txt](https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt)
+**Peer list url:** [https://storage.googleapis.com/seed-lists/finalfinal3\_seeds.txt](https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt)
 {% endhint %}
 
 {% hint style="success" %}

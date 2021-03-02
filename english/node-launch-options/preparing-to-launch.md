@@ -89,7 +89,7 @@ Before the launch of Testnet Testworld, participants should receive a link to do
 It looks something like this:
 
 ```text
-wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt
+wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt
 ```
 
 Insert into the terminal and download the peers.   

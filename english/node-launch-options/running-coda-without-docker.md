@@ -138,7 +138,7 @@ And launch in session with the command:
 
 ```text
 mina daemon \
---peer-list-url https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt \
+--peer-list-url https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt \
 -generate-genesis-proof true \
 -log-level Info
 ```

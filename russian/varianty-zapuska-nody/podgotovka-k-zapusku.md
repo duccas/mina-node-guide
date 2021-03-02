@@ -97,7 +97,7 @@ source ~/.bashrc
 Ссылка на скачивание пиров:
 
 ```text
-wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt
+wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt
 ```
 
 Вставляем в терминал и скачиваем.  

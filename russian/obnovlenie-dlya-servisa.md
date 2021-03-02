@@ -33,7 +33,7 @@ sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=1.0.0-fd39
 Скачивание новых пиров:
 
 ```text
-wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt
+wget -O ~/peers.txt https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt
 ```
 
 ## 3. Изменение конфигурации

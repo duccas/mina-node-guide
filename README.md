@@ -13,7 +13,7 @@
 {% hint style="success" %}
 **Version:** Zenith-v2  
 **Release date:** 02.03.2021 at 00:00 UTC  
-**Current version:** \[DIRTY\]fd3980820fb82c7355af49462ffefe6718800b77  
+**Current version:** fd3980820fb82c7355af49462ffefe6718800b77  
 **New image:** minaprotocol/mina-daemon-baked:1.0.0-fd39808  
 **New package:** mina-testnet-postake-medium-curves=1.0.0-fd39808
 

@@ -74,7 +74,7 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.4.2-245a3f7
+sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=1.0.0-fd39808
 ```
 
 ## 4. Варианты запуска
@@ -137,8 +137,8 @@ tmux new -s session
 И запуск в сессии производим командой:
 
 ```text
-coda daemon \
---peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt \
+mina daemon \
+--peer-list-url https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt \
 -generate-genesis-proof true \
 -log-level Info
 ```
@@ -148,21 +148,21 @@ coda daemon \
 Перед запуском производителя нужно импортировать и разблокировать ключи:
 
 ```text
-coda accounts import -privkey-path $KEYPATH
-coda accounts unlock -public-key $MINA_PUBLIC_KEY
+mina accounts import -privkey-path $KEYPATH
+mina accounts unlock -public-key $MINA_PUBLIC_KEY
 ```
 
 Запуск Производителя блоков:
 
 ```text
-coda client set-staking -public-key $MINA_PUBLIC_KEY
+mina client set-staking -public-key $MINA_PUBLIC_KEY
 ```
 
 Запуск Снарк Воркера:
 
 ```text
-coda client set-snark-work-fee 0.025
-coda client set-snark-worker -address $MINA_PUBLIC_KEY
+mina client set-snark-work-fee 0.025
+mina client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
 Здесь вы можете установить комиссию Воркера `coda client set-snark-work-fee 0.025`, либо оставить как есть.

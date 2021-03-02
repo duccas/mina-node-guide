@@ -55,8 +55,8 @@ sudo docker run --name mina -d \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
-gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538 daemon \
---peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt \
+minaprotocol/mina-daemon-baked:1.0.0-fd39808 daemon \
+--peer-list-url https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt \
 -block-producer-key $KEYPATH \
 -block-producer-password "YOUR PASS" \
 -insecure-rest-server \
@@ -74,13 +74,13 @@ gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538 daemon \
 `set-snark-work-fee 0.025` - значение комиссии `0.025` можно сменить на любое другое.
 
 ```text
-sudo docker exec -it mina coda client set-snark-work-fee 0.025
+sudo docker exec -it mina mina client set-snark-work-fee 0.025
 ```
 
 Запустим Воркер:
 
 ```text
-sudo docker exec -it mina coda client set-snark-worker -address $MINA_PUBLIC_KEY
+sudo docker exec -it mina mina client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
 {% hint style="info" %}
@@ -109,8 +109,8 @@ sudo docker run --name mina -d \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.coda-config:$HOME/.coda-config \
-gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538 daemon \
---peer-list-url https://storage.googleapis.com/seed-lists/zenith_seeds.txt \
+minaprotocol/mina-daemon-baked:1.0.0-fd39808 daemon \
+--peer-list-url https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \
 -work-selection seq \
@@ -136,20 +136,20 @@ sudo docker logs --follow mina -f --tail 100
 Статус ноды:
 
 ```text
-sudo docker exec -it mina coda client status
+sudo docker exec -it mina mina client status
 ```
 
 ### 3.1 Альтернативный вывод логов
 
 ```text
-sudo docker exec -it mina coda client status | grep "Block producers"
+sudo docker exec -it mina mina client status | grep "Block producers"
 ```
 
 Вывод покажет только строку с запущенным производителем блоков. Пример ниже:
 
 {% code title="\#ПРИМЕР" %}
 ```text
-root@Mina:~# sudo docker exec -it mina coda client status | grep "Block producers"
+root@Mina:~# sudo docker exec -it mina mina client status | grep "Block producers"
 Block producers running:         1 (B62qpSphT9prqYrJFio82WmV3u29DkbzGprLAM3pZQM2ZEaiiBmyY82)
 ```
 {% endcode %}

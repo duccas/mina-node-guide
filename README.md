@@ -11,13 +11,13 @@
 {% endhint %}
 
 {% hint style="success" %}
-**Version:** Zenith   
-**Release date:** 19.02.2021 at 00:00 UTC  
-**Current version:** \[DIRTY\]245a3f7d883c516f5f16742cb1ca672872612851  
-**New image:** gcr.io/o1labs-192920/coda-daemon-baked:0.4.2-245a3f7-zenith-7a89538  
-**New package:** mina-testnet-postake-medium-curves=0.4.2-245a3f7
+**Version:** Zenith-v2  
+**Release date:** 02.03.2021 at 00:00 UTC  
+**Current version:** \[DIRTY\]fd3980820fb82c7355af49462ffefe6718800b77  
+**New image:** minaprotocol/mina-daemon-baked:1.0.0-fd39808  
+**New package:** mina-testnet-postake-medium-curves=1.0.0-fd39808
 
-**Peer list url:** [https://storage.googleapis.com/seed-lists/zenith\_seeds.txt](https://storage.googleapis.com/seed-lists/zenith_seeds.txt)
+**Peer list url:** [https://storage.googleapis.com/seed-lists/finalfinal2\_seeds.txt](https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt)
 {% endhint %}
 
 ## Russian

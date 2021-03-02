@@ -1,16 +1,6 @@
 # Summary
 
 {% hint style="success" %}
-**Version:** Devnet  
-**Release date:** 24.02.2021 at 21:02 UTC  
-**Current version:** \[DIRTY\]8dfa4837f72c9c4d8a4daa3d416d9c852619fbb4  
-**New image:** minaprotocol/mina-daemon-baked:0.4.3-8dfa483-devnet-ee24b4f  
-**New package:** mina-testnet-postake-medium-curves=0.4.3-8dfa483
-
-**Peer list url:** [https://storage.googleapis.com/seed-lists/devnet\_seeds.txt](https://storage.googleapis.com/seed-lists/devnet_seeds.txt)
-{% endhint %}
-
-{% hint style="success" %}
 **Version:** Zenith-v2  
 **Release date:** 02.03.2021 at 00:00 UTC  
 **Current version:** fd3980820fb82c7355af49462ffefe6718800b77  
@@ -18,6 +8,16 @@
 **New package:** mina-testnet-postake-medium-curves=1.0.0-fd39808
 
 **Peer list url:** [https://storage.googleapis.com/seed-lists/finalfinal2\_seeds.txt](https://storage.googleapis.com/seed-lists/finalfinal2_seeds.txt)
+{% endhint %}
+
+{% hint style="success" %}
+**Version:** Devnet  
+**Release date:** 24.02.2021 at 21:02 UTC  
+**Current version:** \[DIRTY\]8dfa4837f72c9c4d8a4daa3d416d9c852619fbb4  
+**New image:** minaprotocol/mina-daemon-baked:0.4.3-8dfa483-devnet-ee24b4f  
+**New package:** mina-testnet-postake-medium-curves=0.4.3-8dfa483
+
+**Peer list url:** [https://storage.googleapis.com/seed-lists/devnet\_seeds.txt](https://storage.googleapis.com/seed-lists/devnet_seeds.txt)
 {% endhint %}
 
 ## Russian

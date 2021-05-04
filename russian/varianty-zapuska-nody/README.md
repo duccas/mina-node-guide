@@ -9,8 +9,6 @@
 
 ### Подготовка ключей
 
-{% page-ref page="podgotovka-k-zapusku.md" %}
-
 ### Запуск Mina с Докером
 
 {% page-ref page="zapusk-coda-s-docker.md" %}

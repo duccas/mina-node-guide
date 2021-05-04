@@ -1,13 +1,13 @@
 # Создание и проверка ключей
 
-## Установка
+## 1. Установка
 
 ### Установка пакетов
 
 ```text
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.4.2-245a3f7
+sudo apt-get install -y curl unzip mina-mainnet=1.1.5-a42bdee
 ```
 
 ### Установка генератора ключей
@@ -16,7 +16,7 @@ sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=0.4.2-245a
 sudo apt-get install mina-generate-keypair=0.2.12-718eba4
 ```
 
-## Создание ключей
+## 2. Создание ключей
 
 При создании ключей вас попросят создать пароль.
 
@@ -39,7 +39,7 @@ chmod 700 $HOME/keys
 chmod 600 $HOME/keys/my-wallet
 ```
 
-## Проверка ключей
+## 3. Проверка ключей
 
 При проверке ключа вас попросят ввести пароль от него.
 
@@ -62,4 +62,14 @@ Verified a transaction using specified keypair
 ```
 
 Оно означает, что ваши ключи проверены.
+
+## 4. Экспорт ключей
+
+Теперь запишем ваш публичный ключ на сервер в файл `.bashrc`, чтобы в следующий раз больше их не экспортировать.
+
+```text
+echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
+echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
+source ~/.bashrc
+```
 

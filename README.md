@@ -1,42 +1,36 @@
 # Summary
 
 {% hint style="success" %}
-**Version:** Zenith-v2  
-**Release date:** 02.03.2021 at 00:00 UTC  
-**Current version:** fd3980820fb82c7355af49462ffefe6718800b77  
-**New image:** minaprotocol/mina-daemon-baked:1.0.0-fd39808  
-**New package:** mina-testnet-postake-medium-curves=1.0.0-fd39808
+**Version:** Mainnet  
+**Release date:** 07.04.2021 at 00:00 UTC  
+**Current version:** a42bdeef6b0c15ee34616e4df76c882b0c5c7c2a  
+**New image:** minaprotocol/mina-daemon-baked:1.1.5-a42bdee  
+**New package:** mina-mainnet=1.1.5-a42bdee  
+**New archive image:** minaprotocol/mina-archive:1.1.5-a42bdee  
+**New archive package:** mina-archive=1.1.5-a42bdee
 
-**Peer list url:** [https://storage.googleapis.com/seed-lists/finalfinal3\_seeds.txt](https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt)
+**Peer list url:** [https://storage.googleapis.com/mina-seed-lists/mainnet\_seeds.txt](https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt)
 {% endhint %}
 
 {% hint style="success" %}
 **Version:** Devnet  
 **Release date:** 24.02.2021 at 21:02 UTC  
-**Current version:** \[DIRTY\]8dfa4837f72c9c4d8a4daa3d416d9c852619fbb4  
-**New image:** minaprotocol/mina-daemon-baked:0.4.3-8dfa483-devnet-ee24b4f  
-**New package:** mina-testnet-postake-medium-curves=0.4.3-8dfa483
+**Current version:** \[DIRTY\]68200c7b409e105d174f079c5c39f7926819784b  
+**New image:** minaprotocol/mina-daemon-baked:1.0.5-68200c7  
+**New package:** mina-testnet-postake-medium-curves=1.0.5-68200c7
 
 **Peer list url:** [https://storage.googleapis.com/seed-lists/devnet\_seeds.txt](https://storage.googleapis.com/seed-lists/devnet_seeds.txt)
 {% endhint %}
 
 ## Russian
 
-Данное руководство поможет установить ноду Mina для тестнета 4.1. А также выполнить все задания для получение тестовых поинтов \(pts\).
-
-Внимательно пройдитесь по всем пунктам установки и проблем быть не должно! 
-
-_\*Баллы Testnet предназначены исключительно для отслеживания взносов в Testnet, и очки Testnet не имеют денежной или иной денежной ценности. Баллы Testnet не подлежат передаче, обмену или обмену на криптовалюту или цифровые активы. Мы можем в любое время изменить или удалить баллы Testnet._
+Данное руководство поможет установить ноду Mina в мейннет. 
 
 {% page-ref page="russian/varianty-zapuska-nody/" %}
 
 ## English
 
-This tutorial will help you install the Mina test node for testnet 4.1. And also complete all tasks to get test points \(pts\). 
-
-Carefully go through all the installation points and there should be no problems!
-
-\*_Testnet Points are designed solely to track contributions to the Testnet and Testnet Points have no cash or other monetary value. Testnet Points are not transferable and are not redeemable or exchangeable for any cryptocurrency or digital assets. We may at any time amend or eliminate Testnet Points_
+This tutorial will help you install the Mina mainnet.
 
 {% page-ref page="english/node-launch-options/" %}
 
@@ -44,15 +38,13 @@ Carefully go through all the installation points and there should be no problems
 
 If you have any problems with the installation, you can contact at the following contacts:
 
-Discord - Ducca\#5707
+Discord - Ducca \| StakeTab\#5707
 
 Discord - garethtdavies\#4963
 
 Discord - whataday2day\#1271 - Snark Stopper Creator
 
-Twitter - [https://twitter.com/DuccaHVU](https://twitter.com/DuccaHVU)
-
-Telegram - [https://t.me/ducca](https://t.me/ducca)
+Twitter - [https://twitter.com/staketab](https://twitter.com/staketab)
 
 Github - [https://github.com/icohigh](https://github.com/icohigh)
 

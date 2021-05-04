@@ -82,7 +82,8 @@ tmux attach -t snark-stopper
 Скачиваем файл с конфигом:
 
 ```text
-wget https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml
+curl -s https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml > config.yml; \
+touch snark_stopper.log
 ```
 
 Теперь нужно добавить в конфиг стоппера ваш публичный ключ и комиссию Воркера.  
@@ -98,8 +99,11 @@ nano $HOME/config.yml
 Запускаем контейнер:
 
 ```text
+touch snark_stopper.log; \
+chmod 666 snark_stopper.log; \
 sudo docker run -d \
 --volume $(pwd)/config.yml:/mina/config.yml \
+--volume $(pwd)/snark_stopper.log:/mina/snark_stopper.log \
 --net=host \
 --restart always \
 --name snark-stopper \
@@ -109,7 +113,7 @@ c29r3/snark-stopper
 Просмотр логов:
 
 ```text
-docker logs -f snark-stopper
+sudo docker logs -f snark-stopper
 ```
 
 ### 3. Решения ошибок
@@ -153,10 +157,9 @@ sudo docker rm -f snark-stopper \
 Удаляем файл с конфигом и контейнер и скачиваем новый образ:
 
 ```text
-sudo docker rm -f snark-stopper \
-&& rm config.yml \
-&& wget https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml \
-&& sudo docker pull c29r3/snark-stopper
+sudo docker rm -f snark-stopper; \
+curl -s https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml > config.yml; \
+sudo docker pull c29r3/snark-stopper
 ```
 
 Далее продолжаем с пункта 1 или 2.

@@ -44,9 +44,10 @@ sudo iptables -A INPUT -p tcp --dport 8302:8303 -j ACCEPT
 
 `--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть;  
 `-block-producer-password "YOUR PASS"` - вместо `YOUR PASS` укажите пароль от вашего ключа.  
+`$KEYPATH` - путь к файлу с приватным ключем `my-wallet`.   
   
-По умолчанию `-work-selection` для Снарк Воркера является случайным `rand`.  
-Вы можете изменить это, добавив флаг `-work-selection seq` в конец команды запуска, которая будет работать с заданиями в том порядке, в котором они должны быть включены из состояния сканирования и скорее всего приведет к включению ваших снарков без потенциально длительной задержки.
+Не обязательно:  
+`--coinbase-receiver B62qp...` - флаг перенаправления награды за блок на другой адрес.
 
 ```text
 sudo docker run --name mina -d \
@@ -55,19 +56,21 @@ sudo docker run --name mina -d \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.mina-config:$HOME/.mina-config \
-minaprotocol/mina-daemon-baked:1.0.0-fd39808 daemon \
---peer-list-url https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt \
+minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
 -block-producer-key $KEYPATH \
--block-producer-password "YOUR PASS" \
--insecure-rest-server \
--file-log-level Debug \
+-block-producer-password "YOUR_PASS" \
+--peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
+--insecure-rest-server \
+--open-limited-graphql-port \
+--limited-graphql-port 3095 \
+--file-log-level Debug \
 -log-level Info
 ```
 
 ### 2.1.1 Запуск Снарк Воркера \(Snark Worker\) к Производителю Блоков:
 
 {% hint style="warning" %}
-Если вы не хотите запускать Snark Worker. Вы можете сразу перейти к шагу 3.
+Если вы не хотите запускать Snark Worker вместе с Производителем Блоков. Вы можете сразу перейти к шагу 3.
 {% endhint %}
 
 Установим комиссию Воркера:  
@@ -109,13 +112,13 @@ sudo docker run --name mina -d \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.mina-config:$HOME/.mina-config \
-minaprotocol/mina-daemon-baked:1.0.0-fd39808 daemon \
+minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
 --peer-list-url https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \
 -work-selection seq \
--insecure-rest-server \
--file-log-level Debug \
+--insecure-rest-server \
+--file-log-level Debug \
 -log-level Info
 ```
 
@@ -130,7 +133,7 @@ sudo docker ps -a
 Логи контейнера с нодой:
 
 ```text
-sudo docker logs --follow mina -f --tail 100
+sudo docker logs --follow mina -f --tail 1000
 ```
 
 Статус ноды:
@@ -187,6 +190,6 @@ sudo docker rm -f mina
 Удаление папки с конфигом:
 
 ```text
-rm -rf $HOME/.coda-config
+rm -rf $HOME/.mina-config
 ```
 

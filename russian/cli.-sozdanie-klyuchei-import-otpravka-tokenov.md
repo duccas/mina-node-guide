@@ -1,8 +1,8 @@
-# CLI. Импорт ключа, отправка токенов
+# CLI. Импорт ключа, отправка токенов, делегирование
 
 ## Использование CLI
 
-### 1. Для доступа к командам [Mina CLI](https://minaprotocol.com/docs/cli-reference):
+### 1. Для доступа к командам [Mina CLI](https://docs.minaprotocol.com/en/using-mina/cli-reference):
 
 {% hint style="warning" %}
 Этот шаг нужно выполнять только если вы запускали ноду с помощью Докера. Если же вы не использовали Докер, переходите сразу к шагу 2.
@@ -72,6 +72,7 @@ mina accounts unlock -public-key $MINA_PUBLIC_KEY
 Теперь можно отправлять токены.  
   
 Вам нужно добавить:  
+- отправителя `-sender`  
 - получателя `-receiver`  
 - комиссию транзакции `-fee`  
 - количество отправляемых токенов `-amount`
@@ -79,8 +80,8 @@ mina accounts unlock -public-key $MINA_PUBLIC_KEY
 ```text
 mina client send-payment \
 -sender B62qnJHBeVJqWamtDhWDPwrX7Y5jiXKcMKTuvug9LQ8ictwNTWN7YvJ \
--receiver B62qndJi5mnRoBZ8SAYDM1oR2SgAk5WpZC8hGpJUZ4e64kDHGbFMeLJ \
--fee 0.1 \
+-receiver B62qqV16g8s744GHM6Dph1uhW4fggYwyvtDnVSoRUyYqNvTir3Rqqzx \
+-fee 0.01 \
 -amount 2
 ```
 
@@ -97,12 +98,30 @@ mina client get-balance \
 
 Мы увидим баланс mina токенов.
 
+### 7. Транзакция делегирования
+
+Вам нужно добавить:  
+- отправителя `-sender`  
+- получателя `-receiver`  
+- комиссию транзакции `-fee`
+
+Флаг `-amount` не указывается, т.к. делегируется весь баланс адреса.
+
+```text
+mina client delegate-stake \
+-sender B62qnJHBeVJqWamtDhWDPwrX7Y5jiXKcMKTuvug9LQ8ictwNTWN7YvJ \
+-receiver B62qqV16g8s744GHM6Dph1uhW4fggYwyvtDnVSoRUyYqNvTir3Rqqzx \
+-fee 0.01
+```
+
+## Другие команды \(В ДАННЫЙ МОМЕНТ НЕ ИСПОЛЬЗУЮТСЯ\)
+
 {% hint style="warning" %}
 Внимание!  
-Пункты с 7 по 10 не будут использоваться в тестнете 5.1
+Следующие пункты с 1 по 4 в данный момент не используются. 
 {% endhint %}
 
-### 7. Создание токенов
+### 1. Создание токенов
 
 Теперь создадим токены:
 
@@ -119,7 +138,7 @@ Dispatched create new token command with ID 2cUDm3QoJ14znWj5LxN8hjwwuvtwi9FGXcy5
 ```
 {% endcode %}
 
-### 8. Получим ID токенов
+### 2. Получим ID токенов
 
 Чтобы проводить следующие операции нам нужно знать ID токенов. Получим его следующей командой:
 
@@ -137,7 +156,7 @@ Accounts are held for token IDs:
 ```
 {% endcode %}
 
-### 9. Минт токенов
+### 3. Минт токенов
 
 Чтобы сминтить новые токены нужно выполнить команду `mint-tokens`. Будут созданы 1,000 токенов в учетной записи отправителя транзакции под номером token ID 2.
 
@@ -167,7 +186,7 @@ Balance: 1000 tokens
 ```
 {% endcode %}
 
-### 10. Отправка токенов
+### 4. Отправка токенов
 
 Теперь можно отправить токены.  
 Чтобы это сделать нам сначала нужно добавить получателя командой ниже:

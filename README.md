@@ -4,10 +4,18 @@
 **Version:** Mainnet  
 **Release date:** 07.04.2021 at 00:00 UTC  
 **Current version:** a42bdeef6b0c15ee34616e4df76c882b0c5c7c2a  
-**New image:** minaprotocol/mina-daemon-baked:1.1.5-a42bdee  
-**New package:** mina-mainnet=1.1.5-a42bdee  
-**New archive image:** minaprotocol/mina-archive:1.1.5-a42bdee  
-**New archive package:** mina-archive=1.1.5-a42bdee
+  
+**Mina node:**  
+**Image:** minaprotocol/mina-daemon-baked:1.1.5-a42bdee  
+**Package:** mina-mainnet=1.1.5-a42bdee  
+  
+**Archive:**  
+**Image:** minaprotocol/mina-archive:1.1.5-a42bdee  
+**Package:** mina-archive=1.1.5-a42bdee  
+  
+**Sidecar:**  
+**Image:** minaprotocol/mina-bp-stats-sidecar:latest  
+**Package:** mina-bp-stats-sidecar=1.1.5-a42bdee
 
 **Peer list url:** [https://storage.googleapis.com/mina-seed-lists/mainnet\_seeds.txt](https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt)
 {% endhint %}

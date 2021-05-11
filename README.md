@@ -16,10 +16,8 @@
 **Sidecar:**  
 _Release date: 11.05.2021 at 17:06 UTC_  
 **Image:** minaprotocol/mina-bp-stats-sidecar:1.1.6-386c5ac  
-**Package:** mina-bp-stats-sidecar=1.1.6-386c5ac
-{% endhint %}
-
-{% hint style="success" %}
+**Package:** mina-bp-stats-sidecar=1.1.6-386c5ac  
+  
 **Peer list url:** [https://storage.googleapis.com/mina-seed-lists/mainnet\_seeds.txt](https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt)
 {% endhint %}
 

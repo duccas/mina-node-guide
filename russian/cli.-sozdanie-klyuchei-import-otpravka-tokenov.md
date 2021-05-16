@@ -85,6 +85,21 @@ mina client send-payment \
 -amount 2
 ```
 
+#### 5.1. Транзакция с `-memo` \(с подписью\)
+
+Вам нужно добавить:  
+- подпись`-memo`  
+Ваш текст к транзакции.
+
+```text
+mina client send-payment \
+-sender B62qnJHBeVJqWamtDhWDPwrX7Y5jiXKcMKTuvug9LQ8ictwNTWN7YvJ \
+-receiver B62qqV16g8s744GHM6Dph1uhW4fggYwyvtDnVSoRUyYqNvTir3Rqqzx \
+-fee 0.01 \
+-amount 2 \
+-memo "Ваш текст"
+```
+
 Готово. Токены отправлены.
 
 ### 6. Проверим баланс токенов

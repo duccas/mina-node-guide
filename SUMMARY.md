@@ -34,7 +34,6 @@
 * [Docker guide from @Garethtdavies](https://medium.com/@_garethtdavies/running-coda-with-docker-c32070843227)
 * [RU Guide from @Whataday2day](https://github.com/c29r3/mina-how-to-start/blob/main/how-to-start-ru.md)
 * [Mina Snark Stopper from @Whataday2day](https://github.com/c29r3/mina-snark-stopper)
-* [How to run Mina on ubuntu 20.04 from @Caso](https://mina.docs.casso.io/english/testnet-4.1/ubuntu-20.04.1-lts)
-* [Official Mina docs](https://minaprotocol.com/docs)
+* [Official Mina docs](https://docs.minaprotocol.com/en)
 * [Mina Genesis](https://minaprotocol.com/genesis)
 

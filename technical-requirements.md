@@ -7,13 +7,13 @@ description: The characteristics required to run a Mina node.
 ### Block Producer recommended specifications
 
 * Ubuntu 18.04 LTS
-* 8 CPU, 12 Gb RAM, 20 GB HDD
+* 8 CPU, 16 Gb RAM, 50 GB SSD
 * Use SSH Client, \(iTerm in MacOS or MobaXterm, PuTTY for Windows or others\)
 
 ### Snark Worker recommended specifications
 
 * Ubuntu 18.04 LTS
-* 8 CPU, 16 Gb RAM, 20 GB HDD
+* 8+ CPU, 16+ Gb RAM, 50 GB SSD
 * Use SSH Client, \(iTerm in MacOS or MobaXterm, PuTTY for Windows or others\)
 
 {% hint style="info" %}

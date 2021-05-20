@@ -23,10 +23,16 @@ sudo docker system prune -a
 Downloading the new update:
 
 ```text
-sudo docker pull minaprotocol/mina-daemon-baked:1.0.0-fd39808
+sudo docker pull minaprotocol/mina-daemon-baked:1.1.5-a42bdee
 ```
 
 Where `1.0.0` - version of the new docker image.
+
+Download new file with peers:
+
+```text
+wget -O ~/peers.txt https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt
+```
 
 ## 3. Launch
 
@@ -40,6 +46,6 @@ Now select the required item to start from section \#2 by the link below:
 If you need to clear the config folder, run the command below:
 
 ```text
-rm -rf $HOME/.coda-config
+rm -rf $HOME/.mina-config
 ```
 

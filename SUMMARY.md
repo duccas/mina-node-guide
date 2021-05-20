@@ -17,8 +17,8 @@
 
 ## ENGLISH
 
+* [Generating and verifying keys](english/generating-and-verifying-keys.md)
 * [Node launch options](english/node-launch-options/README.md)
-  * [Preparing public keys and peers](english/node-launch-options/preparing-to-launch.md)
   * [Running Mina with Docker](english/node-launch-options/running-mina-with-docker.md)
   * [Running Mina without Docker](english/node-launch-options/running-coda-without-docker.md)
 * [Update for Docker](english/update-for-docker.md)

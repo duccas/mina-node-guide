@@ -68,7 +68,6 @@ Done.
 ### 1.1 Run
 
 ```text
-cd mina-snark-stopper; \
 tmux new -s snark-stopper -d venv/bin/python3 snark-stopper.py
 ```
 
@@ -83,7 +82,8 @@ tmux attach -t snark-stopper
 Download the config file:
 
 ```text
-wget https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml
+curl -s https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml > config.yml; \
+touch snark_stopper.log
 ```
 
 Now you need to add your public key and Worker commission to the stopper config.   
@@ -98,8 +98,11 @@ In the `WORKER_PUB_KEY: YOUR_PUBLIC_KEY` line, change `YOUR_PUBLIC_KEY` to `$MIN
 Run container:
 
 ```text
+touch snark_stopper.log; \
+chmod 666 snark_stopper.log; \
 sudo docker run -d \
 --volume $(pwd)/config.yml:/mina/config.yml \
+--volume $(pwd)/snark_stopper.log:/mina/snark_stopper.log \
 --net=host \
 --restart always \
 --name snark-stopper \
@@ -153,10 +156,9 @@ sudo docker rm -f snark-stopper \
 Delete the config file and container and download the new image:
 
 ```text
-sudo docker rm -f snark-stopper \
-&& rm config.yml \
-&& wget https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml \
-&& sudo docker pull c29r3/snark-stopper
+sudo docker rm -f snark-stopper; \
+curl -s https://raw.githubusercontent.com/c29r3/mina-snark-stopper/master/config.yml > config.yml; \
+sudo docker pull c29r3/snark-stopper
 ```
 
 Then we continue from point 1 or 2.
@@ -164,8 +166,8 @@ Then we continue from point 1 or 2.
 ### 5. Uninstall
 
 ```text
-rm -rf mina-snark-stopper; \
-sudo docker rm -f snark-stopper; \
-sudo docker system prune -af
+rm -rf mina-snark-stopper \
+&& sudo docker rm -f snark-stopper \
+&& sudo docker system prune -af
 ```
 

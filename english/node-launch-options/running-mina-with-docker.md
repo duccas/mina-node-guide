@@ -43,9 +43,11 @@ Choose only one launch option from the 2 suggested below \(paragraph 2.1 or 2.2\
 Variables description:  
   
 `--name mina` - you can use any name for the container, or leave it as it is;  
-`-block-producer-password "YOUR PASS"` - instead `YOUR PASS` enter the password for your key.
+`-block-producer-password "YOUR PASS"` - instead `YOUR PASS` enter the password for your key.  
+`$KEYPATH` - path to the file with the private key `my-wallet`. 
 
- By default, the `-work-selection` for a snark worker is random `rand`. You can change this by adding the `-work-selection seq` flag to the command, which will work on jobs in the order required to be included from the scan state and will likely result in your snarks being included without a potentially lengthy delay.
+Optional:  
+`--coinbase-receiver B62qp...` - flag to redirect block reward to another address.
 
 ```text
 sudo docker run --name mina -d \
@@ -54,16 +56,18 @@ sudo docker run --name mina -d \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.mina-config:$HOME/.mina-config \
-minaprotocol/mina-daemon-baked:1.0.0-fd39808 daemon \
---peer-list-url https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt \
+minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
 -block-producer-key $KEYPATH \
--block-producer-password "YOUR PASS" \
--insecure-rest-server \
--file-log-level Debug \
+-block-producer-password "YOUR_PASS" \
+--peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
+--insecure-rest-server \
+--open-limited-graphql-port \
+--limited-graphql-port 3095 \
+--file-log-level Debug \
 -log-level Info
 ```
 
-### 2.2 Run Snark Worker to Block Producer:
+### 2.1.1 Run Snark Worker to Block Producer:
 
 {% hint style="warning" %}
 If you don't want to launch Snark Worker. You can go directly to step 3.
@@ -90,7 +94,7 @@ Follow the link below to set up your Snark Stopper.
 
 {% page-ref page="../setting-up-snark-stopper.md" %}
 
-### 2.3 Run only Snark Worker \(without Block Producer\)
+### 2.2 Run only Snark Worker \(without Block Producer\)
 
 First, let's launch a node without a Producer and a Snark.
 
@@ -109,13 +113,13 @@ sudo docker run --name mina -d \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.mina-config:$HOME/.mina-config \
-minaprotocol/mina-daemon-baked:1.0.0-fd39808 daemon \
+minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
 --peer-list-url https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \
 -work-selection seq \
--insecure-rest-server \
--file-log-level Debug \
+--insecure-rest-server \
+--file-log-level Debug \
 -log-level Info
 ```
 
@@ -130,7 +134,7 @@ sudo docker ps -a
 Node container logs:
 
 ```text
-sudo docker logs --follow mina -f
+sudo docker logs --follow mina -f --tail 1000
 ```
 
 Node status:

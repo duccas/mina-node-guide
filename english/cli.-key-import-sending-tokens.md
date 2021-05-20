@@ -32,6 +32,12 @@ Wait for the node to sync. The `Sync status:` field should say `Synced`. If the 
 
 ### 3. Importing keys
 
+Exporting the private key:
+
+```text
+export KEYPATH=$HOME/keys/my-wallet
+```
+
  We import an account with a key with the following command:
 
 ```text
@@ -66,6 +72,7 @@ Now you can send tokens.
 
 You need to add:
 
+* sender `-sender`
 * recipient `-receiver`
 * transaction fee `-fee`
 * the number of tokens sent `-amount`
@@ -73,9 +80,28 @@ You need to add:
 ```text
 mina client send-payment \
 -sender B62qnJHBeVJqWamtDhWDPwrX7Y5jiXKcMKTuvug9LQ8ictwNTWN7YvJ \
--receiver B62qndJi5mnRoBZ8SAYDM1oR2SgAk5WpZC8hGpJUZ4e64kDHGbFMeLJ \
--fee 0.1 \
+-receiver B62qqV16g8s744GHM6Dph1uhW4fggYwyvtDnVSoRUyYqNvTir3Rqqzx \
+-fee 0.01 \
 -amount 2
+```
+
+Done. Tokens have been sent.
+
+#### 5.1. Transaction with `-memo` \(with signature\)
+
+You need to add:
+
+* signature `-memo`
+
+Your text for the transaction.
+
+```text
+mina client send-payment \
+-sender B62qnJHBeVJqWamtDhWDPwrX7Y5jiXKcMKTuvug9LQ8ictwNTWN7YvJ \
+-receiver B62qqV16g8s744GHM6Dph1uhW4fggYwyvtDnVSoRUyYqNvTir3Rqqzx \
+-fee 0.01 \
+-amount 2 \
+-memo "Your text"
 ```
 
 Done. Tokens have been sent.
@@ -91,12 +117,31 @@ mina client get-balance \
 
 We will see the balance of mina tokens.
 
+### 7. Delegation transaction
+
+You need to add:
+
+* sender `-sender`
+* recipient `-receiver`
+* transaction fee `-fee`
+
+Flag `-amount` not specified, because the entire balance of the address is delegated.
+
+```text
+mina client delegate-stake \
+-sender B62qnJHBeVJqWamtDhWDPwrX7Y5jiXKcMKTuvug9LQ8ictwNTWN7YvJ \
+-receiver B62qqV16g8s744GHM6Dph1uhW4fggYwyvtDnVSoRUyYqNvTir3Rqqzx \
+-fee 0.01
+```
+
+## Other Commands \(NOT USED CURRENTLY\)
+
 {% hint style="warning" %}
 Attention!   
-Points from 7 to 10 will not be used in testnet 5.1
+Points from 1 to 4 are not currently used.
 {% endhint %}
 
-### 7. Token creation
+### 1. Token creation
 
 Now let's create tokens:
 
@@ -113,7 +158,7 @@ Dispatched create new token command with ID 2cUDm3QoJ14znWj5LxN8hjwwuvtwi9FGXcy5
 ```
 {% endcode %}
 
-### 8. Get the ID of the tokens
+### 2. Get the ID of the tokens
 
 To carry out the following operations, we need to know the ID of the tokens. We get it with the following command:
 
@@ -131,7 +176,7 @@ Accounts are held for token IDs:
 ```
 {% endcode %}
 
-### 9. Mint tokens
+### 3. Mint tokens
 
 To mince new tokens, you need to run the `mint-tokens` command. 1,000 tokens will be created in the account of the sender of the transaction under token ID 2.
 
@@ -161,7 +206,7 @@ Balance: 1000 tokens
 ```
 {% endcode %}
 
-### 10. Sending tokens
+### 4. Sending tokens
 
 Now you can send tokens.   
 To do this, we first need to add a recipient with the command below:

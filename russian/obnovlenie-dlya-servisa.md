@@ -28,7 +28,7 @@ sudo apt-get update
 sudo apt-get install -y curl unzip mina-mainnet=1.1.5-a42bdee
 ```
 
-Где `0.4.2` - версия нового пакета.
+Где `1.1.5` - версия нового пакета.
 
 Скачивание новых пиров:
 

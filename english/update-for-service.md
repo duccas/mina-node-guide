@@ -25,10 +25,16 @@ Downloading the new update:
 ```text
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-testnet-postake-medium-curves=1.0.0-fd39808
+sudo apt-get install -y curl unzip mina-mainnet=1.1.5-a42bdee
 ```
 
-Where `0.4.2` - version of the new package.
+Where `1.1.5` - version of the new package.
+
+Download new file with peers:
+
+```text
+wget -O ~/peers.txt https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt
+```
 
 ## 3. Change configuration
 
@@ -42,13 +48,7 @@ Go to the file with flags:
 nano .mina-env
 ```
 
-Add a flag `-super-catchup` to the end of the line `EXTRA_FLAGS`
-
-```text
-EXTRA_FLAGS=" -file-log-level Debug"
-```
-
-Save and exit: CTRL+S and CTRL+X
+Changing data then save and exit: CTRL+S and CTRL+X
 
 ## 4. Launch
 

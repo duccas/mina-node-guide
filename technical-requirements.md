@@ -17,7 +17,7 @@ description: The characteristics required to run a Mina node.
 * Use SSH Client, \(iTerm in MacOS or MobaXterm, PuTTY for Windows or others\)
 
 {% hint style="info" %}
-If you use the **Producer** + **Snark worker** on the same server, you will need more than 16GB RAM. I recommend using a server with 32GB RAM.
+If you use the **Producer** + **Snark worker** on the same server, you will need more than 16GB RAM. I recommend using a server with 32GB+ RAM.
 {% endhint %}
 
 ### SSH clients for connecting to the server:

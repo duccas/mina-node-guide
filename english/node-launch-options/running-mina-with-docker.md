@@ -117,7 +117,6 @@ minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
 --peer-list-url https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \
--work-selection seq \
 --insecure-rest-server \
 --file-log-level Debug \
 -log-level Info

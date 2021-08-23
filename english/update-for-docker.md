@@ -26,7 +26,7 @@ Downloading the new update:
 sudo docker pull minaprotocol/mina-daemon-baked:1.1.5-a42bdee
 ```
 
-Where `1.0.0` - version of the new docker image.
+Where `1.1.5` - version of the new docker image.
 
 Download new file with peers:
 

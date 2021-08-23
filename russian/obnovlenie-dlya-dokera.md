@@ -26,7 +26,7 @@ sudo docker system prune -a
 sudo docker pull minaprotocol/mina-daemon-baked:1.1.5-a42bdee
 ```
 
-Где `1.0.0` - версия нового образа докера.
+Где `1.1.5` - версия нового образа докера.
 
 Скачивание новых пиров:
 

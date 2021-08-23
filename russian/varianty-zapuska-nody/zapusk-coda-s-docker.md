@@ -43,7 +43,7 @@ sudo iptables -A INPUT -p tcp --dport 8302:8303 -j ACCEPT
 Описание изменяемых переменных:
 
 `--name mina` - имя для контейнера можно использовать любое, либо оставить так, как есть;  
-`-block-producer-password "YOUR PASS"` - вместо `YOUR PASS` укажите пароль от вашего ключа.  
+`--env CODA_PRIVKEY_PASS='YOUR PASS'` - вместо `YOUR PASS` укажите пароль от вашего ключа.  
 `$KEYPATH` - путь к файлу с приватным ключем `my-wallet`.   
   
 Не обязательно:  
@@ -56,9 +56,9 @@ sudo docker run --name mina -d \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.mina-config:$HOME/.mina-config \
+--env CODA_PRIVKEY_PASS='YOUR PASS' \
 minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
 -block-producer-key $KEYPATH \
--block-producer-password "YOUR_PASS" \
 --peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
 --insecure-rest-server \
 --open-limited-graphql-port \
@@ -113,7 +113,7 @@ sudo docker run --name mina -d \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.mina-config:$HOME/.mina-config \
 minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
---peer-list-url https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt \
+--peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \
 --insecure-rest-server \

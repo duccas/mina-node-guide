@@ -27,9 +27,15 @@
 * [Setting up TMUX](english/setting-up-tmux.md)
 * [Setting up Snark Stopper](english/setting-up-snark-stopper.md)
 
+## Explorers
+
+---
+
+* [Mina Explorer from Staketab](https://mina.staketab.com/)
+* [Mina explorer from @Garethtdavies](https://minaexplorer.com/)
+
 ## Related materials
 
-* [Mina explorer from @Garethtdavies](https://minaexplorer.com/)
 * [Troubleshooting guide from @Garethtdavies](https://hackmd.io/@garethtdavies/rJg5G_BiD)
 * [Docker guide from @Garethtdavies](https://medium.com/@_garethtdavies/running-coda-with-docker-c32070843227)
 * [RU Guide from @Whataday2day](https://github.com/c29r3/mina-how-to-start/blob/main/how-to-start-ru.md)

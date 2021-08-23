@@ -6,8 +6,14 @@
 **Current version:** a42bdeef6b0c15ee34616e4df76c882b0c5c7c2a  
   
 **Mina node:**  
+_Latest:_  
 **Image:** minaprotocol/mina-daemon-baked:1.1.5-a42bdee  
 **Package:** mina-mainnet=1.1.5-a42bdee  
+_Beta - 1.2.0beta2:_  
+[_https://github.com/MinaProtocol/mina/releases/tag/1.2.0beta2_](https://github.com/MinaProtocol/mina/releases/tag/1.2.0beta2)  
+**Image:** gcr.io/o1labs-192920/mina-daemon:1.2.0beta2-23842ac-mainnet  
+**Package:** mina-mainnet=1.2.0beta2-23842ac
+
   
 **Archive:**  
 **Image:** minaprotocol/mina-archive:1.1.5-a42bdee  

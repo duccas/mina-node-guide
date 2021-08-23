@@ -13,7 +13,7 @@ sudo apt-get install -y curl unzip mina-mainnet=1.1.5-a42bdee
 ### Установка генератора ключей
 
 ```text
-sudo apt-get install mina-generate-keypair=0.2.12-718eba4
+sudo apt-get install mina-generate-keypair=1.1.5-a42bdee
 ```
 
 ## 2. Создание ключей
@@ -29,7 +29,7 @@ mina-generate-keypair -privkey-path ~/keys/my-wallet
 ### Вариант 2 с помощью докера:
 
 ```text
-docker run  --interactive --tty --rm --volume $(pwd)/keys:/keys minaprotocol/generate-keypair:0.2.12-718eba4 -privkey-path /keys/my-wallet
+sudo docker run  --interactive --tty --rm --volume $(pwd)/keys:/keys minaprotocol/generate-keypair:1.0.2-06f3c5c -privkey-path /keys/my-wallet
 ```
 
 ### Устанавливаем права:
@@ -52,7 +52,7 @@ mina-validate-keypair -privkey-path ~/keys/my-wallet
 ### Вариант 2 с помощью докера:
 
 ```text
-docker run --interactive --tty --rm --entrypoint=mina-validate-keypair --volume $(pwd)/keys:/keys minaprotocol/generate-keypair:0.2.12-718eba4 -privkey-path /keys/my-wallet
+sudo docker run --interactive --tty --rm --entrypoint=mina-validate-keypair --volume $(pwd)/keys:/keys minaprotocol/generate-keypair:1.0.2-06f3c5c -privkey-path /keys/my-wallet
 ```
 
 В обоих случаях, если все в порядке с вашими ключами вы получите сообщение:

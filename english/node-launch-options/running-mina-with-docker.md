@@ -43,7 +43,7 @@ Choose only one launch option from the 2 suggested below \(paragraph 2.1 or 2.2\
 Variables description:  
   
 `--name mina` - you can use any name for the container, or leave it as it is;  
-`-block-producer-password "YOUR PASS"` - instead `YOUR PASS` enter the password for your key.  
+`--env CODA_PRIVKEY_PASS='YOUR_PASS'` - instead `YOUR PASS` enter the password for your key.  
 `$KEYPATH` - path to the file with the private key `my-wallet`. 
 
 Optional:  
@@ -56,9 +56,9 @@ sudo docker run --name mina -d \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.mina-config:$HOME/.mina-config \
+--env CODA_PRIVKEY_PASS='YOUR_PASS' \
 minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
 -block-producer-key $KEYPATH \
--block-producer-password "YOUR_PASS" \
 --peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
 --insecure-rest-server \
 --open-limited-graphql-port \
@@ -114,7 +114,7 @@ sudo docker run --name mina -d \
 -v $(pwd)/keys:$HOME/keys:ro \
 -v $(pwd)/.mina-config:$HOME/.mina-config \
 minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
---peer-list-url https://storage.googleapis.com/seed-lists/finalfinal3_seeds.txt \
+--peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \
 --insecure-rest-server \

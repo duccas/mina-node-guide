@@ -4,6 +4,7 @@
 **Version:** Mainnet  
 **Release date:** 07.04.2021 at 00:00 UTC  
 **Current version:** a42bdeef6b0c15ee34616e4df76c882b0c5c7c2a  
+**Beta:** 23842acf84226b55b654f00bdca8b23da1432916  
   
 **Mina node:**  
 _Latest:_  

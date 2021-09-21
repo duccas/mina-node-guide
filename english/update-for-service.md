@@ -25,10 +25,10 @@ Downloading the new update:
 ```text
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-mainnet=1.1.5-a42bdee
+sudo apt-get install -y curl unzip mina-mainnet=1.1.7-d5ff5aa
 ```
 
-Where `1.1.5` - version of the new package.
+Where `1.1.7` - version of the new package.
 
 Download new file with peers:
 

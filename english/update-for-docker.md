@@ -23,10 +23,10 @@ sudo docker system prune -a
 Downloading the new update:
 
 ```text
-sudo docker pull minaprotocol/mina-daemon-baked:1.1.5-a42bdee
+sudo docker pull minaprotocol/mina-daemon-baked:1.1.7-d5ff5aa-mainnet
 ```
 
-Where `1.1.5` - version of the new docker image.
+Where `1.1.7` - version of the new docker image.
 
 Download new file with peers:
 

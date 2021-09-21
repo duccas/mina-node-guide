@@ -55,9 +55,9 @@ sudo docker run --name mina -d \
 -p 8302:8302 \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
--v $(pwd)/.mina-config:$HOME/.mina-config \
+-v $(pwd)/.mina-config:/root/.mina-config \
 --env CODA_PRIVKEY_PASS='YOUR_PASS' \
-minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
+minaprotocol/mina-daemon-baked:1.1.7-d5ff5aa-mainnet daemon \
 -block-producer-key $KEYPATH \
 --peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
 --insecure-rest-server \
@@ -112,8 +112,8 @@ sudo docker run --name mina -d \
 -p 8302:8302 \
 -p 127.0.0.1:3085:3085 \
 -v $(pwd)/keys:$HOME/keys:ro \
--v $(pwd)/.mina-config:$HOME/.mina-config \
-minaprotocol/mina-daemon-baked:1.1.5-a42bdee daemon \
+-v $(pwd)/.mina-config:/root/.mina-config \
+minaprotocol/mina-daemon-baked:1.1.7-d5ff5aa-mainnet daemon \
 --peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
 -snark-worker-fee 0.025 \
 -run-snark-worker $MINA_PUBLIC_KEY \

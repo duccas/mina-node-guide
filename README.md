@@ -2,23 +2,22 @@
 
 {% hint style="success" %}
 **Version:** Mainnet  
-**Release date:** 07.04.2021 at 00:00 UTC  
-**Current version:** a42bdeef6b0c15ee34616e4df76c882b0c5c7c2a  
-**Beta:** 23842acf84226b55b654f00bdca8b23da1432916  
+**Release date:** 16.09.2021 at 00:00 UTC  
+**Current version:** d5ff5aa207e64bcd6862e1ae9a3b83910c1c7b1d  
+**Beta:** bee023a25b8884813dc14a843c569dc297878c0a  
   
 **Mina node:**  
 _Latest:_  
-**Image:** minaprotocol/mina-daemon-baked:1.1.5-a42bdee  
-**Package:** mina-mainnet=1.1.5-a42bdee  
-_Beta - 1.2.0beta2:_  
-[_https://github.com/MinaProtocol/mina/releases/tag/1.2.0beta2_](https://github.com/MinaProtocol/mina/releases/tag/1.2.0beta2)  
-**Image:** gcr.io/o1labs-192920/mina-daemon:1.2.0beta2-23842ac-mainnet  
-**Package:** mina-mainnet=1.2.0beta2-23842ac
-
+**Image:** minaprotocol/mina-daemon-baked:1.1.7-d5ff5aa-mainnet  
+**Package:** mina-mainnet=1.1.7-d5ff5aa  
+_Beta - 1.2.0beta6:_  
+[_https://github.com/MinaProtocol/mina/releases/tag/1.2.0beta6_](https://github.com/MinaProtocol/mina/releases/tag/1.2.0beta6)  
+**Image:** gcr.io/o1labs-192920/mina-daemon:1.2.0beta6-bee023a-mainnet  
+**Package:** mina-mainnet=1.2.0beta6-bee023a  
   
 **Archive:**  
-**Image:** minaprotocol/mina-archive:1.1.5-a42bdee  
-**Package:** mina-archive=1.1.5-a42bdee  
+**Image:** minaprotocol/mina-archive:1.1.7-d5ff5aa  
+**Package:** mina-archive=1.1.7-d5ff5aa  
   
 **Sidecar:**  
 _Release date: 11.05.2021 at 17:06 UTC_  

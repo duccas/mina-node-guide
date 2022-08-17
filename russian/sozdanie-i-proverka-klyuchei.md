@@ -4,16 +4,16 @@
 
 ### Установка пакетов
 
-```text
-echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
+```
+echo "deb [trusted=yes] http://packages.o1test.net $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-mainnet=1.1.5-a42bdee
+sudo apt-get install -y curl unzip mina-mainnet=1.3.0-9b0369c
 ```
 
 ### Установка генератора ключей
 
-```text
-sudo apt-get install mina-generate-keypair=1.1.5-a42bdee
+```
+sudo apt-get install mina-generate-keypair=1.3.0-9b0369c
 ```
 
 ## 2. Создание ключей
@@ -22,19 +22,19 @@ sudo apt-get install mina-generate-keypair=1.1.5-a42bdee
 
 ### Вариант 1 с помощью пакета:
 
-```text
+```
 mina-generate-keypair -privkey-path ~/keys/my-wallet
 ```
 
 ### Вариант 2 с помощью докера:
 
-```text
-sudo docker run  --interactive --tty --rm --volume $(pwd)/keys:/keys minaprotocol/generate-keypair:1.0.2-06f3c5c -privkey-path /keys/my-wallet
+```
+sudo docker run  --interactive --tty --rm --volume $(pwd)/keys:/keys minaprotocol/mina-generate-keypair:1.3.0-9b0369c --privkey-path /keys/my-wallet
 ```
 
 ### Устанавливаем права:
 
-```text
+```
 chmod 700 $HOME/keys
 chmod 600 $HOME/keys/my-wallet
 ```
@@ -45,19 +45,19 @@ chmod 600 $HOME/keys/my-wallet
 
 ### Вариант 1 с помощью пакета:
 
-```text
+```
 mina-validate-keypair -privkey-path ~/keys/my-wallet
 ```
 
 ### Вариант 2 с помощью докера:
 
-```text
-sudo docker run --interactive --tty --rm --entrypoint=mina-validate-keypair --volume $(pwd)/keys:/keys minaprotocol/generate-keypair:1.0.2-06f3c5c -privkey-path /keys/my-wallet
+```
+sudo docker run --interactive --tty --rm --entrypoint=mina-validate-keypair --volume $(pwd)/keys:/keys minaprotocol/mina-generate-keypair:1.3.0-9b0369c --privkey-path /keys/my-wallet
 ```
 
 В обоих случаях, если все в порядке с вашими ключами вы получите сообщение:
 
-```text
+```
 Verified a transaction using specified keypair
 ```
 
@@ -67,9 +67,8 @@ Verified a transaction using specified keypair
 
 Теперь запишем ваш публичный ключ на сервер в файл `.bashrc`, чтобы в следующий раз больше их не экспортировать.
 
-```text
+```
 echo 'export KEYPATH=$HOME/keys/my-wallet' >> $HOME/.bashrc
 echo 'export MINA_PUBLIC_KEY=$(cat $HOME/keys/my-wallet.pub)' >> $HOME/.bashrc
 source ~/.bashrc
 ```
-

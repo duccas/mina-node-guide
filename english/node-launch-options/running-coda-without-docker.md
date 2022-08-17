@@ -4,13 +4,15 @@
 We recommend using `tmux`before starting to run multiple sessions in one terminal.
 {% endhint %}
 
-{% page-ref page="../setting-up-tmux.md" %}
+{% content-ref url="../setting-up-tmux.md" %}
+[setting-up-tmux.md](../setting-up-tmux.md)
+{% endcontent-ref %}
 
 ## 1. Firewall configuration
 
 Open ports 22, 8302 and 8303 and activate the Firewall:
 
-```text
+```
 sudo ufw allow 22 \
 && sudo ufw allow 8302 \
 && sudo ufw allow 8303 \
@@ -19,7 +21,7 @@ sudo ufw allow 22 \
 
 We check the status of open ports with the command:
 
-```text
+```
 sudo ufw status
 ```
 
@@ -31,55 +33,42 @@ If you do not have UFW installed on your server, install it using the command `s
 
 Need to install [Homebrew](https://brew.sh/).
 
-```text
+```
 brew install wget
 ```
 
 Installing packages `coda`.
 
-```text
+```
 brew install minaprotocol/mina/mina
 ```
 
 Running a node:
 
-```text
+```
 brew services start mina
 ```
 
 If you already have the `mina` package installed, you need to update it with the command below. If you have not previously installed `mina`, then you can skip this command.
 
-```text
+```
 brew upgrade mina
 ```
 
 ## 3. Installation for `Ubuntu 18.04 / Debian 9`
 
-Removing previous versions:
-
-```text
-sudo apt-get remove -y coda-testnet-postake-medium-curves
-```
-
 Let's create a folder `.coda-config`:
 
-```text
+```
 mkdir .mina-config
 ```
 
 Downloading package `Mina`:
 
-```text
-sudo apt-get remove -y mina-testnet-postake-medium-curves
-echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
-sudo apt-get update
-sudo apt-get install -y curl unzip mina-mainnet=1.1.7-d5ff5aa
 ```
-
-Download the file with peers:
-
-```text
-curl https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt > ~/peers.txt
+echo "deb [trusted=yes] http://packages.o1test.net $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/mina.list
+sudo apt-get update
+sudo apt-get install -y curl unzip mina-mainnet=1.3.0-9b0369c
 ```
 
 ## 4. Launch options
@@ -88,24 +77,27 @@ curl https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt > ~/peers.
 
 Setting up the `mina-env` file:
 
-```text
+```
 nano .mina-env
 ```
 
-We copy and paste the variables into the file after entering your password from the key instead of `YOUR PASS FOR KEYS`:
+We copy and paste the variables into the file after entering your password from the key instead of `YOUR PASS FOR KEYS and KEYPATH`:
 
-```text
-CODA_PRIVKEY_PASS="YOUR PASS FOR KEYS"
-EXTRA_FLAGS=" -file-log-level Debug"
+```
+MINA_PRIVKEY_PASS="YOUR PASS FOR KEYS"
+LOG_LEVEL=Info
+FILE_LOG_LEVEL=Debug
+EXTRA_FLAGS=" --block-producer-key $KEYPATH"
+PEER_LIST_URL=https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt
 ```
 
 Save ans exit: CTRL+S and CTRL+X
 
-### 4.1.1 Adding Snark Worker flags \(if needed\)
+### 4.1.1 Adding Snark Worker flags (if needed)
 
 Add to file `.mina-env` Snark worker flags with your key and fee:
 
-```text
+```
 EXTRA_FLAGS=" -snark-worker-fee 0.025 -run-snark-worker B62qkWFkU9PDSzAxWWXVcxxHe1nJnfGqLeYbtxDLv5BxPiekGcxLTpj -work-selection seq -file-log-level Debug "
 ```
 
@@ -113,7 +105,7 @@ By default, the `-work-selection` for a snark worker is random `rand`. You can c
 
 ### 4.1.2 Start the service
 
-```text
+```
 systemctl --user daemon-reload
 systemctl --user start mina
 systemctl --user enable mina
@@ -122,7 +114,7 @@ sudo loginctl enable-linger
 
 Viewing logs:
 
-```text
+```
 journalctl --user-unit mina -n 1000 -f
 ```
 
@@ -130,17 +122,19 @@ journalctl --user-unit mina -n 1000 -f
 
 Start an empty session in Tmux:
 
-```text
+```
 tmux new -s session
 ```
 
 More about TMUX:
 
-{% page-ref page="../setting-up-tmux.md" %}
+{% content-ref url="../setting-up-tmux.md" %}
+[setting-up-tmux.md](../setting-up-tmux.md)
+{% endcontent-ref %}
 
 And launch in session with the command:
 
-```text
+```
 mina daemon \
 --peer-list-url https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt \
 --generate-genesis-proof true
@@ -148,27 +142,28 @@ mina daemon \
 
 Before starting the block producer, you need to import and unlock the keys:
 
-```text
+```
 mina accounts import -privkey-path $KEYPATH
 mina accounts unlock -public-key $MINA_PUBLIC_KEY
 ```
 
 Run Block Producer:
 
-```text
+```
 mina client set-staking -public-key $MINA_PUBLIC_KEY
 ```
 
 Run Snark Worker:
 
-```text
+```
 mina client set-snark-work-fee 0.025
 mina client set-snark-worker -address $MINA_PUBLIC_KEY
 ```
 
-Here you can set the Worker commission `coda client set-snark-work-fee 0.25`, or leave it as it is. 
+Here you can set the Worker commission `coda client set-snark-work-fee 0.25`, or leave it as it is.&#x20;
 
 Next, go to the next section and start with Point 2:
 
-{% page-ref page="../cli.-key-import-sending-tokens.md" %}
-
+{% content-ref url="../cli.-key-import-sending-tokens.md" %}
+[cli.-key-import-sending-tokens.md](../cli.-key-import-sending-tokens.md)
+{% endcontent-ref %}

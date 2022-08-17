@@ -8,18 +8,32 @@ description: Простые шаги для обновления ноды в С�
 
 Остановка:
 
-```
+```text
 systemctl --user stop mina
 ```
 
 ## 2. Настройка
 
-Скачиваем новое обновление:&#x20;
+Удаление предыдущего обновления:
 
+```text
+sudo apt-get remove mina-testnet-postake-medium-curves
 ```
-echo "deb [trusted=yes] http://packages.o1test.net $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/mina.list
+
+Скачиваем новое обновление: 
+
+```text
+echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-mainnet=1.3.0-9b0369c
+sudo apt-get install -y curl unzip mina-mainnet=1.1.7-d5ff5aa
+```
+
+Где `1.1.7` - версия нового пакета.
+
+Скачивание новых пиров:
+
+```text
+wget -O ~/peers.txt https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt
 ```
 
 ## 3. Изменение конфигурации
@@ -30,7 +44,7 @@ sudo apt-get install -y curl unzip mina-mainnet=1.3.0-9b0369c
 
 Заходим в файл с флагами:
 
-```
+```text
 nano .mina-env
 ```
 
@@ -40,18 +54,19 @@ nano .mina-env
 
 Перезагружаем изменение конфигурации:
 
-```
+```text
 systemctl --user daemon-reload
 ```
 
 Запускаем Сервис:
 
-```
+```text
 systemctl --user restart mina
 ```
 
 Просмотр логов:
 
-```
+```text
 journalctl --user-unit mina -n 1000 -f
 ```
+

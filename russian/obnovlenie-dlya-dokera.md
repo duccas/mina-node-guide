@@ -8,7 +8,7 @@ description: Простые шаги для обновления ноды.
 
 Остановка и удаление контейнера:
 
-```
+```text
 sudo docker rm -f mina
 ```
 
@@ -16,29 +16,36 @@ sudo docker rm -f mina
 
 Удаление всех остановленных контейнеров и неиспользуемых образов:
 
-```
+```text
 sudo docker system prune -a
 ```
 
-Скачиваем новое обновление:&#x20;
+Скачиваем новое обновление: 
 
+```text
+sudo docker pull minaprotocol/mina-daemon-baked:1.1.7-d5ff5aa-mainnet
 ```
-sudo docker pull minaprotocol/mina-daemon:1.3.1.1-f361ba1-bionic-mainnet
+
+Где `1.1.7` - версия нового образа докера.
+
+Скачивание новых пиров:
+
+```text
+wget -O ~/peers.txt https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt
 ```
 
 ## 3. Запуск
 
-Все готово к запуску. \
+Все готово к запуску.   
 Теперь выберите нужный пункт для запуска из раздела №2 по ссылке ниже:
 
-{% content-ref url="varianty-zapuska-nody/zapusk-coda-s-docker.md" %}
-[zapusk-coda-s-docker.md](varianty-zapuska-nody/zapusk-coda-s-docker.md)
-{% endcontent-ref %}
+{% page-ref page="varianty-zapuska-nody/zapusk-coda-s-docker.md" %}
 
-## 4. Дополнительно (не обязательно)
+## 4. Дополнительно \(не обязательно\)
 
 Если вам нужно очистить папку с конфигом запустите команду ниже:
 
-```
+```text
 rm -rf $HOME/.mina-config
 ```
+

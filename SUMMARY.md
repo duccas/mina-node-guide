@@ -29,17 +29,16 @@
 
 ## Explorers
 
----
+***
 
 * [Mina Explorer from Staketab](https://mina.staketab.com/)
 * [Mina explorer from @Garethtdavies](https://minaexplorer.com/)
 
 ## Related materials
 
-* [Troubleshooting guide from @Garethtdavies](https://hackmd.io/@garethtdavies/rJg5G_BiD)
-* [Docker guide from @Garethtdavies](https://medium.com/@_garethtdavies/running-coda-with-docker-c32070843227)
-* [RU Guide from @Whataday2day](https://github.com/c29r3/mina-how-to-start/blob/main/how-to-start-ru.md)
+* [Mina Academy from Staketab](https://academy.staketab.com/academy/mina)
+* [How to stake MINA from Staketab](https://academy.staketab.com/how-to-stake/mina/how-to-stake-mina)
+* [Troubleshooting guide from @Garethtdavies](https://hackmd.io/@garethtdavies/rJg5G\_BiD)
+* [Docker guide from @Garethtdavies](https://medium.com/@\_garethtdavies/running-coda-with-docker-c32070843227)
 * [Mina Snark Stopper from @Whataday2day](https://github.com/c29r3/mina-snark-stopper)
 * [Official Mina docs](https://docs.minaprotocol.com/en)
-* [Mina Genesis](https://minaprotocol.com/genesis)
-

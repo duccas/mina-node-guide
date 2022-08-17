@@ -8,7 +8,7 @@ description: Simple steps to update a node.
 
 Stopping and removing container:
 
-```
+```text
 sudo docker rm -f mina
 ```
 
@@ -16,29 +16,36 @@ sudo docker rm -f mina
 
 Removing all stopped containers and unused images:
 
-```
+```text
 sudo docker system prune -a
 ```
 
 Downloading the new update:
 
+```text
+sudo docker pull minaprotocol/mina-daemon-baked:1.1.7-d5ff5aa-mainnet
 ```
-sudo docker pull minaprotocol/mina-daemon:1.3.1.1-f361ba1-bionic-mainnet
+
+Where `1.1.7` - version of the new docker image.
+
+Download new file with peers:
+
+```text
+wget -O ~/peers.txt https://storage.googleapis.com/mina-seed-lists/mainnet_seeds.txt
 ```
 
 ## 3. Launch
 
-Everything is ready to launch. \
-Now select the required item to start from section #2 by the link below:
+Everything is ready to launch.   
+Now select the required item to start from section \#2 by the link below:
 
-{% content-ref url="node-launch-options/running-mina-with-docker.md" %}
-[running-mina-with-docker.md](node-launch-options/running-mina-with-docker.md)
-{% endcontent-ref %}
+{% page-ref page="node-launch-options/running-mina-with-docker.md" %}
 
 ## 4. Optional
 
 If you need to clear the config folder, run the command below:
 
-```
+```text
 rm -rf $HOME/.mina-config
 ```
+
